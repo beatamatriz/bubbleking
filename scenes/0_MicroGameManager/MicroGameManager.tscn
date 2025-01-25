@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/0_MicroGameManager/micro_game_manager.gd" id="1_eq17e"]
 [ext_resource type="PackedScene" uid="uid://cqeai7aw74e46" path="res://scenes/4_Bubblegum/Bubblegum.tscn" id="1_eqcjs"]
 [ext_resource type="PackedScene" uid="uid://behv2crw8tsbj" path="res://scenes/1_Duel/Duel.tscn" id="2_7bkd2"]
-[ext_resource type="PackedScene" uid="uid://d1qfqb73u45we" path="res://scenes/3_SpeechBubbles/SpeechBubbles.tscn" id="4_vsit3"]
+[ext_resource type="PackedScene" uid="uid://d1qfqb73u45we" path="res://scenes/3_Comic/Comic.tscn" id="4_vsit3"]
 [ext_resource type="Texture2D" uid="uid://77oetkxsigbl" path="res://assets/placeholders/placeholder_s.jpg" id="5_3kt0l"]
 [ext_resource type="PackedScene" uid="uid://b0n3cfrp8tltf" path="res://scenes/2_StimPop/StimPop.tscn" id="5_mxcb2"]
 [ext_resource type="PackedScene" uid="uid://c352bqub1f060" path="res://scenes/9_HumanBall/HumanBall.tscn" id="6_glfvb"]

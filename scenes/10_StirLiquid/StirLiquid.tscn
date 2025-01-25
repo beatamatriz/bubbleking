@@ -50,5 +50,3 @@ scale = Vector2(0.647174, 0.647174)
 texture = ExtResource("8_juaju")
 
 [node name="Timer" type="Timer" parent="."]
-
-[node name="Camera2D" type="Camera2D" parent="."]
