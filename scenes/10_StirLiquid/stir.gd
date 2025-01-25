@@ -1,44 +1,44 @@
 extends Node2D
 
-#siguiente direccion en la que tiene que moverse la botella para aumentar el contador
-#false = derecha / true = izquierda
-var shake_direction = false
-#se utiliza esto para determinar la direccion la primera vez que se mueva la botella
-var first_shake = true
-var target_pos = 0
+var center = Vector2(0,0)
+var previous_mouse_position = Vector2(0,0)
+var mouse_movement = Vector2(0,0)
 
-var x_offset = 100
-
-var original_position
-var previous_position
-
-var original_mouse_position
-var previous_mouse_position
+var count = 0
+var current_circle_segment = 0
 
 func _ready() -> void:
-	original_position = global_position
-	previous_position = original_position
-	
-	original_mouse_position = get_global_mouse_position()
-	previous_mouse_position = original_mouse_position
-	
-	init_shake()
+	previous_mouse_position = get_global_mouse_position()
 
 func _process(delta: float) -> void:
-	shake()
-	
-	if(global_position.x == (original_position.x + target_pos)):
-		invert()
-	
-func init_shake() -> void:
-	target_pos = x_offset
-	
-func shake() -> void:
-	global_position.x = original_position.x + clamp(previous_position.x + get_global_mouse_position().x - previous_mouse_position.x, -x_offset, x_offset)
-	previous_position = global_position - original_position
+	mouse_movement = get_global_mouse_position() - previous_mouse_position
 	previous_mouse_position = get_global_mouse_position()
 	
-func invert() -> void:
-	target_pos = -target_pos
-	shake_direction = !shake_direction
+	#if(mouse_movement.normalized().length() < 0.5):
+	#	return
+	
+	match(current_circle_segment):
+		0:
+			if(mouse_movement.normalized().x > 0.5 and mouse_movement.normalized().y < 0.3 and mouse_movement.normalized().y > -0.3):
+				current_circle_segment += 1
+		1:
+			if(mouse_movement.normalized().x < 0.5 and mouse_movement.normalized().x > 0 and mouse_movement.normalized().y < -0.5):
+				current_circle_segment += 1
+		2:
+			if(mouse_movement.normalized().x > -0.5 and mouse_movement.normalized().x <  0 and mouse_movement.normalized().y < -0.5):
+				current_circle_segment += 1
+		3:
+			if(mouse_movement.normalized().x < 0.5 and mouse_movement.normalized().y < 0.3 and mouse_movement.normalized().y > -0.3):
+				current_circle_segment += 1
+		4:
+			if(mouse_movement.normalized().x > -0.5 and mouse_movement.normalized().x < 0 and mouse_movement.normalized().y > 0.5):
+				current_circle_segment += 1
+		5:		
+			if(mouse_movement.normalized().x < 0.5 and mouse_movement.normalized().x > 0 and mouse_movement.normalized().y > 0.5):
+				complete_circle()
+	#print_debug(mouse_movement.normalized())
+
+
+func complete_circle() -> void:
+	current_circle_segment = 0
 	get_parent().count += 1

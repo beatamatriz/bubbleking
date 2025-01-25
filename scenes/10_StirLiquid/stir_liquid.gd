@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var GAME_TIMER = 5
-@export var SHAKE_COUNT = 50
+@export var CIRCLE_COUNT = 15
 
 var count = 0
 var success = false
@@ -11,7 +11,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if count >= SHAKE_COUNT:
+	if count >= CIRCLE_COUNT:
 		success = true
 
 func begin():
