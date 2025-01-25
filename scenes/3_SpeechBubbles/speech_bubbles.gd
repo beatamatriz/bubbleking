@@ -21,8 +21,6 @@ func begin():
 	
 func _on_timer_timeout() -> void:
 	if success:
-		print_debug("success!")
 		get_parent().next("Success")
 	else:
-		print_debug("failure..")
 		get_parent().next("Failure")

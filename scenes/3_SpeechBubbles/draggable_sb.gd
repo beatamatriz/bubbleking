@@ -46,7 +46,6 @@ func lock():
 	locked = true
 	$Area/Sprite.modulate = "ffffff"
 	get_parent().get_parent().get_parent().count += 1
-	print_debug("lock bubble")
 	
 func _mouse_enter() -> void:
 	if(dragging or locked):

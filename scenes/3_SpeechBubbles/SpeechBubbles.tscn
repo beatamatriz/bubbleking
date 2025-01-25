@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1qfqb73u45we"]
 
-[ext_resource type="Script" path="res://scenes/_julia/3_SpeechBubbles/speech_bubbles.gd" id="1_vrarm"]
-[ext_resource type="Script" path="res://scenes/_julia/3_SpeechBubbles/draggable_sb.gd" id="2_eyl3r"]
+[ext_resource type="Script" path="res://scenes/3_SpeechBubbles/speech_bubbles.gd" id="1_xxjk1"]
+[ext_resource type="Script" path="res://scenes/3_SpeechBubbles/draggable_sb.gd" id="2_vwscx"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ir5yv"]
 
@@ -9,7 +9,7 @@
 size = Vector2(71, 72)
 
 [node name="SpeechBubbles" type="Node2D"]
-script = ExtResource("1_vrarm")
+script = ExtResource("1_xxjk1")
 
 [node name="SpeechBubbleManager" type="Node2D" parent="."]
 
@@ -18,7 +18,7 @@ script = ExtResource("1_vrarm")
 [node name="Draggable Speech Bubble" type="StaticBody2D" parent="SpeechBubbleManager/SpeechBubble"]
 position = Vector2(198.205, 198.765)
 input_pickable = true
-script = ExtResource("2_eyl3r")
+script = ExtResource("2_vwscx")
 
 [node name="Objective" type="Sprite2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble"]
 position = Vector2(1144.8, 382.235)
