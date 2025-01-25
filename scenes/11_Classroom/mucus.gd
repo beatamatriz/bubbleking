@@ -7,9 +7,8 @@ func _ready() -> void:
 	if not POPPED:
 		$AnimationPlayer.play("Snore")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if not POPPED and clickable and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if get_parent().get_parent().active and not POPPED and clickable and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		pop()
 		
 func pop():

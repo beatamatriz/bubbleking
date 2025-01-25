@@ -46,7 +46,8 @@ texture = ExtResource("2_eo3ej")
 [node name="TapioManager" type="Node2D" parent="."]
 
 [node name="TapiocaA" type="Area2D" parent="TapioManager"]
-position = Vector2(210, 423)
+position = Vector2(38, 425)
+rotation = -1.26964
 scale = Vector2(0.152167, 0.152167)
 script = ExtResource("5_mtrr8")
 
@@ -59,8 +60,39 @@ metadata/_edit_lock_ = true
 shape = SubResource("CircleShape2D_7ej2n")
 metadata/_edit_lock_ = true
 
+[node name="TapiocaA2" type="Area2D" parent="TapioManager"]
+position = Vector2(-15, 235)
+rotation = 1.73479
+scale = Vector2(0.152167, 0.152167)
+script = ExtResource("5_mtrr8")
+
+[node name="Sprite" type="Sprite2D" parent="TapioManager/TapiocaA2"]
+texture = ExtResource("5_tg66n")
+hframes = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TapioManager/TapiocaA2"]
+shape = SubResource("CircleShape2D_7ej2n")
+metadata/_edit_lock_ = true
+
+[node name="TapiocaA3" type="Area2D" parent="TapioManager"]
+position = Vector2(102, 324)
+rotation = 1.82283
+scale = Vector2(0.152167, 0.152167)
+script = ExtResource("5_mtrr8")
+
+[node name="Sprite" type="Sprite2D" parent="TapioManager/TapiocaA3"]
+texture = ExtResource("5_tg66n")
+hframes = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TapioManager/TapiocaA3"]
+shape = SubResource("CircleShape2D_7ej2n")
+metadata/_edit_lock_ = true
+
 [node name="TapiocaB" type="Area2D" parent="TapioManager"]
-position = Vector2(304, 401)
+position = Vector2(233, 409)
+rotation = -0.879035
 scale = Vector2(0.152167, 0.152167)
 script = ExtResource("5_mtrr8")
 
@@ -74,9 +106,42 @@ metadata/_edit_lock_ = true
 shape = SubResource("CircleShape2D_7ej2n")
 metadata/_edit_lock_ = true
 
-[node name="TapiocaC" type="Area2D" parent="TapioManager"]
-position = Vector2(-173, 409)
+[node name="TapiocaB2" type="Area2D" parent="TapioManager"]
+position = Vector2(162, 217)
+rotation = 2.35008
 scale = Vector2(0.152167, 0.152167)
+script = ExtResource("5_mtrr8")
+
+[node name="Sprite" type="Sprite2D" parent="TapioManager/TapiocaB2"]
+texture = ExtResource("5_tg66n")
+hframes = 3
+frame = 1
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TapioManager/TapiocaB2"]
+shape = SubResource("CircleShape2D_7ej2n")
+metadata/_edit_lock_ = true
+
+[node name="TapiocaB3" type="Area2D" parent="TapioManager"]
+position = Vector2(269, 292)
+rotation = -2.25693
+scale = Vector2(0.152167, 0.152167)
+script = ExtResource("5_mtrr8")
+
+[node name="Sprite" type="Sprite2D" parent="TapioManager/TapiocaB3"]
+texture = ExtResource("5_tg66n")
+hframes = 3
+frame = 1
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TapioManager/TapiocaB3"]
+shape = SubResource("CircleShape2D_7ej2n")
+metadata/_edit_lock_ = true
+
+[node name="TapiocaC" type="Area2D" parent="TapioManager"]
+position = Vector2(-177, 396)
+rotation = -0.498634
+scale = Vector2(0.147883, 0.152167)
 script = ExtResource("5_mtrr8")
 
 [node name="Sprite" type="Sprite2D" parent="TapioManager/TapiocaC"]
@@ -86,6 +151,37 @@ frame = 2
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TapioManager/TapiocaC"]
+shape = SubResource("CircleShape2D_7ej2n")
+metadata/_edit_lock_ = true
+
+[node name="TapiocaC2" type="Area2D" parent="TapioManager"]
+position = Vector2(-66, 347)
+scale = Vector2(0.147883, 0.152167)
+script = ExtResource("5_mtrr8")
+
+[node name="Sprite" type="Sprite2D" parent="TapioManager/TapiocaC2"]
+texture = ExtResource("5_tg66n")
+hframes = 3
+frame = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TapioManager/TapiocaC2"]
+shape = SubResource("CircleShape2D_7ej2n")
+metadata/_edit_lock_ = true
+
+[node name="TapiocaC3" type="Area2D" parent="TapioManager"]
+position = Vector2(-160, 266)
+rotation = 2.06886
+scale = Vector2(0.147883, 0.152167)
+script = ExtResource("5_mtrr8")
+
+[node name="Sprite" type="Sprite2D" parent="TapioManager/TapiocaC3"]
+texture = ExtResource("5_tg66n")
+hframes = 3
+frame = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TapioManager/TapiocaC3"]
 shape = SubResource("CircleShape2D_7ej2n")
 metadata/_edit_lock_ = true
 
@@ -111,10 +207,15 @@ libraries = {
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-visible = false
 polygon = PackedVector2Array(-398, -404, -239, 436, -186, 464, -72, 492, 76, 501, 226, 486, 349, 450, 381, 236, 423, 61, 527, -411, 471, -398, -103, -394, -248, -398, -374, -403, -359, -455, 570, -457, 389, 539, -271, 533, -458, -417)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="TapioManager/TapiocaA" to="TapioManager/TapiocaA" method="_on_body_entered"]
-[connection signal="body_entered" from="TapioManager/TapiocaB" to="." method="_on_tapioca_b_body_entered"]
+[connection signal="body_entered" from="TapioManager/TapiocaA2" to="TapioManager/TapiocaA2" method="_on_body_entered"]
+[connection signal="body_entered" from="TapioManager/TapiocaA3" to="TapioManager/TapiocaA3" method="_on_body_entered"]
+[connection signal="body_entered" from="TapioManager/TapiocaB" to="TapioManager/TapiocaB" method="_on_body_entered"]
+[connection signal="body_entered" from="TapioManager/TapiocaB2" to="TapioManager/TapiocaB2" method="_on_body_entered"]
+[connection signal="body_entered" from="TapioManager/TapiocaB3" to="TapioManager/TapiocaB3" method="_on_body_entered"]
 [connection signal="body_entered" from="TapioManager/TapiocaC" to="TapioManager/TapiocaC" method="_on_body_entered"]
+[connection signal="body_entered" from="TapioManager/TapiocaC2" to="TapioManager/TapiocaC2" method="_on_body_entered"]
+[connection signal="body_entered" from="TapioManager/TapiocaC3" to="TapioManager/TapiocaC3" method="_on_body_entered"]

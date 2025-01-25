@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlh5psjl7dprw"]
+[gd_scene load_steps=10 format=3 uid="uid://dlh5psjl7dprw"]
 
 [ext_resource type="Script" path="res://scenes/10_StirLiquid/stir_liquid.gd" id="1_xhv73"]
 [ext_resource type="Script" path="res://scenes/10_StirLiquid/stir.gd" id="2_dk7c0"]
+[ext_resource type="Texture2D" uid="uid://vsyjhbnvajkk" path="res://assets/10/10fondo.png" id="2_g5agf"]
 [ext_resource type="AudioStream" uid="uid://dwshathjwncrt" path="res://assets/audio/bubbles/bubbles_1/A_Bubbles_04.wav" id="3_he508"]
+[ext_resource type="Texture2D" uid="uid://nuxnng4jkte8" path="res://assets/10/10 vaso.png" id="3_vj75j"]
 [ext_resource type="AudioStream" uid="uid://cbeully60phrp" path="res://assets/audio/bubbles/bubbles_3/A_BlowingBubbles_07.wav" id="4_vj73b"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ksokd"]
+[ext_resource type="Texture2D" uid="uid://dreo7kmkgrp24" path="res://assets/10/10.png" id="4_x18ua"]
+[ext_resource type="Texture2D" uid="uid://bqav00d4ld56j" path="res://assets/10/10pala.png" id="8_juaju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75rw3"]
 size = Vector2(71, 72)
@@ -13,14 +15,21 @@ size = Vector2(71, 72)
 [node name="StirLiquid" type="Node2D"]
 script = ExtResource("1_xhv73")
 
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_g5agf")
+
+[node name="VasoBG" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_vj75j")
+
 [node name="Stir" type="StaticBody2D" parent="."]
-position = Vector2(960, 540)
 input_pickable = true
 script = ExtResource("2_dk7c0")
 
 [node name="Sprite" type="Sprite2D" parent="Stir"]
-scale = Vector2(71, 72)
-texture = SubResource("PlaceholderTexture2D_ksokd")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_x18ua")
+hframes = 7
 
 [node name="Area" type="CollisionShape2D" parent="Stir"]
 shape = SubResource("RectangleShape2D_75rw3")
@@ -34,4 +43,12 @@ stream = ExtResource("4_vj73b")
 volume_db = -3.0
 pitch_scale = 1.3
 
+[node name="Cuchara" type="Sprite2D" parent="Stir"]
+visible = false
+position = Vector2(104, -320)
+scale = Vector2(0.647174, 0.647174)
+texture = ExtResource("8_juaju")
+
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]

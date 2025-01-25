@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dlvmc70m2yr00" path="res://scenes/7_BlowBubbles/BlowBubbles.tscn" id="7_4jlhl"]
 [ext_resource type="PackedScene" uid="uid://dlh5psjl7dprw" path="res://scenes/10_StirLiquid/StirLiquid.tscn" id="10_6u1aj"]
 [ext_resource type="Texture2D" uid="uid://kvvvub4gp2o1" path="res://assets/placeholders/game_over_ph.jpg" id="12_3uy5y"]
-[ext_resource type="PackedScene" uid="uid://brpu5hrenxj2c" path="res://scenes/6_ShakeChampagne/ShakeChampagne.tscn" id="12_joeej"]
+[ext_resource type="PackedScene" uid="uid://brpu5hrenxj2c" path="res://scenes/6_Champagne/Champagne.tscn" id="12_joeej"]
 
 [node name="MicroGameManager" type="Node2D"]
 script = ExtResource("1_eq17e")
@@ -29,7 +29,7 @@ position = Vector2(3209, 1946)
 position = Vector2(994, 1914)
 
 [node name="Three" parent="." instance=ExtResource("4_vsit3")]
-position = Vector2(8382, 4115)
+position = Vector2(7747, 4216)
 
 [node name="Four" parent="." instance=ExtResource("1_eqcjs")]
 position = Vector2(983, 3170)
@@ -38,7 +38,7 @@ position = Vector2(983, 3170)
 position = Vector2(972, -665)
 
 [node name="Six" parent="." instance=ExtResource("12_joeej")]
-position = Vector2(9340, 1952)
+position = Vector2(6366, 1730)
 
 [node name="Seven" parent="." instance=ExtResource("7_4jlhl")]
 position = Vector2(3230, 3205)
@@ -47,7 +47,7 @@ position = Vector2(3230, 3205)
 position = Vector2(1006, 4549)
 
 [node name="Ten" parent="." instance=ExtResource("10_6u1aj")]
-position = Vector2(9976, 6633)
+position = Vector2(33912, 17385)
 
 [node name="Eleven" parent="." instance=ExtResource("7_2jbch")]
 position = Vector2(3246, 4565)

@@ -2,7 +2,7 @@ extends Node2D
 
 @export var TRANSITION_TIME = 1
 @export var HIT_POINTS = 3
-var mgl = [5] # MicroGame List
+var mgl = [7] # MicroGame List
 var current_mg = 0
 
 func _ready() -> void:
