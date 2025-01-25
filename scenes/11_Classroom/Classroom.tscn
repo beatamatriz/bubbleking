@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ds7u438ei3dvv"]
+[gd_scene load_steps=12 format=3 uid="uid://ds7u438ei3dvv"]
 
 [ext_resource type="Script" path="res://scenes/2_PlasticPop/pop.gd" id="1_0w1xn"]
 [ext_resource type="Texture2D" uid="uid://2akqda50lbey" path="res://assets/11/11fondo.png" id="2_mekwv"]
@@ -7,6 +7,122 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mp5q3"]
 radius = 214.002
+
+[sub_resource type="Animation" id="Animation_r17fg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_02wfd"]
+resource_name = "Snore1"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_it0ir"]
+resource_name = "Snore2"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_iv5me"]
+resource_name = "Snore3"
+length = 0.53
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_1da6k"]
+resource_name = "Woke"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, -30)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_crlh4"]
+_data = {
+"RESET": SubResource("Animation_r17fg"),
+"Snore1": SubResource("Animation_02wfd"),
+"Snore2": SubResource("Animation_it0ir"),
+"Snore3": SubResource("Animation_iv5me"),
+"Woke": SubResource("Animation_1da6k")
+}
 
 [node name="Pop" type="Node2D"]
 script = ExtResource("1_0w1xn")
@@ -40,5 +156,8 @@ shape = SubResource("CircleShape2D_mp5q3")
 metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PoppablesManager/Ingrid"]
+libraries = {
+"": SubResource("AnimationLibrary_crlh4")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
