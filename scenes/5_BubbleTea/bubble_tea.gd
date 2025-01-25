@@ -2,6 +2,7 @@ extends Node2D
 
 @export var GAME_TIMER = 5
 
+var active = false
 var total_tapio = 0
 var count = 0
 var success = false
@@ -17,18 +18,17 @@ func _process(delta: float) -> void:
 		success = true
 
 func begin():
+	active = true
 	count = 0
 	total_tapio = $TapioManager.get_children().size()
 	$Timer.start(GAME_TIMER)
-
-func end():
-	get_parent().next()
 
 func suck():
 	count += 1
 	
 
 func _on_timer_timeout() -> void:
+	active = false
 	if success:
 		get_parent().next("Success")
 	else:

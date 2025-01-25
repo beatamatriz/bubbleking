@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://behv2crw8tsbj"]
+[gd_scene load_steps=5 format=3 uid="uid://behv2crw8tsbj"]
 
 [ext_resource type="Script" path="res://scenes/1_Duel/duel.gd" id="1_4e3ey"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ugyrr"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vmdwa"]
+[ext_resource type="Texture2D" uid="uid://qsyqjjepelie" path="res://assets/1/1_fondo.png" id="2_pf4hg"]
+[ext_resource type="Texture2D" uid="uid://ccbyfcjy8y8x0" path="res://assets/1/1_2.png" id="3_5wpc7"]
+[ext_resource type="Texture2D" uid="uid://blj4eb53rowsl" path="res://assets/1/1_1.png" id="4_47ja2"]
 
 [node name="Duel" type="Node2D"]
 script = ExtResource("1_4e3ey")
@@ -20,30 +19,24 @@ one_shot = true
 wait_time = 2.5
 one_shot = true
 
-[node name="SpriteA" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(87, 67)
-scale = Vector2(107.5, 92.25)
-texture = SubResource("PlaceholderTexture2D_ugyrr")
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_pf4hg")
 
-[node name="SpriteB" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.309804, 0.74902, 1, 1)
-position = Vector2(220, 71)
-scale = Vector2(107.5, 92.25)
-texture = SubResource("PlaceholderTexture2D_ugyrr")
+[node name="Usurper" type="Sprite2D" parent="."]
+position = Vector2(-369.492, 1.63863)
+scale = Vector2(-0.588815, 0.588815)
+texture = ExtResource("3_5wpc7")
+hframes = 3
 
-[node name="Success" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.1738, 0.64622, 0.79, 1)
-scale = Vector2(1150.5, 650.5)
-texture = SubResource("PlaceholderTexture2D_vmdwa")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Usurper"]
 
-[node name="Failure" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.79, 0.74892, 0.1738, 1)
-scale = Vector2(1150.5, 650.5)
-texture = SubResource("PlaceholderTexture2D_vmdwa")
+[node name="Samurai" type="Sprite2D" parent="."]
+position = Vector2(390, 25)
+scale = Vector2(-0.560776, 0.560776)
+texture = ExtResource("4_47ja2")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Samurai"]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="HWBegin" to="." method="_on_hw_begin_timeout"]
