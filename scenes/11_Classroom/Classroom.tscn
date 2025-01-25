@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds7u438ei3dvv"]
+
+[ext_resource type="Script" path="res://scenes/2_PlasticPop/pop.gd" id="1_0w1xn"]
+[ext_resource type="Texture2D" uid="uid://2akqda50lbey" path="res://assets/11/11fondo.png" id="2_mekwv"]
+[ext_resource type="Script" path="res://scenes/2_PlasticPop/poppable.gd" id="4_dw4lb"]
+[ext_resource type="Texture2D" uid="uid://bduuhanl208qi" path="res://assets/11/11.png" id="5_bvvck"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mp5q3"]
+radius = 214.002
+
+[node name="Pop" type="Node2D"]
+script = ExtResource("1_0w1xn")
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_mekwv")
+metadata/_edit_lock_ = true
+
+[node name="PoppablesManager" type="Node2D" parent="."]
+position = Vector2(-1301, -530)
+
+[node name="Ingrid" type="StaticBody2D" parent="PoppablesManager"]
+position = Vector2(1337, 507)
+scale = Vector2(0.620555, 0.64061)
+input_pickable = true
+script = ExtResource("4_dw4lb")
+POPPED = true
+
+[node name="Sprite" type="Sprite2D" parent="PoppablesManager/Ingrid"]
+texture = ExtResource("5_bvvck")
+hframes = 3
+metadata/_edit_lock_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="PoppablesManager/Ingrid"]
+position = Vector2(-232.744, -23.6194)
+scale = Vector2(1.1083, 1.07361)
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PoppablesManager/Ingrid"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
