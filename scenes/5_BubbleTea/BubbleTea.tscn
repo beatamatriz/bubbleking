@@ -1,0 +1,121 @@
+[gd_scene load_steps=13 format=3 uid="uid://2bsbejlt6wdv"]
+
+[ext_resource type="Script" path="res://scenes/9_SausageWoman/move.gd" id="1_1t7yr"]
+[ext_resource type="Texture2D" uid="uid://cri050lluxedl" path="res://assets/5/5fondo.png" id="2_eo3ej"]
+[ext_resource type="Script" path="res://scenes/5_BubbleTea/pajita.gd" id="3_t0nqt"]
+[ext_resource type="Texture2D" uid="uid://cvgqc30hplale" path="res://assets/5/5pajita.png" id="4_va2da"]
+[ext_resource type="Script" path="res://scenes/5_BubbleTea/tapioca.gd" id="5_mtrr8"]
+[ext_resource type="Texture2D" uid="uid://dqw8b705matr2" path="res://assets/5/5.png" id="5_tg66n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ej2n"]
+radius = 346.006
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aojk0"]
+radius = 52.0
+height = 160.0
+
+[sub_resource type="Animation" id="Animation_hr23q"]
+resource_name = "Idle"
+length = 0.133337
+
+[sub_resource type="Animation" id="Animation_7y3c1"]
+resource_name = "Moving"
+length = 0.533337
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_urayg"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hc4v4"]
+_data = {
+"Idle": SubResource("Animation_hr23q"),
+"Moving": SubResource("Animation_7y3c1"),
+"RESET": SubResource("Animation_urayg")
+}
+
+[node name="Move" type="Node2D"]
+script = ExtResource("1_1t7yr")
+GAME_TIMER = 2
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_eo3ej")
+
+[node name="TapioManager" type="Node2D" parent="."]
+
+[node name="TapiocaA" type="Area2D" parent="TapioManager"]
+position = Vector2(210, 423)
+scale = Vector2(0.152167, 0.152167)
+script = ExtResource("5_mtrr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="TapioManager/TapiocaA"]
+texture = ExtResource("5_tg66n")
+hframes = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TapioManager/TapiocaA"]
+shape = SubResource("CircleShape2D_7ej2n")
+metadata/_edit_lock_ = true
+
+[node name="TapiocaB" type="Area2D" parent="TapioManager"]
+position = Vector2(304, 401)
+scale = Vector2(0.152167, 0.152167)
+script = ExtResource("5_mtrr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="TapioManager/TapiocaB"]
+texture = ExtResource("5_tg66n")
+hframes = 3
+frame = 1
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TapioManager/TapiocaB"]
+shape = SubResource("CircleShape2D_7ej2n")
+metadata/_edit_lock_ = true
+
+[node name="TapiocaC" type="Area2D" parent="TapioManager"]
+position = Vector2(-173, 409)
+scale = Vector2(0.152167, 0.152167)
+script = ExtResource("5_mtrr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="TapioManager/TapiocaC"]
+texture = ExtResource("5_tg66n")
+hframes = 3
+frame = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TapioManager/TapiocaC"]
+shape = SubResource("CircleShape2D_7ej2n")
+metadata/_edit_lock_ = true
+
+[node name="Pajita" type="CharacterBody2D" parent="."]
+position = Vector2(-38, -678)
+script = ExtResource("3_t0nqt")
+
+[node name="Sprite" type="Sprite2D" parent="Pajita"]
+scale = Vector2(1.55694, 1.55694)
+texture = ExtResource("4_va2da")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pajita"]
+position = Vector2(-22, 679)
+shape = SubResource("CapsuleShape2D_aojk0")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pajita"]
+libraries = {
+"": SubResource("AnimationLibrary_hc4v4")
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+polygon = PackedVector2Array(-398, -404, -239, 436, -186, 464, -72, 492, 76, 501, 226, 486, 349, 450, 381, 236, 423, 61, 527, -411, 471, -398, -103, -394, -248, -398, -374, -403, -359, -455, 570, -457, 389, 539, -271, 533, -458, -417)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+metadata/_edit_lock_ = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
