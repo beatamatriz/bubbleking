@@ -2,7 +2,7 @@ extends Node2D
 
 @export var GAME_TIMER = 5
 @export var CHEW_TIMER = 0.8
-@export var MASH_HP = 15
+@export var MASH_HP = 18
 
 var active = false
 var count = 0
@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_accept"):
 			count += 1
 		if count >= MASH_HP:
+			active = false
 			for sprite in $SpritesChicle.get_children():
 				sprite.visible = false
 			$SpritesChicle/Chicle9.visible = true
@@ -56,13 +57,13 @@ func begin():
 	$Demonia/AnimationPlayer.play("Chew")
 	for sprite in $SpritesChicle.get_children():
 		sprite.visible = false
+
 func _on_timer_timeout() -> void:
 	active = false
 	if success:
 		get_parent().next("Success")
 	else:
 		get_parent().next("Failure")
-
 
 func _on_chew_timer_timeout() -> void:
 	active = true
