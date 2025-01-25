@@ -1,12 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://brpu5hrenxj2c"]
+[gd_scene load_steps=10 format=3 uid="uid://brpu5hrenxj2c"]
 
 [ext_resource type="Script" path="res://scenes/6_ShakeChampagne/shake_bottle.gd" id="1_hikwa"]
 [ext_resource type="Script" path="res://scenes/6_ShakeChampagne/bottle.gd" id="2_c3jhp"]
+[ext_resource type="AudioStream" uid="uid://cav6at8lnr5hw" path="res://assets/audio/bubbles/bubbles_4/A_Bubbling_03.wav" id="3_l0m3g"]
+[ext_resource type="AudioStream" uid="uid://cravx5cnb5h3i" path="res://assets/audio/shake/A_Shake_01.wav" id="4_1ro83"]
+[ext_resource type="AudioStream" uid="uid://b7gvl4jwrevm6" path="res://assets/audio/shake/A_Shake_02.wav" id="5_587w5"]
+[ext_resource type="AudioStream" uid="uid://buaytbruc002x" path="res://assets/audio/shake/A_Shake_03.wav" id="6_7xjns"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4jdvc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn2il"]
 size = Vector2(71, 72)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8hk6p"]
+playback_mode = 2
+streams_count = 3
+stream_0/stream = ExtResource("4_1ro83")
+stream_1/stream = ExtResource("5_587w5")
+stream_2/stream = ExtResource("6_7xjns")
 
 [node name="ShakeChampagne" type="Node2D"]
 script = ExtResource("1_hikwa")
@@ -22,5 +33,14 @@ texture = SubResource("PlaceholderTexture2D_4jdvc")
 
 [node name="Area" type="CollisionShape2D" parent="Bottle"]
 shape = SubResource("RectangleShape2D_sn2il")
+
+[node name="background" type="AudioStreamPlayer2D" parent="Bottle"]
+stream = ExtResource("3_l0m3g")
+volume_db = -2.5
+
+[node name="shake" type="AudioStreamPlayer2D" parent="Bottle"]
+stream = SubResource("AudioStreamRandomizer_8hk6p")
+pitch_scale = 0.73
+max_polyphony = 4
 
 [node name="Timer" type="Timer" parent="."]

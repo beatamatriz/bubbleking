@@ -180,7 +180,7 @@ libraries = {
 
 [node name="Pop" type="AudioStreamPlayer2D" parent="PoppablesManager/Ingrid"]
 stream = SubResource("AudioStreamRandomizer_7hdgg")
-volume_db = 10.0
+volume_db = 14.0
 
 [node name="Julia" type="StaticBody2D" parent="PoppablesManager"]
 position = Vector2(961, 225)
@@ -206,7 +206,7 @@ libraries = {
 
 [node name="Pop" type="AudioStreamPlayer2D" parent="PoppablesManager/Julia"]
 stream = SubResource("AudioStreamRandomizer_7hdgg")
-volume_db = 14.0
+volume_db = 10.0
 
 [node name="Bea" type="StaticBody2D" parent="PoppablesManager"]
 position = Vector2(726, 628)
@@ -233,5 +233,7 @@ libraries = {
 [node name="Pop" type="AudioStreamPlayer2D" parent="PoppablesManager/Bea"]
 stream = SubResource("AudioStreamRandomizer_7hdgg")
 volume_db = 18.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

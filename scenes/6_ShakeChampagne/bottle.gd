@@ -16,6 +16,8 @@ var original_mouse_position
 var previous_mouse_position
 
 func _ready() -> void:
+	$background.play()
+	
 	original_position = global_position
 	previous_position = original_position
 	
@@ -39,6 +41,11 @@ func shake() -> void:
 	previous_mouse_position = get_global_mouse_position()
 	
 func invert() -> void:
+	if(shake_direction):
+		$shake.play()
+	else:
+		$shake.play()
+	
 	target_pos = -target_pos
 	shake_direction = !shake_direction
 	get_parent().count += 1
