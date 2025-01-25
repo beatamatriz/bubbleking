@@ -22,3 +22,5 @@ texture = SubResource("PlaceholderTexture2D_4jdvc")
 
 [node name="Area" type="CollisionShape2D" parent="Bottle"]
 shape = SubResource("RectangleShape2D_sn2il")
+
+[node name="Timer" type="Timer" parent="."]

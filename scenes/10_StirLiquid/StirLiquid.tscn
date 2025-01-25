@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlh5psjl7dprw"]
+
+[ext_resource type="Script" path="res://scenes/10_StirLiquid/stir_liquid.gd" id="1_xhv73"]
+[ext_resource type="Script" path="res://scenes/10_StirLiquid/stir.gd" id="2_dk7c0"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ksokd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75rw3"]
+size = Vector2(71, 72)
+
+[node name="StirLiquid" type="Node2D"]
+script = ExtResource("1_xhv73")
+
+[node name="Stir" type="StaticBody2D" parent="."]
+position = Vector2(960, 540)
+input_pickable = true
+script = ExtResource("2_dk7c0")
+
+[node name="Sprite" type="Sprite2D" parent="Stir"]
+scale = Vector2(71, 72)
+texture = SubResource("PlaceholderTexture2D_ksokd")
+
+[node name="Area" type="CollisionShape2D" parent="Stir"]
+shape = SubResource("RectangleShape2D_75rw3")
+
+[node name="Timer" type="Timer" parent="."]
