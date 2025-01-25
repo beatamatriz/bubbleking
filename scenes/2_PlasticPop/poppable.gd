@@ -1,24 +1,26 @@
 extends StaticBody2D
 
 var clickable = false
-var popped = false
+@export var POPPED = false
 
 func _ready() -> void:
-	pass # Replace with function body.
+	if POPPED:
+		$Shadow.visible = true
+	else:
+		$Shadow.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if not popped and clickable and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if not POPPED and clickable and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		pop()
 		
 func pop():
-	$Sprite2D.visible = false  # POP!!!
+	$Shadow.visible = false  # POP!!!
+	$Shadow.visible = true
 	get_parent().get_parent().count += 1
-	popped = true
+	POPPED = true
 	
 func _mouse_enter() -> void:
 	clickable = true
-	$Sprite2D.modulate = "978fff"
 func _mouse_exit() -> void:
 	clickable = false
-	$Sprite2D.modulate = "ffffff"

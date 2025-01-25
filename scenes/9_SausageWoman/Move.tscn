@@ -728,9 +728,6 @@ scale = Vector2(3.58594, 5.27679)
 polygon = PackedVector2Array(25.6532, -11.779, 39.0388, -1.54551, 40.9909, 5.27682, 44.0584, 15.6998, 50.1935, 37.8724, 49.9146, 54.7388, 41.2697, 56.8234, 37.6444, 61.1821, 31.2305, 61.9401, 31.2305, 57.3919, 22.5856, 49.243, 5.8536, 24.0382, 6.6902, 19.869, -3.07015, 7.36142, 1.94946, -9.5049, 8.92113, -9.69441, 18.1237, -5.14619)
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-metadata/_edit_lock_ = true
-
 [node name="MujerSalchicha" type="CharacterBody2D" parent="."]
 position = Vector2(-678, 241)
 script = ExtResource("1_cqak2")

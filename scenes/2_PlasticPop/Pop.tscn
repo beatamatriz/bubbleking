@@ -1,52 +1,506 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0n3cfrp8tltf"]
+[gd_scene load_steps=7 format=3 uid="uid://b0n3cfrp8tltf"]
 
 [ext_resource type="Script" path="res://scenes/2_PlasticPop/pop.gd" id="1_yo03o"]
 [ext_resource type="Script" path="res://scenes/2_PlasticPop/poppable.gd" id="2_3bt0i"]
+[ext_resource type="Texture2D" uid="uid://dn07i7jsf4irs" path="res://assets/2/9_3.png" id="2_bs72c"]
+[ext_resource type="Texture2D" uid="uid://bf53s2gnsfhh4" path="res://assets/2/2_1.png" id="3_r8gps"]
+[ext_resource type="Texture2D" uid="uid://q5aqqx2m0487" path="res://assets/2/2_2.png" id="5_1gaau"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_whju6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_omvvv"]
-size = Vector2(71, 72)
+[sub_resource type="CircleShape2D" id="CircleShape2D_mp5q3"]
+radius = 48.0
 
 [node name="Pop" type="Node2D"]
 script = ExtResource("1_yo03o")
 
-[node name="PoppablesManager" type="Node2D" parent="."]
-
-[node name="Poppable" type="StaticBody2D" parent="PoppablesManager"]
-position = Vector2(-66, -18)
-input_pickable = true
-script = ExtResource("2_3bt0i")
-
-[node name="Sprite2D" type="Sprite2D" parent="PoppablesManager/Poppable"]
-position = Vector2(-25.5, -26)
-scale = Vector2(71, 72)
-texture = SubResource("PlaceholderTexture2D_whju6")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PoppablesManager/Poppable"]
-position = Vector2(-25.5, -26)
-shape = SubResource("RectangleShape2D_omvvv")
-metadata/_edit_lock_ = true
-
-[node name="Poppable2" type="StaticBody2D" parent="PoppablesManager"]
-position = Vector2(89, 56)
-input_pickable = true
-script = ExtResource("2_3bt0i")
-
-[node name="Sprite2D" type="Sprite2D" parent="PoppablesManager/Poppable2"]
-position = Vector2(-25.5, -26)
-scale = Vector2(71, 72)
-texture = SubResource("PlaceholderTexture2D_whju6")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PoppablesManager/Poppable2"]
-position = Vector2(-25.5, -26)
-shape = SubResource("RectangleShape2D_omvvv")
-metadata/_edit_lock_ = true
-
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_bs72c")
+metadata/_edit_lock_ = true
+
+[node name="Amongas" type="Sprite2D" parent="."]
+position = Vector2(20, -2)
+texture = ExtResource("3_r8gps")
+metadata/_edit_lock_ = true
+
+[node name="Popped" type="Node2D" parent="."]
+
+[node name="Popped" type="StaticBody2D" parent="Popped"]
+position = Vector2(-105, 3)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped"]
+position = Vector2(-2.38419e-07, -0.247428)
+scale = Vector2(0.979592, 0.955052)
+texture = ExtResource("5_1gaau")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped18" type="StaticBody2D" parent="Popped"]
+position = Vector2(169, 328)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped18"]
+position = Vector2(1.00001, -1.00001)
+scale = Vector2(0.908163, 0.84)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped18"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped16" type="StaticBody2D" parent="Popped"]
+position = Vector2(-227, -41)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped16"]
+position = Vector2(-2.38419e-07, -0.247428)
+scale = Vector2(0.979592, 0.955052)
+texture = ExtResource("5_1gaau")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped16"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped17" type="StaticBody2D" parent="Popped"]
+position = Vector2(-105, -219)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped17"]
+position = Vector2(-2.38419e-07, -0.247428)
+scale = Vector2(0.979592, 0.955052)
+texture = ExtResource("5_1gaau")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped17"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped2" type="StaticBody2D" parent="Popped"]
+position = Vector2(113, 6)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped2"]
+position = Vector2(-1, -1)
+scale = Vector2(0.897959, 0.9)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped2"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped3" type="StaticBody2D" parent="Popped"]
+position = Vector2(3, 112)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped3"]
+position = Vector2(-1.5, 1.50001)
+scale = Vector2(0.94898, 0.87)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped3"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped4" type="StaticBody2D" parent="Popped"]
+position = Vector2(16, -216)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped4"]
+position = Vector2(1, -1.5)
+scale = Vector2(0.897959, 0.89)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped4"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped5" type="StaticBody2D" parent="Popped"]
+position = Vector2(129, -215)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped5"]
+position = Vector2(-0.999995, -2)
+scale = Vector2(0.959184, 0.92)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped5"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped6" type="StaticBody2D" parent="Popped"]
+position = Vector2(-229, -152)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped6"]
+position = Vector2(-2.38419e-07, -0.247428)
+scale = Vector2(0.979592, 0.955052)
+texture = ExtResource("5_1gaau")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped6"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped7" type="StaticBody2D" parent="Popped"]
+position = Vector2(-108, 217)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped7"]
+position = Vector2(-2.38419e-07, 2.75258)
+scale = Vector2(0.979592, 0.895051)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped7"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped8" type="StaticBody2D" parent="Popped"]
+position = Vector2(220, 7)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped8"]
+position = Vector2(-2.38419e-07, -0.247428)
+scale = Vector2(0.979592, 0.955052)
+texture = ExtResource("5_1gaau")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped8"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped9" type="StaticBody2D" parent="Popped"]
+position = Vector2(-225, 179)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped9"]
+position = Vector2(-3, -1.00001)
+scale = Vector2(0.918367, 0.9)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped9"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped10" type="StaticBody2D" parent="Popped"]
+position = Vector2(-102, -108)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped10"]
+position = Vector2(-2.5, 0.500004)
+scale = Vector2(0.928571, 0.91)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped10"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped11" type="StaticBody2D" parent="Popped"]
+position = Vector2(240, -214)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped11"]
+position = Vector2(-1.99999, -1.52588e-05)
+scale = Vector2(0.938776, 0.9)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped11"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped12" type="StaticBody2D" parent="Popped"]
+position = Vector2(18, -106)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped12"]
+position = Vector2(-1, -1.19209e-06)
+scale = Vector2(0.918367, 0.9)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped12"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped13" type="StaticBody2D" parent="Popped"]
+position = Vector2(109, 224)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped13"]
+position = Vector2(-2.38419e-07, -2.50001)
+scale = Vector2(0.979592, 0.85)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped13"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped14" type="StaticBody2D" parent="Popped"]
+position = Vector2(217, 116)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped14"]
+position = Vector2(0.499998, -0.500003)
+scale = Vector2(0.928572, 0.89)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped14"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped15" type="StaticBody2D" parent="Popped"]
+position = Vector2(-69, 326)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped15"]
+position = Vector2(4.5, 2.62631)
+scale = Vector2(0.969388, 0.852526)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped15"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped19" type="StaticBody2D" parent="Popped"]
+position = Vector2(7, 3)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped19"]
+position = Vector2(-3, 1.75258)
+scale = Vector2(0.918367, 0.915052)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped19"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped20" type="StaticBody2D" parent="Popped"]
+position = Vector2(235, -103)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Popped20"]
+position = Vector2(-1.33514e-05, 0.999995)
+scale = Vector2(0.938775, 0.92)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Popped20"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Poppable8" type="StaticBody2D" parent="Popped"]
+position = Vector2(-71, -332)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Poppable8"]
+position = Vector2(-2.38419e-07, -0.247428)
+scale = Vector2(0.979592, 0.955052)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Poppable8"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Poppable9" type="StaticBody2D" parent="Popped"]
+position = Vector2(156, -333)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Poppable9"]
+position = Vector2(-3.50001, 4.5)
+scale = Vector2(0.94898, 0.91)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Poppable9"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Poppable10" type="StaticBody2D" parent="Popped"]
+position = Vector2(-228, 72)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Poppable10"]
+position = Vector2(-2.38419e-07, -0.247428)
+scale = Vector2(0.979592, 0.955052)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Poppable10"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Poppable11" type="StaticBody2D" parent="Popped"]
+position = Vector2(415, 342)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Poppable11"]
+position = Vector2(-2.38419e-07, -0.247428)
+scale = Vector2(0.979592, 0.955052)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Poppable11"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Poppable14" type="StaticBody2D" parent="Popped"]
+position = Vector2(0, 219)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Poppable14"]
+position = Vector2(-2.38419e-07, 3.75257)
+scale = Vector2(0.979592, 0.875052)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Poppable14"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Poppable15" type="StaticBody2D" parent="Popped"]
+position = Vector2(111, 114)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+
+[node name="Shadow" type="Sprite2D" parent="Popped/Poppable15"]
+position = Vector2(-2, -0.999995)
+scale = Vector2(0.938775, 0.9)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popped/Poppable15"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="PoppablesManager" type="Node2D" parent="."]
+
+[node name="Poppable2" type="StaticBody2D" parent="PoppablesManager"]
+position = Vector2(129, -106)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+
+[node name="Shadow" type="Sprite2D" parent="PoppablesManager/Poppable2"]
+position = Vector2(-2, 1.25258)
+scale = Vector2(0.938775, 0.925052)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PoppablesManager/Poppable2"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Popped18" type="StaticBody2D" parent="PoppablesManager"]
+position = Vector2(-109, 115)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+POPPED = true
+
+[node name="Shadow" type="Sprite2D" parent="PoppablesManager/Popped18"]
+position = Vector2(1.99999, -4)
+scale = Vector2(0.938776, 0.88)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PoppablesManager/Popped18"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Poppable4" type="StaticBody2D" parent="PoppablesManager"]
+position = Vector2(214, 221)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+
+[node name="Shadow" type="Sprite2D" parent="PoppablesManager/Poppable4"]
+position = Vector2(2, 1.37628)
+scale = Vector2(0.979592, 0.867526)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PoppablesManager/Poppable4"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="Poppable7" type="StaticBody2D" parent="PoppablesManager"]
+position = Vector2(41, -331)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+
+[node name="Shadow" type="Sprite2D" parent="PoppablesManager/Poppable7"]
+position = Vector2(-0.999995, -2)
+scale = Vector2(0.959184, 0.92)
+texture = ExtResource("5_1gaau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PoppablesManager/Poppable7"]
+visible = false
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

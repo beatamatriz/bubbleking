@@ -45,8 +45,6 @@ modulate = Color(0.79, 0.74892, 0.1738, 1)
 scale = Vector2(1150.5, 650.5)
 texture = SubResource("PlaceholderTexture2D_vmdwa")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="HWBegin" to="." method="_on_hw_begin_timeout"]
 [connection signal="timeout" from="HWEnd" to="." method="_on_hw_end_timeout"]

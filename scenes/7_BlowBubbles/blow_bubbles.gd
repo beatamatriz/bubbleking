@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var GAME_TIMER = 5
-var pop_total = 0
+@export var MASH_HP = 15
 
 var count = 0
 var success = false
@@ -11,14 +11,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if count >= pop_total:
+	if Input.is_action_just_pressed("ui_accept"):
+		count += 1
+	if count >= MASH_HP:
 		success = true
 
 func begin():
-	pop_total = 0
-	for bubble in $PoppablesManager.get_children():
-		pop_total += 1
-		bubble.POPPED = false
 	$Timer.start(GAME_TIMER)
 	
 func _on_timer_timeout() -> void:

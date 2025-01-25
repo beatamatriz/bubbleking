@@ -15,7 +15,6 @@ func _process(delta: float) -> void:
 		count += 1
 	if count >= MASH_HP:
 		success = true
-		$SpriteB.visible = true
 
 func begin():
 	$Timer.start(GAME_TIMER)
