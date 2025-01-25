@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://c352bqub1f060"]
 
-[ext_resource type="Script" path="res://scenes/9_SausageWoman/mujer_salchicha.gd" id="1_cqak2"]
+[ext_resource type="Script" path="res://scenes/9_HumanBall/mujer_salchicha.gd" id="1_cqak2"]
 [ext_resource type="Texture2D" uid="uid://dwtua01anxsxc" path="res://assets/9/9_1.png" id="1_u1jc0"]
-[ext_resource type="Script" path="res://scenes/9_SausageWoman/move.gd" id="1_vmy48"]
+[ext_resource type="Script" path="res://scenes/9_HumanBall/human_ball.gd" id="1_vmy48"]
 [ext_resource type="Texture2D" uid="uid://cr1dllopi7hgm" path="res://assets/9/9.png" id="1_xaigo"]
 [ext_resource type="Texture2D" uid="uid://cacpnebhxi63d" path="res://assets/9/9_2.png" id="2_t4g3b"]
-[ext_resource type="Script" path="res://scenes/9_SausageWoman/tooth.gd" id="3_36ppf"]
+[ext_resource type="Script" path="res://scenes/9_HumanBall/tooth.gd" id="3_36ppf"]
 [ext_resource type="Texture2D" uid="uid://d4afdwxj7gdve" path="res://assets/9/9_3.png" id="3_lorll"]
 [ext_resource type="Texture2D" uid="uid://dg83epflxpg3k" path="res://assets/9/9_4.png" id="4_30jo3"]
 [ext_resource type="Texture2D" uid="uid://cnsn78rfq30y2" path="res://assets/9/9_5.png" id="5_uub2t"]
@@ -55,7 +55,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lk4qo"]
 size = Vector2(120, 203)
 
-[node name="Move" type="Node2D"]
+[node name="HumanBall" type="Node2D"]
 script = ExtResource("1_vmy48")
 GAME_TIMER = 2
 metadata/_edit_lock_ = true

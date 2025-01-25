@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b0n3cfrp8tltf"]
 
-[ext_resource type="Script" path="res://scenes/2_PlasticPop/pop.gd" id="1_yo03o"]
-[ext_resource type="Script" path="res://scenes/2_PlasticPop/poppable.gd" id="2_3bt0i"]
+[ext_resource type="Script" path="res://scenes/2_StimPop/stim_pop.gd" id="1_yo03o"]
+[ext_resource type="Script" path="res://scenes/2_StimPop/poppable.gd" id="2_3bt0i"]
 [ext_resource type="Texture2D" uid="uid://dn07i7jsf4irs" path="res://assets/2/9_3.png" id="2_bs72c"]
 [ext_resource type="Texture2D" uid="uid://bf53s2gnsfhh4" path="res://assets/2/2_1.png" id="3_r8gps"]
 [ext_resource type="Texture2D" uid="uid://q5aqqx2m0487" path="res://assets/2/2_2.png" id="5_1gaau"]
@@ -9,14 +9,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_mp5q3"]
 radius = 48.0
 
-[node name="Pop" type="Node2D"]
+[node name="StimPop" type="Node2D"]
 script = ExtResource("1_yo03o")
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_bs72c")
-metadata/_edit_lock_ = true
 
 [node name="Amongas" type="Sprite2D" parent="."]
 position = Vector2(20, -2)

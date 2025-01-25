@@ -11,6 +11,9 @@ size = Vector2(71, 72)
 [node name="SpeechBubbles" type="Node2D"]
 script = ExtResource("1_xxjk1")
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [node name="SpeechBubbleManager" type="Node2D" parent="."]
 
 [node name="SpeechBubble" type="Node2D" parent="SpeechBubbleManager"]
@@ -32,5 +35,3 @@ shape = SubResource("RectangleShape2D_lcfpt")
 [node name="Sprite" type="Sprite2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble/Area"]
 scale = Vector2(71, 72)
 texture = SubResource("PlaceholderTexture2D_ir5yv")
-
-[node name="Timer" type="Timer" parent="."]

@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dddokf03t0rwt"]
+[gd_scene load_steps=10 format=3 uid="uid://dddokf03t0rwt"]
 
 [ext_resource type="Script" path="res://scenes/0_MicroGameManager/micro_game_manager.gd" id="1_eq17e"]
 [ext_resource type="PackedScene" uid="uid://cqeai7aw74e46" path="res://scenes/4_Bubblegum/Bubblegum.tscn" id="1_eqcjs"]
-[ext_resource type="PackedScene" uid="uid://behv2crw8tsbj" path="res://scenes/1_Sudden/Sudden.tscn" id="2_pqyhv"]
 [ext_resource type="Texture2D" uid="uid://77oetkxsigbl" path="res://assets/placeholders/placeholder_s.jpg" id="5_3kt0l"]
-[ext_resource type="PackedScene" uid="uid://c352bqub1f060" path="res://scenes/9_SausageWoman/Move.tscn" id="5_map5f"]
-[ext_resource type="PackedScene" uid="uid://b0n3cfrp8tltf" path="res://scenes/2_PlasticPop/Pop.tscn" id="5_mxcb2"]
+[ext_resource type="PackedScene" uid="uid://b0n3cfrp8tltf" path="res://scenes/2_StimPop/StimPop.tscn" id="5_mxcb2"]
+[ext_resource type="PackedScene" uid="uid://c352bqub1f060" path="res://scenes/9_HumanBall/HumanBall.tscn" id="6_glfvb"]
+[ext_resource type="PackedScene" uid="uid://2bsbejlt6wdv" path="res://scenes/5_BubbleTea/BubbleTea.tscn" id="6_sdb8t"]
 [ext_resource type="Texture2D" uid="uid://bomtherfdjvxy" path="res://assets/placeholders/placeholder_f.jpg" id="6_vartu"]
+[ext_resource type="PackedScene" uid="uid://ds7u438ei3dvv" path="res://scenes/11_Classroom/Classroom.tscn" id="7_2jbch"]
+[ext_resource type="PackedScene" uid="uid://dlvmc70m2yr00" path="res://scenes/7_BlowBubbles/BlowBubbles.tscn" id="7_4jlhl"]
 
 [node name="MicroGameManager" type="Node2D"]
 script = ExtResource("1_eq17e")
@@ -16,32 +18,37 @@ metadata/_edit_lock_ = true
 wait_time = 2.0
 one_shot = true
 
-[node name="Keymash" parent="." instance=ExtResource("1_eqcjs")]
-position = Vector2(3710, 1791)
-GAME_TIMER = 4
+[node name="Two" parent="." instance=ExtResource("5_mxcb2")]
+position = Vector2(994, 1914)
 
-[node name="Sudden" parent="." instance=ExtResource("2_pqyhv")]
-position = Vector2(3713, 3143)
-GAME_TIMER = 4
+[node name="Four" parent="." instance=ExtResource("1_eqcjs")]
+position = Vector2(983, 3170)
 
-[node name="Pop" parent="." instance=ExtResource("5_mxcb2")]
-position = Vector2(1056, 1872)
-GAME_TIMER = 3
+[node name="Five" parent="." instance=ExtResource("6_sdb8t")]
+position = Vector2(972, -665)
 
-[node name="Move" parent="." instance=ExtResource("5_map5f")]
-position = Vector2(1063, 3256)
+[node name="Seven" parent="." instance=ExtResource("7_4jlhl")]
+position = Vector2(3230, 3205)
+
+[node name="Nine" parent="." instance=ExtResource("6_glfvb")]
+position = Vector2(1006, 4549)
+
+[node name="Eleven" parent="." instance=ExtResource("7_2jbch")]
+position = Vector2(3246, 4565)
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(949, 552)
 
 [node name="Success" type="Sprite2D" parent="Camera"]
 visible = false
-scale = Vector2(0.596354, 0.498437)
+position = Vector2(9.8707, -5.50001)
+scale = Vector2(0.988004, 0.825781)
 texture = ExtResource("5_3kt0l")
 
 [node name="Failure" type="Sprite2D" parent="Camera"]
 visible = false
-scale = Vector2(0.384667, 0.329)
+position = Vector2(9.64589, -5.49997)
+scale = Vector2(0.642476, 0.5495)
 texture = ExtResource("6_vartu")
 
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]

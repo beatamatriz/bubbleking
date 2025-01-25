@@ -1,9 +1,9 @@
 extends Node2D
 
-@export var TRANSITION_TIME = 2
+@export var TRANSITION_TIME = 0.5
 @export var HIT_POINTS = 3
 const mgcount = 3
-var mgl = [2, 2, 2] # MicroGame List
+var mgl = [2, 4, 5, 7, 9, 11] # MicroGame List
 var current_mg = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -39,16 +39,35 @@ func _on_transition_timer_timeout() -> void:
 	$Camera/Failure.visible = false
 	current_mg += 1
 	if mgl[current_mg] == 1:
-		$Camera.position = $Sudden.position
-		$Sudden.begin()
-
+		pass
 	if mgl[current_mg] == 2:
-		$Camera.position = $Pop.position
-		$Pop.begin()
-	
+		$Camera.position = $Two.position
+		$Two.begin()
+	if mgl[current_mg] == 3:
+		pass
 	if mgl[current_mg] == 4:
-		$Camera.position = $Keymash.position
-		$Keymash.begin()
+		$Camera.position = $Four.position
+		$Four.begin()
+	if mgl[current_mg] == 5:
+		$Camera.position = $Five.position
+		$Five.begin()
+	if mgl[current_mg] == 6:
+		pass
+	if mgl[current_mg] == 7:
+		$Camera.position = $Seven.position
+		$Seven.begin()
+	if mgl[current_mg] == 8:
+		pass
+	if mgl[current_mg] == 9:
+		$Camera.position = $Nine.position
+		$Nine.begin()
+	if mgl[current_mg] == 10:
+		pass
+	if mgl[current_mg] == 11:
+		$Camera.position = $Eleven.position
+		$Eleven.begin()
+	if mgl[current_mg] == 12:
+		pass
 
 func game_over():
 	pass

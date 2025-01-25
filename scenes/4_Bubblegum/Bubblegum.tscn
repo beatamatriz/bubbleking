@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://by0bw3krgxno1"]
+[gd_scene load_steps=7 format=3 uid="uid://cqeai7aw74e46"]
 
 [ext_resource type="Script" path="res://scenes/4_Bubblegum/bubblegum.gd" id="1_e5ak1"]
 [ext_resource type="Texture2D" uid="uid://dlh1h43kwbc0c" path="res://assets/4/4_fondo.png" id="2_ji1yq"]
@@ -42,7 +42,7 @@ _data = {
 "RESET": SubResource("Animation_13uxc")
 }
 
-[node name="Keymash" type="Node2D"]
+[node name="Bubblegum" type="Node2D"]
 script = ExtResource("1_e5ak1")
 
 [node name="Timer" type="Timer" parent="."]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ds7u438ei3dvv"]
+[gd_scene load_steps=14 format=3 uid="uid://ds7u438ei3dvv"]
 
-[ext_resource type="Script" path="res://scenes/2_PlasticPop/pop.gd" id="1_0w1xn"]
+[ext_resource type="Script" path="res://scenes/11_Classroom/classroom.gd" id="1_01e3m"]
 [ext_resource type="Texture2D" uid="uid://2akqda50lbey" path="res://assets/11/11fondo.png" id="2_mekwv"]
-[ext_resource type="Script" path="res://scenes/2_PlasticPop/poppable.gd" id="4_dw4lb"]
+[ext_resource type="Script" path="res://scenes/11_Classroom/mucus.gd" id="3_gha5p"]
+[ext_resource type="Texture2D" uid="uid://dg4dikm0grat0" path="res://assets/11/11_3.png" id="4_qgdve"]
 [ext_resource type="Texture2D" uid="uid://bduuhanl208qi" path="res://assets/11/11.png" id="5_bvvck"]
+[ext_resource type="Texture2D" uid="uid://bh5hb8unwolcy" path="res://assets/11/11_2.png" id="6_lqctt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mp5q3"]
 radius = 214.002
@@ -124,8 +126,8 @@ _data = {
 "Woke": SubResource("Animation_1da6k")
 }
 
-[node name="Pop" type="Node2D"]
-script = ExtResource("1_0w1xn")
+[node name="Classroom" type="Node2D"]
+script = ExtResource("1_01e3m")
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -138,11 +140,10 @@ metadata/_edit_lock_ = true
 position = Vector2(-1301, -530)
 
 [node name="Ingrid" type="StaticBody2D" parent="PoppablesManager"]
-position = Vector2(1337, 507)
-scale = Vector2(0.620555, 0.64061)
+position = Vector2(1637, 366)
+scale = Vector2(0.413611, 0.426978)
 input_pickable = true
-script = ExtResource("4_dw4lb")
-POPPED = true
+script = ExtResource("3_gha5p")
 
 [node name="Sprite" type="Sprite2D" parent="PoppablesManager/Ingrid"]
 texture = ExtResource("5_bvvck")
@@ -156,6 +157,50 @@ shape = SubResource("CircleShape2D_mp5q3")
 metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PoppablesManager/Ingrid"]
+libraries = {
+"": SubResource("AnimationLibrary_crlh4")
+}
+
+[node name="Julia" type="StaticBody2D" parent="PoppablesManager"]
+position = Vector2(961, 225)
+scale = Vector2(0.262628, 0.271116)
+input_pickable = true
+script = ExtResource("3_gha5p")
+
+[node name="Sprite" type="Sprite2D" parent="PoppablesManager/Julia"]
+texture = ExtResource("4_qgdve")
+hframes = 3
+metadata/_edit_lock_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="PoppablesManager/Julia"]
+position = Vector2(-232.744, -23.6194)
+scale = Vector2(1.1083, 1.07361)
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PoppablesManager/Julia"]
+libraries = {
+"": SubResource("AnimationLibrary_crlh4")
+}
+
+[node name="Bea" type="StaticBody2D" parent="PoppablesManager"]
+position = Vector2(726, 628)
+scale = Vector2(0.773074, 0.798058)
+input_pickable = true
+script = ExtResource("3_gha5p")
+
+[node name="Sprite" type="Sprite2D" parent="PoppablesManager/Bea"]
+texture = ExtResource("6_lqctt")
+hframes = 3
+metadata/_edit_lock_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="PoppablesManager/Bea"]
+position = Vector2(-232.744, -23.6194)
+scale = Vector2(1.1083, 1.07361)
+shape = SubResource("CircleShape2D_mp5q3")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PoppablesManager/Bea"]
 libraries = {
 "": SubResource("AnimationLibrary_crlh4")
 }
