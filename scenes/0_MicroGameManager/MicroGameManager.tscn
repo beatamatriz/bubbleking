@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://dddokf03t0rwt"]
+
+[ext_resource type="Script" path="res://scenes/0_MicroGameManager/micro_game_manager.gd" id="1_eq17e"]
+[ext_resource type="PackedScene" uid="uid://cqeai7aw74e46" path="res://scenes/4_Bubblegum/KeyMash.tscn" id="1_eqcjs"]
+[ext_resource type="PackedScene" uid="uid://behv2crw8tsbj" path="res://scenes/1_Sudden/Sudden.tscn" id="2_pqyhv"]
+[ext_resource type="Texture2D" uid="uid://co7pmue1k1k5n" path="res://icon.svg" id="3_ji8ei"]
+[ext_resource type="Texture2D" uid="uid://77oetkxsigbl" path="res://assets/placeholders/placeholder_s.jpg" id="5_3kt0l"]
+[ext_resource type="PackedScene" uid="uid://b0n3cfrp8tltf" path="res://scenes/2_PlasticPop/Pop.tscn" id="5_mxcb2"]
+[ext_resource type="Texture2D" uid="uid://bomtherfdjvxy" path="res://assets/placeholders/placeholder_f.jpg" id="6_vartu"]
+
+[node name="MicroGameManager" type="Node2D"]
+script = ExtResource("1_eq17e")
+metadata/_edit_lock_ = true
+
+[node name="TransitionTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Keymash" parent="." instance=ExtResource("1_eqcjs")]
+position = Vector2(2648, 1711)
+GAME_TIMER = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Keymash"]
+position = Vector2(-237, 137)
+texture = ExtResource("3_ji8ei")
+
+[node name="Sudden" parent="." instance=ExtResource("2_pqyhv")]
+position = Vector2(4199, -279)
+GAME_TIMER = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Sudden"]
+position = Vector2(404, -227)
+texture = ExtResource("3_ji8ei")
+
+[node name="Pop" parent="." instance=ExtResource("5_mxcb2")]
+position = Vector2(-1960, 1522)
+GAME_TIMER = 3
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(-1164, -609)
+
+[node name="Success" type="Sprite2D" parent="Camera"]
+visible = false
+scale = Vector2(0.596354, 0.498437)
+texture = ExtResource("5_3kt0l")
+
+[node name="Failure" type="Sprite2D" parent="Camera"]
+visible = false
+scale = Vector2(0.384667, 0.329)
+texture = ExtResource("6_vartu")
+
+[connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]

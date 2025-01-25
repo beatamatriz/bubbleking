@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0n3cfrp8tltf"]
+
+[ext_resource type="Script" path="res://scenes/2_PlasticPop/pop.gd" id="1_yo03o"]
+[ext_resource type="Script" path="res://scenes/2_PlasticPop/poppable.gd" id="2_3bt0i"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_whju6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omvvv"]
+size = Vector2(71, 72)
+
+[node name="Pop" type="Node2D"]
+script = ExtResource("1_yo03o")
+
+[node name="PoppablesManager" type="Node2D" parent="."]
+
+[node name="Poppable" type="StaticBody2D" parent="PoppablesManager"]
+position = Vector2(-66, -18)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="PoppablesManager/Poppable"]
+position = Vector2(-25.5, -26)
+scale = Vector2(71, 72)
+texture = SubResource("PlaceholderTexture2D_whju6")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PoppablesManager/Poppable"]
+position = Vector2(-25.5, -26)
+shape = SubResource("RectangleShape2D_omvvv")
+metadata/_edit_lock_ = true
+
+[node name="Poppable2" type="StaticBody2D" parent="PoppablesManager"]
+position = Vector2(89, 56)
+input_pickable = true
+script = ExtResource("2_3bt0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="PoppablesManager/Poppable2"]
+position = Vector2(-25.5, -26)
+scale = Vector2(71, 72)
+texture = SubResource("PlaceholderTexture2D_whju6")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PoppablesManager/Poppable2"]
+position = Vector2(-25.5, -26)
+shape = SubResource("RectangleShape2D_omvvv")
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

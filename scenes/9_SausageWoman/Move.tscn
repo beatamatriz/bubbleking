@@ -1,0 +1,802 @@
+[gd_scene load_steps=16 format=3 uid="uid://c352bqub1f060"]
+
+[ext_resource type="Script" path="res://scenes/9_SausageWoman/mujer_salchicha.gd" id="1_cqak2"]
+[ext_resource type="Texture2D" uid="uid://dwtua01anxsxc" path="res://assets/9/9_1.png" id="1_u1jc0"]
+[ext_resource type="Script" path="res://scenes/9_SausageWoman/move.gd" id="1_vmy48"]
+[ext_resource type="Texture2D" uid="uid://cr1dllopi7hgm" path="res://assets/9/9.png" id="1_xaigo"]
+[ext_resource type="Texture2D" uid="uid://cacpnebhxi63d" path="res://assets/9/9_2.png" id="2_t4g3b"]
+[ext_resource type="Script" path="res://scenes/9_SausageWoman/tooth.gd" id="3_36ppf"]
+[ext_resource type="Texture2D" uid="uid://d4afdwxj7gdve" path="res://assets/9/9_3.png" id="3_lorll"]
+[ext_resource type="Texture2D" uid="uid://dg83epflxpg3k" path="res://assets/9/9_4.png" id="4_30jo3"]
+[ext_resource type="Texture2D" uid="uid://cnsn78rfq30y2" path="res://assets/9/9_5.png" id="5_uub2t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mqt3p"]
+radius = 103.003
+height = 222.007
+
+[sub_resource type="Animation" id="Animation_7y3c1"]
+resource_name = "Moving"
+length = 0.533337
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Salchicha:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_urayg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Salchicha:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hr23q"]
+resource_name = "Idle"
+length = 0.133337
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Salchicha:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hc4v4"]
+_data = {
+"Idle": SubResource("Animation_hr23q"),
+"Moving": SubResource("Animation_7y3c1"),
+"RESET": SubResource("Animation_urayg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lk4qo"]
+size = Vector2(120, 203)
+
+[node name="Move" type="Node2D"]
+script = ExtResource("1_vmy48")
+GAME_TIMER = 2
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_xaigo")
+
+[node name="TeethManager" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="ToothA" type="Area2D" parent="TeethManager"]
+position = Vector2(731, -213)
+rotation = 2.05131
+scale = Vector2(0.360004, 0.360004)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothA"]
+texture = ExtResource("2_t4g3b")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothA"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(27.3264, -10.0734, 35.9712, -5.3357, 48.2414, -6.66227, 54.3765, 4.13976, 29.2784, 59.0975, 16.4505, 59.4765, 5.57473, 38.441, 10.8732, 11.5306, 10.8732, -0.218948)
+metadata/_edit_lock_ = true
+
+[node name="ToothB" type="Area2D" parent="TeethManager"]
+position = Vector2(-320, 383)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothB"]
+texture = ExtResource("3_lorll")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothB"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(16.4505, -17.0853, 38.481, -6.09374, 45.7316, 19.111, 45.7316, 37.8724, 37.6444, 62.1296, 33.4614, 61.9401, 16.7294, 34.6508, 6.6902, 7.74044, 5.8536, -7.98883, 10.8732, -9.12589, 11.9887, -15.0007)
+metadata/_edit_lock_ = true
+
+[node name="ToothC" type="Area2D" parent="TeethManager"]
+position = Vector2(-939, -220)
+rotation = 0.195568
+scale = Vector2(0.440001, 0.440001)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothC"]
+texture = ExtResource("4_30jo3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothC"]
+visible = false
+position = Vector2(82, -81)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(-15.3377, 52.6836, -12.2702, 47.3773, -12.8279, 40.555, -9.76035, 34.3012, -9.48148, 16.4873, -13.9434, 1.89509, -15.6166, -7.95939, -35.1373, -18.3824, -41.8301, -16.8663, -44.061, -10.2335, -48.244, -9.09645, -50.4749, -0.947546, -44.8976, 5.68528, -42.9455, 14.0237, -32.6274, 36.7648)
+metadata/_edit_lock_ = true
+
+[node name="ToothD" type="Area2D" parent="TeethManager"]
+position = Vector2(-476, -364)
+scale = Vector2(0.36, 0.36)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothD"]
+texture = ExtResource("5_uub2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothD"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(25.6532, -11.779, 39.0388, -1.54551, 40.9909, 5.27682, 44.0584, 15.6998, 50.1935, 37.8724, 49.9146, 54.7388, 41.2697, 56.8234, 37.6444, 61.1821, 31.2305, 61.9401, 31.2305, 57.3919, 22.5856, 49.243, 5.8536, 24.0382, 6.6902, 19.869, -3.07015, 7.36142, 1.94946, -9.5049, 8.92113, -9.69441, 18.1237, -5.14619)
+metadata/_edit_lock_ = true
+
+[node name="ToothA3" type="Area2D" parent="TeethManager"]
+position = Vector2(44, -429)
+rotation = 0.38164
+scale = Vector2(0.360004, 0.360004)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothA3"]
+texture = ExtResource("2_t4g3b")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothA3"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(27.3264, -10.0734, 35.9712, -5.3357, 48.2414, -6.66227, 54.3765, 4.13976, 29.2784, 59.0975, 16.4505, 59.4765, 5.57473, 38.441, 10.8732, 11.5306, 10.8732, -0.218948)
+metadata/_edit_lock_ = true
+
+[node name="ToothB3" type="Area2D" parent="TeethManager"]
+position = Vector2(-711, 459)
+rotation = -1.90891
+scale = Vector2(0.4, 0.4)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothB3"]
+texture = ExtResource("3_lorll")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothB3"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(16.4505, -17.0853, 38.481, -6.09374, 45.7316, 19.111, 45.7316, 37.8724, 37.6444, 62.1296, 33.4614, 61.9401, 16.7294, 34.6508, 6.6902, 7.74044, 5.8536, -7.98883, 10.8732, -9.12589, 11.9887, -15.0007)
+metadata/_edit_lock_ = true
+
+[node name="ToothC3" type="Area2D" parent="TeethManager"]
+position = Vector2(-939, -220)
+rotation = -1.71334
+scale = Vector2(0.440001, 0.440001)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothC3"]
+texture = ExtResource("4_30jo3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothC3"]
+visible = false
+position = Vector2(82, -81)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(-15.3377, 52.6836, -12.2702, 47.3773, -12.8279, 40.555, -9.76035, 34.3012, -9.48148, 16.4873, -13.9434, 1.89509, -15.6166, -7.95939, -35.1373, -18.3824, -41.8301, -16.8663, -44.061, -10.2335, -48.244, -9.09645, -50.4749, -0.947546, -44.8976, 5.68528, -42.9455, 14.0237, -32.6274, 36.7648)
+metadata/_edit_lock_ = true
+
+[node name="ToothD3" type="Area2D" parent="TeethManager"]
+position = Vector2(-137, -444)
+rotation = -1.90891
+scale = Vector2(0.36, 0.36)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothD3"]
+texture = ExtResource("5_uub2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothD3"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(25.6532, -11.779, 39.0388, -1.54551, 40.9909, 5.27682, 44.0584, 15.6998, 50.1935, 37.8724, 49.9146, 54.7388, 41.2697, 56.8234, 37.6444, 61.1821, 31.2305, 61.9401, 31.2305, 57.3919, 22.5856, 49.243, 5.8536, 24.0382, 6.6902, 19.869, -3.07015, 7.36142, 1.94946, -9.5049, 8.92113, -9.69441, 18.1237, -5.14619)
+metadata/_edit_lock_ = true
+
+[node name="ToothA2" type="Area2D" parent="TeethManager"]
+position = Vector2(-319, 376)
+rotation = 4.04646
+scale = Vector2(0.360004, 0.360004)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothA2"]
+texture = ExtResource("2_t4g3b")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothA2"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(27.3264, -10.0734, 35.9712, -5.3357, 48.2414, -6.66227, 54.3765, 4.13976, 29.2784, 59.0975, 16.4505, 59.4765, 5.57473, 38.441, 10.8732, 11.5306, 10.8732, -0.218948)
+metadata/_edit_lock_ = true
+
+[node name="ToothB2" type="Area2D" parent="TeethManager"]
+position = Vector2(-132, 154)
+rotation = 2.13776
+scale = Vector2(0.4, 0.4)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothB2"]
+texture = ExtResource("3_lorll")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothB2"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(16.4505, -17.0853, 38.481, -6.09374, 45.7316, 19.111, 45.7316, 37.8724, 37.6444, 62.1296, 33.4614, 61.9401, 16.7294, 34.6508, 6.6902, 7.74044, 5.8536, -7.98883, 10.8732, -9.12589, 11.9887, -15.0007)
+metadata/_edit_lock_ = true
+
+[node name="ToothC2" type="Area2D" parent="TeethManager"]
+position = Vector2(184, 250)
+rotation = -2.88083
+scale = Vector2(0.440001, 0.440001)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothC2"]
+texture = ExtResource("4_30jo3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothC2"]
+visible = false
+position = Vector2(82, -81)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(-15.3377, 52.6836, -12.2702, 47.3773, -12.8279, 40.555, -9.76035, 34.3012, -9.48148, 16.4873, -13.9434, 1.89509, -15.6166, -7.95939, -35.1373, -18.3824, -41.8301, -16.8663, -44.061, -10.2335, -48.244, -9.09645, -50.4749, -0.947546, -44.8976, 5.68528, -42.9455, 14.0237, -32.6274, 36.7648)
+metadata/_edit_lock_ = true
+
+[node name="ToothD2" type="Area2D" parent="TeethManager"]
+position = Vector2(724, 87)
+rotation = -4.56645
+scale = Vector2(0.36, 0.36)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothD2"]
+texture = ExtResource("5_uub2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothD2"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(25.6532, -11.779, 39.0388, -1.54551, 40.9909, 5.27682, 44.0584, 15.6998, 50.1935, 37.8724, 49.9146, 54.7388, 41.2697, 56.8234, 37.6444, 61.1821, 31.2305, 61.9401, 31.2305, 57.3919, 22.5856, 49.243, 5.8536, 24.0382, 6.6902, 19.869, -3.07015, 7.36142, 1.94946, -9.5049, 8.92113, -9.69441, 18.1237, -5.14619)
+metadata/_edit_lock_ = true
+
+[node name="ToothA4" type="Area2D" parent="TeethManager"]
+position = Vector2(-155, 321)
+rotation = 2.29055
+scale = Vector2(0.360004, 0.360004)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothA4"]
+texture = ExtResource("2_t4g3b")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothA4"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(27.3264, -10.0734, 35.9712, -5.3357, 48.2414, -6.66227, 54.3765, 4.13976, 29.2784, 59.0975, 16.4505, 59.4765, 5.57473, 38.441, 10.8732, 11.5306, 10.8732, -0.218948)
+metadata/_edit_lock_ = true
+
+[node name="ToothB4" type="Area2D" parent="TeethManager"]
+position = Vector2(-538, 519)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothB4"]
+texture = ExtResource("3_lorll")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothB4"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(16.4505, -17.0853, 38.481, -6.09374, 45.7316, 19.111, 45.7316, 37.8724, 37.6444, 62.1296, 33.4614, 61.9401, 16.7294, 34.6508, 6.6902, 7.74044, 5.8536, -7.98883, 10.8732, -9.12589, 11.9887, -15.0007)
+metadata/_edit_lock_ = true
+
+[node name="ToothC4" type="Area2D" parent="TeethManager"]
+position = Vector2(-962, 77)
+rotation = 0.195568
+scale = Vector2(0.440001, 0.440001)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothC4"]
+texture = ExtResource("4_30jo3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothC4"]
+visible = false
+position = Vector2(82, -81)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(-15.3377, 52.6836, -12.2702, 47.3773, -12.8279, 40.555, -9.76035, 34.3012, -9.48148, 16.4873, -13.9434, 1.89509, -15.6166, -7.95939, -35.1373, -18.3824, -41.8301, -16.8663, -44.061, -10.2335, -48.244, -9.09645, -50.4749, -0.947546, -44.8976, 5.68528, -42.9455, 14.0237, -32.6274, 36.7648)
+metadata/_edit_lock_ = true
+
+[node name="ToothD4" type="Area2D" parent="TeethManager"]
+position = Vector2(-859, 450)
+scale = Vector2(0.36, 0.36)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothD4"]
+texture = ExtResource("5_uub2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothD4"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(25.6532, -11.779, 39.0388, -1.54551, 40.9909, 5.27682, 44.0584, 15.6998, 50.1935, 37.8724, 49.9146, 54.7388, 41.2697, 56.8234, 37.6444, 61.1821, 31.2305, 61.9401, 31.2305, 57.3919, 22.5856, 49.243, 5.8536, 24.0382, 6.6902, 19.869, -3.07015, 7.36142, 1.94946, -9.5049, 8.92113, -9.69441, 18.1237, -5.14619)
+metadata/_edit_lock_ = true
+
+[node name="ToothA5" type="Area2D" parent="TeethManager"]
+position = Vector2(-314, -353)
+rotation = 0.38164
+scale = Vector2(0.360004, 0.360004)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothA5"]
+texture = ExtResource("2_t4g3b")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothA5"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(27.3264, -10.0734, 35.9712, -5.3357, 48.2414, -6.66227, 54.3765, 4.13976, 29.2784, 59.0975, 16.4505, 59.4765, 5.57473, 38.441, 10.8732, 11.5306, 10.8732, -0.218948)
+metadata/_edit_lock_ = true
+
+[node name="ToothD7" type="Area2D" parent="TeethManager"]
+position = Vector2(-9.99999, 94)
+rotation = -3.88617
+scale = Vector2(0.36, 0.36)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothD7"]
+texture = ExtResource("5_uub2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothD7"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(25.6532, -11.779, 39.0388, -1.54551, 40.9909, 5.27682, 44.0584, 15.6998, 50.1935, 37.8724, 49.9146, 54.7388, 41.2697, 56.8234, 37.6444, 61.1821, 31.2305, 61.9401, 31.2305, 57.3919, 22.5856, 49.243, 5.8536, 24.0382, 6.6902, 19.869, -3.07015, 7.36142, 1.94946, -9.5049, 8.92113, -9.69441, 18.1237, -5.14619)
+metadata/_edit_lock_ = true
+
+[node name="ToothB8" type="Area2D" parent="TeethManager"]
+position = Vector2(179, 245)
+rotation = -1.65313
+scale = Vector2(0.4, 0.4)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothB8"]
+texture = ExtResource("3_lorll")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothB8"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(16.4505, -17.0853, 38.481, -6.09374, 45.7316, 19.111, 45.7316, 37.8724, 37.6444, 62.1296, 33.4614, 61.9401, 16.7294, 34.6508, 6.6902, 7.74044, 5.8536, -7.98883, 10.8732, -9.12589, 11.9887, -15.0007)
+metadata/_edit_lock_ = true
+
+[node name="ToothD8" type="Area2D" parent="TeethManager"]
+position = Vector2(-777, -393)
+rotation = -3.72272
+scale = Vector2(0.36, 0.36)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothD8"]
+texture = ExtResource("5_uub2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothD8"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(25.6532, -11.779, 39.0388, -1.54551, 40.9909, 5.27682, 44.0584, 15.6998, 50.1935, 37.8724, 49.9146, 54.7388, 41.2697, 56.8234, 37.6444, 61.1821, 31.2305, 61.9401, 31.2305, 57.3919, 22.5856, 49.243, 5.8536, 24.0382, 6.6902, 19.869, -3.07015, 7.36142, 1.94946, -9.5049, 8.92113, -9.69441, 18.1237, -5.14619)
+metadata/_edit_lock_ = true
+
+[node name="ToothA9" type="Area2D" parent="TeethManager"]
+position = Vector2(185, -414)
+rotation = -1.43217
+scale = Vector2(0.360004, 0.360004)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothA9"]
+texture = ExtResource("2_t4g3b")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothA9"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(27.3264, -10.0734, 35.9712, -5.3357, 48.2414, -6.66227, 54.3765, 4.13976, 29.2784, 59.0975, 16.4505, 59.4765, 5.57473, 38.441, 10.8732, 11.5306, 10.8732, -0.218948)
+metadata/_edit_lock_ = true
+
+[node name="ToothB5" type="Area2D" parent="TeethManager"]
+position = Vector2(-516, 479)
+rotation = -1.90891
+scale = Vector2(0.4, 0.4)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothB5"]
+texture = ExtResource("3_lorll")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothB5"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(16.4505, -17.0853, 38.481, -6.09374, 45.7316, 19.111, 45.7316, 37.8724, 37.6444, 62.1296, 33.4614, 61.9401, 16.7294, 34.6508, 6.6902, 7.74044, 5.8536, -7.98883, 10.8732, -9.12589, 11.9887, -15.0007)
+metadata/_edit_lock_ = true
+
+[node name="ToothC5" type="Area2D" parent="TeethManager"]
+position = Vector2(-943, 277)
+rotation = -1.71334
+scale = Vector2(0.440001, 0.440001)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothC5"]
+texture = ExtResource("4_30jo3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothC5"]
+visible = false
+position = Vector2(82, -81)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(-15.3377, 52.6836, -12.2702, 47.3773, -12.8279, 40.555, -9.76035, 34.3012, -9.48148, 16.4873, -13.9434, 1.89509, -15.6166, -7.95939, -35.1373, -18.3824, -41.8301, -16.8663, -44.061, -10.2335, -48.244, -9.09645, -50.4749, -0.947546, -44.8976, 5.68528, -42.9455, 14.0237, -32.6274, 36.7648)
+metadata/_edit_lock_ = true
+
+[node name="ToothD5" type="Area2D" parent="TeethManager"]
+position = Vector2(-859, 450)
+rotation = -1.90891
+scale = Vector2(0.36, 0.36)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothD5"]
+texture = ExtResource("5_uub2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothD5"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(25.6532, -11.779, 39.0388, -1.54551, 40.9909, 5.27682, 44.0584, 15.6998, 50.1935, 37.8724, 49.9146, 54.7388, 41.2697, 56.8234, 37.6444, 61.1821, 31.2305, 61.9401, 31.2305, 57.3919, 22.5856, 49.243, 5.8536, 24.0382, 6.6902, 19.869, -3.07015, 7.36142, 1.94946, -9.5049, 8.92113, -9.69441, 18.1237, -5.14619)
+metadata/_edit_lock_ = true
+
+[node name="ToothA6" type="Area2D" parent="TeethManager"]
+position = Vector2(705, -47)
+rotation = 6.55194
+scale = Vector2(0.360004, 0.360004)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothA6"]
+texture = ExtResource("2_t4g3b")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothA6"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(27.3264, -10.0734, 35.9712, -5.3357, 48.2414, -6.66227, 54.3765, 4.13976, 29.2784, 59.0975, 16.4505, 59.4765, 5.57473, 38.441, 10.8732, 11.5306, 10.8732, -0.218948)
+metadata/_edit_lock_ = true
+
+[node name="ToothA7" type="Area2D" parent="TeethManager"]
+position = Vector2(-752, -41)
+rotation = -1.54042
+scale = Vector2(0.360004, 0.360004)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothA7"]
+texture = ExtResource("2_t4g3b")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothA7"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(27.3264, -10.0734, 35.9712, -5.3357, 48.2414, -6.66227, 54.3765, 4.13976, 29.2784, 59.0975, 16.4505, 59.4765, 5.57473, 38.441, 10.8732, 11.5306, 10.8732, -0.218948)
+metadata/_edit_lock_ = true
+
+[node name="ToothB7" type="Area2D" parent="TeethManager"]
+position = Vector2(-614, -202)
+rotation = 0.2157
+scale = Vector2(0.4, 0.4)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothB7"]
+texture = ExtResource("3_lorll")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothB7"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(16.4505, -17.0853, 38.481, -6.09374, 45.7316, 19.111, 45.7316, 37.8724, 37.6444, 62.1296, 33.4614, 61.9401, 16.7294, 34.6508, 6.6902, 7.74044, 5.8536, -7.98883, 10.8732, -9.12589, 11.9887, -15.0007)
+metadata/_edit_lock_ = true
+
+[node name="ToothA8" type="Area2D" parent="TeethManager"]
+position = Vector2(-19, 83)
+rotation = 3.07847
+scale = Vector2(0.360004, 0.360004)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothA8"]
+texture = ExtResource("2_t4g3b")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothA8"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(27.3264, -10.0734, 35.9712, -5.3357, 48.2414, -6.66227, 54.3765, 4.13976, 29.2784, 59.0975, 16.4505, 59.4765, 5.57473, 38.441, 10.8732, 11.5306, 10.8732, -0.218948)
+metadata/_edit_lock_ = true
+
+[node name="ToothB6" type="Area2D" parent="TeethManager"]
+position = Vector2(-561, 494)
+rotation = 2.13776
+scale = Vector2(0.4, 0.4)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothB6"]
+texture = ExtResource("3_lorll")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothB6"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(16.4505, -17.0853, 38.481, -6.09374, 45.7316, 19.111, 45.7316, 37.8724, 37.6444, 62.1296, 33.4614, 61.9401, 16.7294, 34.6508, 6.6902, 7.74044, 5.8536, -7.98883, 10.8732, -9.12589, 11.9887, -15.0007)
+metadata/_edit_lock_ = true
+
+[node name="ToothC6" type="Area2D" parent="TeethManager"]
+position = Vector2(-962, 103)
+rotation = -3.94547
+scale = Vector2(0.440001, 0.440001)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothC6"]
+texture = ExtResource("4_30jo3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothC6"]
+visible = false
+position = Vector2(82, -81)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(-15.3377, 52.6836, -12.2702, 47.3773, -12.8279, 40.555, -9.76035, 34.3012, -9.48148, 16.4873, -13.9434, 1.89509, -15.6166, -7.95939, -35.1373, -18.3824, -41.8301, -16.8663, -44.061, -10.2335, -48.244, -9.09645, -50.4749, -0.947546, -44.8976, 5.68528, -42.9455, 14.0237, -32.6274, 36.7648)
+metadata/_edit_lock_ = true
+
+[node name="ToothC7" type="Area2D" parent="TeethManager"]
+position = Vector2(439, -395)
+rotation = 1.94053
+scale = Vector2(0.440001, 0.440001)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothC7"]
+texture = ExtResource("4_30jo3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothC7"]
+visible = false
+position = Vector2(82, -81)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(-15.3377, 52.6836, -12.2702, 47.3773, -12.8279, 40.555, -9.76035, 34.3012, -9.48148, 16.4873, -13.9434, 1.89509, -15.6166, -7.95939, -35.1373, -18.3824, -41.8301, -16.8663, -44.061, -10.2335, -48.244, -9.09645, -50.4749, -0.947546, -44.8976, 5.68528, -42.9455, 14.0237, -32.6274, 36.7648)
+metadata/_edit_lock_ = true
+
+[node name="ToothC8" type="Area2D" parent="TeethManager"]
+position = Vector2(493, -385)
+rotation = 0.0316201
+scale = Vector2(0.440001, 0.440001)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothC8"]
+texture = ExtResource("4_30jo3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothC8"]
+visible = false
+position = Vector2(82, -81)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(-15.3377, 52.6836, -12.2702, 47.3773, -12.8279, 40.555, -9.76035, 34.3012, -9.48148, 16.4873, -13.9434, 1.89509, -15.6166, -7.95939, -35.1373, -18.3824, -41.8301, -16.8663, -44.061, -10.2335, -48.244, -9.09645, -50.4749, -0.947546, -44.8976, 5.68528, -42.9455, 14.0237, -32.6274, 36.7648)
+metadata/_edit_lock_ = true
+
+[node name="ToothC9" type="Area2D" parent="TeethManager"]
+position = Vector2(324, 365)
+rotation = 2.57952
+scale = Vector2(0.440001, 0.440001)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothC9"]
+texture = ExtResource("4_30jo3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothC9"]
+visible = false
+position = Vector2(82, -81)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(-15.3377, 52.6836, -12.2702, 47.3773, -12.8279, 40.555, -9.76035, 34.3012, -9.48148, 16.4873, -13.9434, 1.89509, -15.6166, -7.95939, -35.1373, -18.3824, -41.8301, -16.8663, -44.061, -10.2335, -48.244, -9.09645, -50.4749, -0.947546, -44.8976, 5.68528, -42.9455, 14.0237, -32.6274, 36.7648)
+metadata/_edit_lock_ = true
+
+[node name="ToothD9" type="Area2D" parent="TeethManager"]
+position = Vector2(649, -335)
+rotation = 1.74496
+scale = Vector2(0.36, 0.36)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothD9"]
+texture = ExtResource("5_uub2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothD9"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(25.6532, -11.779, 39.0388, -1.54551, 40.9909, 5.27682, 44.0584, 15.6998, 50.1935, 37.8724, 49.9146, 54.7388, 41.2697, 56.8234, 37.6444, 61.1821, 31.2305, 61.9401, 31.2305, 57.3919, 22.5856, 49.243, 5.8536, 24.0382, 6.6902, 19.869, -3.07015, 7.36142, 1.94946, -9.5049, 8.92113, -9.69441, 18.1237, -5.14619)
+metadata/_edit_lock_ = true
+
+[node name="ToothC10" type="Area2D" parent="TeethManager"]
+position = Vector2(700, -85)
+rotation = 1.9128
+scale = Vector2(0.440001, 0.440001)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothC10"]
+texture = ExtResource("4_30jo3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothC10"]
+visible = false
+position = Vector2(82, -81)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(-15.3377, 52.6836, -12.2702, 47.3773, -12.8279, 40.555, -9.76035, 34.3012, -9.48148, 16.4873, -13.9434, 1.89509, -15.6166, -7.95939, -35.1373, -18.3824, -41.8301, -16.8663, -44.061, -10.2335, -48.244, -9.09645, -50.4749, -0.947546, -44.8976, 5.68528, -42.9455, 14.0237, -32.6274, 36.7648)
+metadata/_edit_lock_ = true
+
+[node name="ToothD10" type="Area2D" parent="TeethManager"]
+position = Vector2(639, -341)
+rotation = -0.163948
+scale = Vector2(0.36, 0.36)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothD10"]
+texture = ExtResource("5_uub2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothD10"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(25.6532, -11.779, 39.0388, -1.54551, 40.9909, 5.27682, 44.0584, 15.6998, 50.1935, 37.8724, 49.9146, 54.7388, 41.2697, 56.8234, 37.6444, 61.1821, 31.2305, 61.9401, 31.2305, 57.3919, 22.5856, 49.243, 5.8536, 24.0382, 6.6902, 19.869, -3.07015, 7.36142, 1.94946, -9.5049, 8.92113, -9.69441, 18.1237, -5.14619)
+metadata/_edit_lock_ = true
+
+[node name="ToothC11" type="Area2D" parent="TeethManager"]
+position = Vector2(327, 347)
+rotation = -1.56151
+scale = Vector2(0.440001, 0.440001)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothC11"]
+texture = ExtResource("4_30jo3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothC11"]
+visible = false
+position = Vector2(82, -81)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(-15.3377, 52.6836, -12.2702, 47.3773, -12.8279, 40.555, -9.76035, 34.3012, -9.48148, 16.4873, -13.9434, 1.89509, -15.6166, -7.95939, -35.1373, -18.3824, -41.8301, -16.8663, -44.061, -10.2335, -48.244, -9.09645, -50.4749, -0.947546, -44.8976, 5.68528, -42.9455, 14.0237, -32.6274, 36.7648)
+metadata/_edit_lock_ = true
+
+[node name="ToothD6" type="Area2D" parent="TeethManager"]
+position = Vector2(728, -236)
+rotation = -5.28353
+scale = Vector2(0.36, 0.36)
+script = ExtResource("3_36ppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothD6"]
+texture = ExtResource("5_uub2t")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothD6"]
+visible = false
+position = Vector2(-103.991, -122.845)
+scale = Vector2(3.58594, 5.27679)
+polygon = PackedVector2Array(25.6532, -11.779, 39.0388, -1.54551, 40.9909, 5.27682, 44.0584, 15.6998, 50.1935, 37.8724, 49.9146, 54.7388, 41.2697, 56.8234, 37.6444, 61.1821, 31.2305, 61.9401, 31.2305, 57.3919, 22.5856, 49.243, 5.8536, 24.0382, 6.6902, 19.869, -3.07015, 7.36142, 1.94946, -9.5049, 8.92113, -9.69441, 18.1237, -5.14619)
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="MujerSalchicha" type="CharacterBody2D" parent="."]
+position = Vector2(-678, 241)
+script = ExtResource("1_cqak2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MujerSalchicha"]
+position = Vector2(4, 1)
+rotation = -1.57523
+shape = SubResource("CapsuleShape2D_mqt3p")
+metadata/_edit_lock_ = true
+
+[node name="Salchicha" type="Sprite2D" parent="MujerSalchicha"]
+scale = Vector2(-0.146, 0.146)
+texture = ExtResource("1_u1jc0")
+hframes = 3
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MujerSalchicha"]
+libraries = {
+"": SubResource("AnimationLibrary_hc4v4")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(736, 397)
+rotation = 0.81356
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_lk4qo")
+metadata/_edit_lock_ = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="TeethManager/ToothA" to="TeethManager/ToothA" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothB" to="TeethManager/ToothB" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothC" to="TeethManager/ToothC" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothD" to="TeethManager/ToothD" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothA3" to="TeethManager/ToothA3" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothB3" to="TeethManager/ToothB3" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothC3" to="TeethManager/ToothC3" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothD3" to="TeethManager/ToothD3" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothA2" to="TeethManager/ToothA2" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothB2" to="TeethManager/ToothB2" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothC2" to="TeethManager/ToothC2" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothD2" to="TeethManager/ToothD2" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothA4" to="TeethManager/ToothA4" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothB4" to="TeethManager/ToothB4" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothC4" to="TeethManager/ToothC4" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothD4" to="TeethManager/ToothD4" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothA5" to="TeethManager/ToothA5" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothD7" to="TeethManager/ToothD7" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothB8" to="TeethManager/ToothB8" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothD8" to="TeethManager/ToothD8" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothA9" to="TeethManager/ToothA9" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothB5" to="TeethManager/ToothB5" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothC5" to="TeethManager/ToothC5" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothD5" to="TeethManager/ToothD5" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothA6" to="TeethManager/ToothA6" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothA7" to="TeethManager/ToothA7" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothB7" to="TeethManager/ToothB7" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothA8" to="TeethManager/ToothA8" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothB6" to="TeethManager/ToothB6" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothC6" to="TeethManager/ToothC6" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothC7" to="TeethManager/ToothC7" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothC8" to="TeethManager/ToothC8" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothC9" to="TeethManager/ToothC9" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothD9" to="TeethManager/ToothD9" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothC10" to="TeethManager/ToothC10" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothD10" to="TeethManager/ToothD10" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothC11" to="TeethManager/ToothC11" method="_on_body_entered"]
+[connection signal="body_entered" from="TeethManager/ToothD6" to="TeethManager/ToothD6" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
