@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 		pop()
 		
 func pop():
+	$Pop.play()
 	$AnimationPlayer.play("Woke")
 	get_parent().get_parent().count += 1
 	POPPED = true

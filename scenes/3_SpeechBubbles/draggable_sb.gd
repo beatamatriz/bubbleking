@@ -11,9 +11,6 @@ var success_offset = 35
 
 var locked = false;
 
-#func _init() -> void:
-	#original_scale = $Sprite2D.scale
-
 func _process(delta: float) -> void:
 	if(locked):
 		return
@@ -27,6 +24,8 @@ func _process(delta: float) -> void:
 			drop()
 		
 func start_drag():
+	$pickup.play()
+	
 	original_scale = $Area/Sprite.scale
 	
 	dragging = true;
@@ -34,6 +33,8 @@ func start_drag():
 	$Area/Sprite.scale = original_scale * scale_multiplier
 	
 func drop():
+	$drop.play()
+	
 	dragging = false;
 	dragging_offset = 0
 	$Area/Sprite.scale = original_scale
@@ -43,6 +44,8 @@ func drop():
 		lock()
 	
 func lock():
+	$lock.play()
+	
 	locked = true
 	$Area/Sprite.modulate = "ffffff"
 	get_parent().get_parent().get_parent().count += 1
@@ -50,6 +53,9 @@ func lock():
 func _mouse_enter() -> void:
 	if(dragging or locked):
 		return
+	
+	$mouse_exit.stop()
+	$mouse_enter.play()
 		
 	clickable = true
 	$Area/Sprite.modulate = "978fff"
@@ -58,5 +64,8 @@ func _mouse_exit() -> void:
 	if(dragging or locked):
 		return
 		
+	$mouse_enter.stop()
+	$mouse_exit.play()
+	
 	clickable = false
 	$Area/Sprite.modulate = "ffffff"

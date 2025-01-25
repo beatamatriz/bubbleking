@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://ds7u438ei3dvv"]
+[gd_scene load_steps=15 format=3 uid="uid://ds7u438ei3dvv"]
 
 [ext_resource type="Script" path="res://scenes/11_Classroom/classroom.gd" id="1_01e3m"]
 [ext_resource type="Texture2D" uid="uid://2akqda50lbey" path="res://assets/11/11fondo.png" id="2_mekwv"]
 [ext_resource type="Script" path="res://scenes/11_Classroom/mucus.gd" id="3_gha5p"]
 [ext_resource type="Texture2D" uid="uid://dg4dikm0grat0" path="res://assets/11/11_3.png" id="4_qgdve"]
+[ext_resource type="AudioStream" uid="uid://djc2ys401247s" path="res://assets/audio/bubbles/bubbles_2/A_BubbleWater_04.wav" id="5_54bbu"]
 [ext_resource type="Texture2D" uid="uid://bduuhanl208qi" path="res://assets/11/11.png" id="5_bvvck"]
 [ext_resource type="Texture2D" uid="uid://bh5hb8unwolcy" path="res://assets/11/11_2.png" id="6_lqctt"]
 
@@ -161,6 +162,9 @@ libraries = {
 "": SubResource("AnimationLibrary_crlh4")
 }
 
+[node name="Pop" type="AudioStreamPlayer2D" parent="PoppablesManager/Ingrid"]
+stream = ExtResource("5_54bbu")
+
 [node name="Julia" type="StaticBody2D" parent="PoppablesManager"]
 position = Vector2(961, 225)
 scale = Vector2(0.262628, 0.271116)
@@ -183,6 +187,9 @@ libraries = {
 "": SubResource("AnimationLibrary_crlh4")
 }
 
+[node name="Pop" type="AudioStreamPlayer2D" parent="PoppablesManager/Julia"]
+stream = ExtResource("5_54bbu")
+
 [node name="Bea" type="StaticBody2D" parent="PoppablesManager"]
 position = Vector2(726, 628)
 scale = Vector2(0.773074, 0.798058)
@@ -204,5 +211,10 @@ metadata/_edit_lock_ = true
 libraries = {
 "": SubResource("AnimationLibrary_crlh4")
 }
+
+[node name="Pop" type="AudioStreamPlayer2D" parent="PoppablesManager/Bea"]
+stream = ExtResource("5_54bbu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

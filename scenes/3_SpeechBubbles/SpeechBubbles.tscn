@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1qfqb73u45we"]
+[gd_scene load_steps=10 format=3 uid="uid://d1qfqb73u45we"]
 
 [ext_resource type="Script" path="res://scenes/3_SpeechBubbles/speech_bubbles.gd" id="1_xxjk1"]
 [ext_resource type="Script" path="res://scenes/3_SpeechBubbles/draggable_sb.gd" id="2_vwscx"]
+[ext_resource type="AudioStream" uid="uid://c8ut8v628clr" path="res://assets/audio/bubbles/bubbles_1/A_Bubbles_03.wav" id="3_1jrv6"]
+[ext_resource type="AudioStream" uid="uid://rwmqmsw72uy" path="res://assets/audio/bubbles/bubbles_2/A_BubbleWater_02.wav" id="4_siaop"]
+[ext_resource type="AudioStream" uid="uid://bu2420p76ci6r" path="res://assets/audio/bubbles/bubbles_2/A_BubbleWater_05.wav" id="5_moe6y"]
+[ext_resource type="AudioStream" uid="uid://balwrs8ji7mo7" path="res://assets/audio/other/A_Swish_01.wav" id="6_xogw1"]
+[ext_resource type="AudioStream" uid="uid://bkq0mt0rqbes" path="res://assets/audio/other/A_Swish_02.wav" id="7_m3xl6"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ir5yv"]
 
@@ -35,3 +40,21 @@ shape = SubResource("RectangleShape2D_lcfpt")
 [node name="Sprite" type="Sprite2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble/Area"]
 scale = Vector2(71, 72)
 texture = SubResource("PlaceholderTexture2D_ir5yv")
+
+[node name="pickup" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble"]
+stream = ExtResource("3_1jrv6")
+volume_db = 8.0
+
+[node name="drop" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble"]
+stream = ExtResource("4_siaop")
+volume_db = 4.0
+
+[node name="lock" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble"]
+stream = ExtResource("5_moe6y")
+volume_db = 4.0
+
+[node name="mouse_enter" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble"]
+stream = ExtResource("6_xogw1")
+
+[node name="mouse_exit" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble"]
+stream = ExtResource("7_m3xl6")

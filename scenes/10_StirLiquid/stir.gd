@@ -40,5 +40,6 @@ func _process(delta: float) -> void:
 
 
 func complete_circle() -> void:
+	$count.play()
 	current_circle_segment = 0
 	get_parent().count += 1
