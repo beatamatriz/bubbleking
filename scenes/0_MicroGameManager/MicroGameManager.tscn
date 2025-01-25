@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dddokf03t0rwt"]
+[gd_scene load_steps=14 format=3 uid="uid://dddokf03t0rwt"]
 
 [ext_resource type="Script" path="res://scenes/0_MicroGameManager/micro_game_manager.gd" id="1_eq17e"]
 [ext_resource type="PackedScene" uid="uid://cqeai7aw74e46" path="res://scenes/4_Bubblegum/Bubblegum.tscn" id="1_eqcjs"]
@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://b0n3cfrp8tltf" path="res://scenes/2_StimPop/StimPop.tscn" id="5_mxcb2"]
 [ext_resource type="PackedScene" uid="uid://c352bqub1f060" path="res://scenes/9_HumanBall/HumanBall.tscn" id="6_glfvb"]
 [ext_resource type="PackedScene" uid="uid://2bsbejlt6wdv" path="res://scenes/5_BubbleTea/BubbleTea.tscn" id="6_sdb8t"]
-[ext_resource type="Texture2D" uid="uid://bomtherfdjvxy" path="res://assets/placeholders/placeholder_f.jpg" id="6_vartu"]
 [ext_resource type="PackedScene" uid="uid://ds7u438ei3dvv" path="res://scenes/11_Classroom/Classroom.tscn" id="7_2jbch"]
 [ext_resource type="PackedScene" uid="uid://dlvmc70m2yr00" path="res://scenes/7_BlowBubbles/BlowBubbles.tscn" id="7_4jlhl"]
+[ext_resource type="PackedScene" uid="uid://dlh5psjl7dprw" path="res://scenes/10_StirLiquid/StirLiquid.tscn" id="10_6u1aj"]
+[ext_resource type="Texture2D" uid="uid://kvvvub4gp2o1" path="res://assets/placeholders/game_over_ph.jpg" id="12_3uy5y"]
 [ext_resource type="PackedScene" uid="uid://brpu5hrenxj2c" path="res://scenes/6_ShakeChampagne/ShakeChampagne.tscn" id="12_joeej"]
 
 [node name="MicroGameManager" type="Node2D"]
@@ -28,7 +29,7 @@ position = Vector2(3209, 1946)
 position = Vector2(994, 1914)
 
 [node name="Three" parent="." instance=ExtResource("4_vsit3")]
-position = Vector2(6346, 4182)
+position = Vector2(8382, 4115)
 
 [node name="Four" parent="." instance=ExtResource("1_eqcjs")]
 position = Vector2(983, 3170)
@@ -36,17 +37,28 @@ position = Vector2(983, 3170)
 [node name="Five" parent="." instance=ExtResource("6_sdb8t")]
 position = Vector2(972, -665)
 
+[node name="Six" parent="." instance=ExtResource("12_joeej")]
+position = Vector2(9340, 1952)
+
 [node name="Seven" parent="." instance=ExtResource("7_4jlhl")]
 position = Vector2(3230, 3205)
 
 [node name="Nine" parent="." instance=ExtResource("6_glfvb")]
 position = Vector2(1006, 4549)
 
+[node name="Ten" parent="." instance=ExtResource("10_6u1aj")]
+position = Vector2(9976, 6633)
+
 [node name="Eleven" parent="." instance=ExtResource("7_2jbch")]
 position = Vector2(3246, 4565)
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(949, 552)
+position = Vector2(994, 575)
+
+[node name="GameOver" type="Sprite2D" parent="Camera"]
+visible = false
+scale = Vector2(1.54583, 1.54583)
+texture = ExtResource("12_3uy5y")
 
 [node name="Success" type="Sprite2D" parent="Camera"]
 visible = false
@@ -58,9 +70,6 @@ texture = ExtResource("5_3kt0l")
 visible = false
 position = Vector2(9.64589, -5.49997)
 scale = Vector2(0.642476, 0.5495)
-texture = ExtResource("6_vartu")
-
-[node name="ShakeChampagne" parent="." instance=ExtResource("12_joeej")]
-position = Vector2(10245, 2619)
+texture = ExtResource("12_3uy5y")
 
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]
