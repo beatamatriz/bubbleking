@@ -10,7 +10,7 @@ func _ready() -> void:
 		$Shadow.visible = false
 
 func _process(delta: float) -> void:
-	if not POPPED and clickable and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if get_parent().get_parent().active and not POPPED and clickable and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		pop()
 		
 func pop():

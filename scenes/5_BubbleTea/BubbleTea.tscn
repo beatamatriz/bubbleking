@@ -11,8 +11,8 @@
 radius = 346.006
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aojk0"]
-radius = 98.0
-height = 196.0
+radius = 57.0
+height = 180.0
 
 [sub_resource type="Animation" id="Animation_hr23q"]
 resource_name = "Idle"
@@ -50,7 +50,7 @@ position = Vector2(210, 423)
 scale = Vector2(0.152167, 0.152167)
 script = ExtResource("5_mtrr8")
 
-[node name="Sprite2D" type="Sprite2D" parent="TapioManager/TapiocaA"]
+[node name="Sprite" type="Sprite2D" parent="TapioManager/TapiocaA"]
 texture = ExtResource("5_tg66n")
 hframes = 3
 metadata/_edit_lock_ = true
@@ -64,7 +64,7 @@ position = Vector2(304, 401)
 scale = Vector2(0.152167, 0.152167)
 script = ExtResource("5_mtrr8")
 
-[node name="Sprite2D" type="Sprite2D" parent="TapioManager/TapiocaB"]
+[node name="Sprite" type="Sprite2D" parent="TapioManager/TapiocaB"]
 texture = ExtResource("5_tg66n")
 hframes = 3
 frame = 1
@@ -79,7 +79,7 @@ position = Vector2(-173, 409)
 scale = Vector2(0.152167, 0.152167)
 script = ExtResource("5_mtrr8")
 
-[node name="Sprite2D" type="Sprite2D" parent="TapioManager/TapiocaC"]
+[node name="Sprite" type="Sprite2D" parent="TapioManager/TapiocaC"]
 texture = ExtResource("5_tg66n")
 hframes = 3
 frame = 2

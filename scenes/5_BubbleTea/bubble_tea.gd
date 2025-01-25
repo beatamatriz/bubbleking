@@ -25,7 +25,6 @@ func begin():
 
 func suck():
 	count += 1
-	
 
 func _on_timer_timeout() -> void:
 	active = false
