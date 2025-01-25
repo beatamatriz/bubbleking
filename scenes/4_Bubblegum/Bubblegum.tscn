@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqeai7aw74e46"]
+[gd_scene load_steps=7 format=3 uid="uid://by0bw3krgxno1"]
 
 [ext_resource type="Script" path="res://scenes/4_Bubblegum/bubblegum.gd" id="1_e5ak1"]
 [ext_resource type="Texture2D" uid="uid://dlh1h43kwbc0c" path="res://assets/4/4_fondo.png" id="2_ji1yq"]
@@ -15,10 +15,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.733333, 4.66667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333, 1.03333, 4.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 0, 1, 2, 3, 3]
+"values": [0, 1, 0, 1, 0, 2, 3, 3]
 }
 
 [sub_resource type="Animation" id="Animation_13uxc"]
