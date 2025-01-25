@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://brpu5hrenxj2c"]
+
+[ext_resource type="Script" path="res://scenes/6_ShakeChampagne/shake_bottle.gd" id="1_hikwa"]
+[ext_resource type="Script" path="res://scenes/6_ShakeChampagne/bottle.gd" id="2_c3jhp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4jdvc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sn2il"]
+size = Vector2(71, 72)
+
+[node name="ShakeChampagne" type="Node2D"]
+script = ExtResource("1_hikwa")
+
+[node name="Bottle" type="StaticBody2D" parent="."]
+position = Vector2(960, 540)
+input_pickable = true
+script = ExtResource("2_c3jhp")
+
+[node name="Sprite" type="Sprite2D" parent="Bottle"]
+scale = Vector2(71, 72)
+texture = SubResource("PlaceholderTexture2D_4jdvc")
+
+[node name="Area" type="CollisionShape2D" parent="Bottle"]
+shape = SubResource("RectangleShape2D_sn2il")
