@@ -29,8 +29,7 @@ window/size/mode=3
 folder_colors={
 "res://assets/": "red",
 "res://assets/placeholders/": "orange",
-"res://scenes/": "teal",
-"res://sripts/": "purple"
+"res://scenes/": "teal"
 }
 
 [input]

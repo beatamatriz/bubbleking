@@ -49,6 +49,8 @@ script = ExtResource("1_e5ak1")
 wait_time = 5.0
 one_shot = true
 
+[node name="ChewTimer" type="Timer" parent="."]
+
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_ji1yq")
 
@@ -62,3 +64,4 @@ libraries = {
 }
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ChewTimer" to="." method="_on_chew_timer_timeout"]

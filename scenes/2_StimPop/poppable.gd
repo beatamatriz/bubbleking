@@ -9,13 +9,12 @@ func _ready() -> void:
 	else:
 		$Shadow.visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not POPPED and clickable and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		pop()
 		
 func pop():
-	$Shadow.visible = false  # POP!!!
+	$Shadow.visible = false
 	$Shadow.visible = true
 	get_parent().get_parent().count += 1
 	POPPED = true
