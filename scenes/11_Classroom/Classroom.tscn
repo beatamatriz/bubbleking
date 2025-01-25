@@ -1,12 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://ds7u438ei3dvv"]
+[gd_scene load_steps=22 format=3 uid="uid://ds7u438ei3dvv"]
 
 [ext_resource type="Script" path="res://scenes/11_Classroom/classroom.gd" id="1_01e3m"]
 [ext_resource type="Texture2D" uid="uid://2akqda50lbey" path="res://assets/11/11fondo.png" id="2_mekwv"]
 [ext_resource type="Script" path="res://scenes/11_Classroom/mucus.gd" id="3_gha5p"]
 [ext_resource type="Texture2D" uid="uid://dg4dikm0grat0" path="res://assets/11/11_3.png" id="4_qgdve"]
-[ext_resource type="AudioStream" uid="uid://djc2ys401247s" path="res://assets/audio/bubbles/bubbles_2/A_BubbleWater_04.wav" id="5_54bbu"]
 [ext_resource type="Texture2D" uid="uid://bduuhanl208qi" path="res://assets/11/11.png" id="5_bvvck"]
+[ext_resource type="AudioStream" uid="uid://cnir00auw2b0w" path="res://assets/audio/bubbles/bubbles_0/A_BubblePops_02.wav" id="5_jtkef"]
+[ext_resource type="AudioStream" uid="uid://dwgro35y27tmd" path="res://assets/audio/bubbles/bubbles_0/A_BubblePops_03.wav" id="6_1h7vq"]
 [ext_resource type="Texture2D" uid="uid://bh5hb8unwolcy" path="res://assets/11/11_2.png" id="6_lqctt"]
+[ext_resource type="AudioStream" uid="uid://cljukvlyekpx8" path="res://assets/audio/bubbles/bubbles_0/A_BubblePops_04.wav" id="7_8n4kd"]
+[ext_resource type="AudioStream" uid="uid://bsjmsxjbhg5f5" path="res://assets/audio/bubbles/bubbles_0/A_BubblePops_05.wav" id="8_eh4ur"]
+[ext_resource type="AudioStream" uid="uid://xfw23q6ib0h7" path="res://assets/audio/bubbles/bubbles_0/A_BubblePops_06.wav" id="9_b5byk"]
+[ext_resource type="AudioStream" uid="uid://cfxelgt171i1l" path="res://assets/audio/bubbles/bubbles_0/A_BubblePops_07.wav" id="10_upmce"]
+[ext_resource type="AudioStream" uid="uid://qikc2l4ag7ei" path="res://assets/audio/bubbles/bubbles_0/A_BubblePops_08.wav" id="11_0a78l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mp5q3"]
 radius = 214.002
@@ -127,6 +133,16 @@ _data = {
 "Woke": SubResource("Animation_1da6k")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7hdgg"]
+streams_count = 7
+stream_0/stream = ExtResource("5_jtkef")
+stream_1/stream = ExtResource("6_1h7vq")
+stream_2/stream = ExtResource("7_8n4kd")
+stream_3/stream = ExtResource("8_eh4ur")
+stream_4/stream = ExtResource("9_b5byk")
+stream_5/stream = ExtResource("10_upmce")
+stream_6/stream = ExtResource("11_0a78l")
+
 [node name="Classroom" type="Node2D"]
 script = ExtResource("1_01e3m")
 metadata/_edit_lock_ = true
@@ -163,7 +179,8 @@ libraries = {
 }
 
 [node name="Pop" type="AudioStreamPlayer2D" parent="PoppablesManager/Ingrid"]
-stream = ExtResource("5_54bbu")
+stream = SubResource("AudioStreamRandomizer_7hdgg")
+volume_db = 10.0
 
 [node name="Julia" type="StaticBody2D" parent="PoppablesManager"]
 position = Vector2(961, 225)
@@ -188,7 +205,8 @@ libraries = {
 }
 
 [node name="Pop" type="AudioStreamPlayer2D" parent="PoppablesManager/Julia"]
-stream = ExtResource("5_54bbu")
+stream = SubResource("AudioStreamRandomizer_7hdgg")
+volume_db = 14.0
 
 [node name="Bea" type="StaticBody2D" parent="PoppablesManager"]
 position = Vector2(726, 628)
@@ -213,8 +231,7 @@ libraries = {
 }
 
 [node name="Pop" type="AudioStreamPlayer2D" parent="PoppablesManager/Bea"]
-stream = ExtResource("5_54bbu")
-
-[node name="Camera2D" type="Camera2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_7hdgg")
+volume_db = 18.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
