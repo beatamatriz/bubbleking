@@ -33,7 +33,8 @@ input_pickable = true
 script = ExtResource("2_c3jhp")
 
 [node name="Sprite" type="Sprite2D" parent="Bottle"]
-position = Vector2(-1193, -541)
+position = Vector2(-1225, -542)
+scale = Vector2(0.830928, 0.830928)
 texture = ExtResource("4_dbji4")
 hframes = 2
 

@@ -1,17 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1qfqb73u45we"]
+[gd_scene load_steps=11 format=3 uid="uid://d1qfqb73u45we"]
 
 [ext_resource type="Script" path="res://scenes/3_Comic/comic.gd" id="1_xxjk1"]
+[ext_resource type="Texture2D" uid="uid://behlmatowfm4g" path="res://assets/3/3fondo.png" id="2_1s62k"]
 [ext_resource type="Script" path="res://scenes/3_Comic/draggable_sb.gd" id="2_vwscx"]
 [ext_resource type="AudioStream" uid="uid://c8ut8v628clr" path="res://assets/audio/bubbles/bubbles_1/A_Bubbles_03.wav" id="3_1jrv6"]
+[ext_resource type="Texture2D" uid="uid://xeo40jxkqqf" path="res://assets/3/3hola.png" id="4_r2nox"]
 [ext_resource type="AudioStream" uid="uid://rwmqmsw72uy" path="res://assets/audio/bubbles/bubbles_2/A_BubbleWater_02.wav" id="4_siaop"]
 [ext_resource type="AudioStream" uid="uid://bu2420p76ci6r" path="res://assets/audio/bubbles/bubbles_2/A_BubbleWater_05.wav" id="5_moe6y"]
 [ext_resource type="AudioStream" uid="uid://balwrs8ji7mo7" path="res://assets/audio/other/A_Swish_01.wav" id="6_xogw1"]
 [ext_resource type="AudioStream" uid="uid://bkq0mt0rqbes" path="res://assets/audio/other/A_Swish_02.wav" id="7_m3xl6"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ir5yv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcfpt"]
-size = Vector2(71, 72)
+[ext_resource type="Texture2D" uid="uid://cuq7aqxvk3bnm" path="res://assets/3/3chao.png" id="10_p3t6x"]
 
 [node name="Comic" type="Node2D"]
 script = ExtResource("1_xxjk1")
@@ -19,42 +17,85 @@ script = ExtResource("1_xxjk1")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_1s62k")
+
 [node name="SpeechBubbleManager" type="Node2D" parent="."]
 
-[node name="SpeechBubble" type="Node2D" parent="SpeechBubbleManager"]
+[node name="Hola" type="Node2D" parent="SpeechBubbleManager"]
 
-[node name="Draggable Speech Bubble" type="StaticBody2D" parent="SpeechBubbleManager/SpeechBubble"]
+[node name="Draggable Speech Bubble" type="StaticBody2D" parent="SpeechBubbleManager/Hola"]
 position = Vector2(198.205, 198.765)
 input_pickable = true
 script = ExtResource("2_vwscx")
 
-[node name="Objective" type="Sprite2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble"]
-position = Vector2(1144.8, 382.235)
-scale = Vector2(71, 72)
-texture = SubResource("PlaceholderTexture2D_ir5yv")
+[node name="Objective" type="Sprite2D" parent="SpeechBubbleManager/Hola/Draggable Speech Bubble"]
+visible = false
+position = Vector2(-440.205, -500.765)
+texture = ExtResource("4_r2nox")
 
-[node name="Area" type="CollisionShape2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble"]
-position = Vector2(-25.5, -26)
-shape = SubResource("RectangleShape2D_lcfpt")
+[node name="Area" type="CollisionPolygon2D" parent="SpeechBubbleManager/Hola/Draggable Speech Bubble"]
+position = Vector2(249.795, -353.765)
+polygon = PackedVector2Array(-172, 66, -189, 13, -180, -29, -139, -92, -51.9998, -140, 67.0002, -156, 165, -144, 244, -100, 274, -45, 278, -6, 272, 26, 246, 73, 180, 116, 83.0002, 132, -12.9998, 135, -114, 121, -160, 139, -203, 145, -243, 139, -262, 123, -253, 111, -232, 111, -191, 89)
 
-[node name="Sprite" type="Sprite2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble/Area"]
-scale = Vector2(71, 72)
-texture = SubResource("PlaceholderTexture2D_ir5yv")
+[node name="Sprite" type="Sprite2D" parent="SpeechBubbleManager/Hola/Draggable Speech Bubble/Area"]
+position = Vector2(29.3655, 23.6993)
+texture = ExtResource("4_r2nox")
+metadata/_edit_lock_ = true
 
-[node name="pickup" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble"]
+[node name="pickup" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/Hola/Draggable Speech Bubble"]
 stream = ExtResource("3_1jrv6")
 volume_db = 8.0
 
-[node name="drop" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble"]
+[node name="drop" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/Hola/Draggable Speech Bubble"]
 stream = ExtResource("4_siaop")
 volume_db = 4.0
 
-[node name="lock" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble"]
+[node name="lock" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/Hola/Draggable Speech Bubble"]
 stream = ExtResource("5_moe6y")
 volume_db = 4.0
 
-[node name="mouse_enter" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble"]
+[node name="mouse_enter" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/Hola/Draggable Speech Bubble"]
 stream = ExtResource("6_xogw1")
 
-[node name="mouse_exit" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/SpeechBubble/Draggable Speech Bubble"]
+[node name="mouse_exit" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/Hola/Draggable Speech Bubble"]
+stream = ExtResource("7_m3xl6")
+
+[node name="Chao" type="Node2D" parent="SpeechBubbleManager"]
+
+[node name="Draggable Speech Bubble" type="StaticBody2D" parent="SpeechBubbleManager/Chao"]
+position = Vector2(198.205, 198.765)
+input_pickable = true
+script = ExtResource("2_vwscx")
+
+[node name="Objective" type="Sprite2D" parent="SpeechBubbleManager/Chao/Draggable Speech Bubble"]
+visible = false
+position = Vector2(132.795, -184.765)
+texture = ExtResource("10_p3t6x")
+
+[node name="Area" type="CollisionPolygon2D" parent="SpeechBubbleManager/Chao/Draggable Speech Bubble"]
+position = Vector2(-733.205, 12.235)
+polygon = PackedVector2Array(60, -165.5, 185, -214.5, 182, -123.5, 253, -118.5, 183, -7.5, 232, 37.5, 212, 92.5, 258, 134.5, 150, 137.5, 159, 85.5, 130, 57.5, 39, 151.5, -33, 101.5, -124, 211.5, -162, 147.5, -168, 74.5, -269, 98.5, -257, 41.5, -197, -17.5, -263, -156.5, -125, -143.5, -55, -264.5)
+
+[node name="Sprite" type="Sprite2D" parent="SpeechBubbleManager/Chao/Draggable Speech Bubble/Area"]
+position = Vector2(15, -24)
+texture = ExtResource("10_p3t6x")
+metadata/_edit_lock_ = true
+
+[node name="pickup" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/Chao/Draggable Speech Bubble"]
+stream = ExtResource("3_1jrv6")
+volume_db = 8.0
+
+[node name="drop" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/Chao/Draggable Speech Bubble"]
+stream = ExtResource("4_siaop")
+volume_db = 4.0
+
+[node name="lock" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/Chao/Draggable Speech Bubble"]
+stream = ExtResource("5_moe6y")
+volume_db = 4.0
+
+[node name="mouse_enter" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/Chao/Draggable Speech Bubble"]
+stream = ExtResource("6_xogw1")
+
+[node name="mouse_exit" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/Chao/Draggable Speech Bubble"]
 stream = ExtResource("7_m3xl6")

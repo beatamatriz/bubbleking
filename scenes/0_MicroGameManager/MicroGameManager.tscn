@@ -23,34 +23,34 @@ wait_time = 2.0
 one_shot = true
 
 [node name="One" parent="." instance=ExtResource("2_7bkd2")]
-position = Vector2(3209, 1946)
+position = Vector2(3285, 577)
 
 [node name="Two" parent="." instance=ExtResource("5_mxcb2")]
-position = Vector2(994, 1914)
+position = Vector2(5563, 589)
 
 [node name="Three" parent="." instance=ExtResource("4_vsit3")]
-position = Vector2(7747, 4216)
+position = Vector2(7843, 572)
 
 [node name="Four" parent="." instance=ExtResource("1_eqcjs")]
-position = Vector2(983, 3170)
+position = Vector2(10165, 533)
 
 [node name="Five" parent="." instance=ExtResource("6_sdb8t")]
-position = Vector2(972, -665)
+position = Vector2(12623, 510)
 
 [node name="Six" parent="." instance=ExtResource("12_joeej")]
-position = Vector2(6366, 1730)
+position = Vector2(15044, 508)
 
 [node name="Seven" parent="." instance=ExtResource("7_4jlhl")]
-position = Vector2(3230, 3205)
+position = Vector2(17470, 568)
 
 [node name="Nine" parent="." instance=ExtResource("6_glfvb")]
-position = Vector2(1006, 4549)
+position = Vector2(22486, 569)
 
 [node name="Ten" parent="." instance=ExtResource("10_6u1aj")]
-position = Vector2(33912, 17385)
+position = Vector2(25002, 592)
 
 [node name="Eleven" parent="." instance=ExtResource("7_2jbch")]
-position = Vector2(3246, 4565)
+position = Vector2(27388, 547)
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(994, 575)

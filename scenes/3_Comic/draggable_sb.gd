@@ -9,7 +9,7 @@ var scale_multiplier = 1.1
 
 var success_offset = 35
 
-var locked = false;
+var locked = false
 
 func _process(delta: float) -> void:
 	if(locked):
@@ -40,7 +40,7 @@ func drop():
 	$Area/Sprite.scale = original_scale
 	
 	#print_debug(($Area.global_position - $Objective.global_position).length())
-	if(($Area.global_position - $Objective.global_position).length() < success_offset):
+	if(($Area/Sprite.global_position - $Objective.global_position).length() < success_offset):
 		lock()
 	
 func lock():
@@ -58,7 +58,7 @@ func _mouse_enter() -> void:
 	$mouse_enter.play()
 		
 	clickable = true
-	$Area/Sprite.modulate = "978fff"
+	$Area/Sprite.modulate = "ff8f97"
 	
 func _mouse_exit() -> void:
 	if(dragging or locked):

@@ -15,8 +15,6 @@ func _process(delta: float) -> void:
 		success = true
 
 func begin():
-	for speech_bubble in $SpeechBubbleManager.get_children():
-		speech_bubble.locked = false
 	$Timer.start(GAME_TIMER)
 	
 func _on_timer_timeout() -> void:

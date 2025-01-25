@@ -2,7 +2,8 @@ extends Node2D
 
 @export var TRANSITION_TIME = 1
 @export var HIT_POINTS = 3
-var mgl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] # MicroGame List
+var mgl = [3]
+# var mgl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] # MicroGame List
 var current_mg = 0
 
 func _ready() -> void:
@@ -45,7 +46,8 @@ func _on_transition_timer_timeout() -> void:
 		$Camera.position = $Two.position
 		$Two.begin()
 	if mgl[current_mg] == 3:
-		next("Default")
+		$Camera.position = $Three.position
+		$Three.begin()
 	if mgl[current_mg] == 4:
 		$Camera.position = $Four.position
 		$Four.begin()
@@ -53,7 +55,8 @@ func _on_transition_timer_timeout() -> void:
 		$Camera.position = $Five.position
 		$Five.begin()
 	if mgl[current_mg] == 6:
-		next("Default")
+		$Camera.position = $Six.position
+		$Six.begin()
 	if mgl[current_mg] == 7:
 		$Camera.position = $Seven.position
 		$Seven.begin()
