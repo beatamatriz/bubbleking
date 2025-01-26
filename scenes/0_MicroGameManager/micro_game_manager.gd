@@ -3,8 +3,8 @@ extends Node2D
 @export var TRANSITION_TIME = 1
 @export var HIT_POINTS = 3
 
-# var mgl = [4, 3, 5]
-var mgl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] # MicroGame List
+var mgl = [1]
+# var mgl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] # MicroGame List
 
 var current_mg = 0
 
@@ -74,7 +74,8 @@ func mute(mg: int):
 func _on_transition_timer_timeout() -> void:
 	if mgl[current_mg] == 1:
 		$Camera/layer1.volume_db = ost_volume
-		next("Default")
+		$Camera.position = $One.position
+		$One.begin()
 	if mgl[current_mg] == 2:
 		$Camera/layer2.volume_db = ost_volume
 		$Camera.position = $Two.position

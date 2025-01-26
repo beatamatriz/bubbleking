@@ -111,7 +111,7 @@ libraries = {
 }
 
 [node name="Samurai" type="Sprite2D" parent="."]
-position = Vector2(390, 25)
+position = Vector2(390, -25)
 rotation = 3.14159
 scale = Vector2(0.560776, -0.560776)
 texture = ExtResource("4_47ja2")
@@ -124,12 +124,12 @@ libraries = {
 
 [node name="Win" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(3, -2)
+position = Vector2(-3, -2)
 texture = ExtResource("5_26n5g")
 
 [node name="Lose" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(3, -3)
+position = Vector2(2, -3)
 texture = ExtResource("6_nmubw")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

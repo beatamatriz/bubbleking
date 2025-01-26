@@ -50,6 +50,7 @@ position = Vector2(10165, 533)
 
 [node name="Five" parent="." instance=ExtResource("6_sdb8t")]
 position = Vector2(12623, 510)
+GAME_TIMER = 2
 
 [node name="Six" parent="." instance=ExtResource("12_joeej")]
 position = Vector2(15044, 508)

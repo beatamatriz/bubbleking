@@ -12,6 +12,8 @@ func _process(delta: float) -> void:
 	if active:
 		if Input.is_action_just_pressed("ui_accept") and is_hitwindow:
 			success = true
+			$Usurper.visible = false
+			$Samurai.visible = false
 			$Win.visible = true
 
 func _on_hw_begin_timeout() -> void:
@@ -19,7 +21,10 @@ func _on_hw_begin_timeout() -> void:
 
 func _on_hw_end_timeout() -> void:
 	is_hitwindow = false
-	$Lose.visible = true
+	if not success:
+		$Usurper.visible = false
+		$Samurai.visible = false
+		$Lose.visible = true
 
 func begin():
 	active = true
