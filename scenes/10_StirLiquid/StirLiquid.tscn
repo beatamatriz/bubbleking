@@ -49,30 +49,30 @@ stream = ExtResource("4_vj73b")
 volume_db = -3.0
 pitch_scale = 1.3
 
-[node name="Spoon" type="RigidBody2D" parent="."]
-visible = false
+[node name="Spoon" type="CharacterBody2D" parent="."]
 position = Vector2(183, -206)
+motion_mode = 1
 script = ExtResource("8_ivgmn")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spoon"]
-position = Vector2(53, -28)
+position = Vector2(2, 4)
 scale = Vector2(0.733909, 0.733909)
-polygon = PackedVector2Array(-135.976, 353.846, -137.521, 313.671, -125.16, 282.768, -89.6204, 270.406, -46.3554, 270.406, -4.63556, 282.768, 15.4518, 301.31, 38.6295, 338.394, 29.3584, 373.933, -12.3615, 404.837, -64.8976, 401.747, -109.708, 378.569)
+polygon = PackedVector2Array(-174.409, 354.267, -167.596, 290.227, -134.894, 235.724, -76.3037, 200.297, -28.6139, 215.286, 31.3391, 234.361, 66.7658, 295.677, 51.7775, 367.893, 34.0642, 414.22, -28.6139, 415.583, -98.1048, 418.308, -133.532, 415.583)
 
 [node name="Cuchara" type="Sprite2D" parent="Spoon"]
-position = Vector2(53, -28)
+position = Vector2(-5, 12)
 scale = Vector2(0.733909, 0.733909)
 texture = ExtResource("8_juaju")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Polygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(264, 36, 271, -20, 257, -74, 240, -121, 207, -165, 177, -200, 145, -230, 99, -252, 20, -266, -20, -271, -64, -267, -108, -247, -153, -222, -197, -181, -232, -136, -257, -86, -267, -55, -267, -1, -259, 44, -244, 91, -227, 125, -205, 165, -182, 192, -153, 214, -111, 239, -74, 249, -27, 261, 13, 258, 59, 249, 104, 237, 146, 217, 178, 194, 210, 158, 234, 131, 249, 98, 259, 71, 281, 76, 274, 241, 48, 285, -202, 268, -294, 86, -337, -107, -223, -308, 114, -344, 287, -189, 322, 9, 302, 45)
+polygon = PackedVector2Array(264, 36, 271, -20, 257, -74, 240, -121, 207, -165, 177, -200, 145, -230, 99, -252, 20, -266, -20, -271, -64, -267, -108, -247, -153, -222, -197, -181, -232, -136, -257, -86, -267, -55, -267, -1, -259, 44, -244, 91, -227, 125, -205, 165, -182, 192, -153, 214, -111, 239, -74, 249, -27, 261, 13, 258, 59, 249, 104, 237, 146, 217, 178, 194, 210, 158, 234, 131, 249, 98, 259, 71, 516, 80, 467, 231, 97, 458, -276, 422, -497, 224, -516, -97, -278, -490, 230, -495, 492, -297, 518, 84, 302, 45)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="Polygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-polygon = PackedVector2Array(257, 69, 265, 33, 303, 46, 291, 83)
+polygon = PackedVector2Array(251, 120, 265, 33, 303, 46, 519, 83)
 
 [node name="Iconos" type="Sprite2D" parent="."]
 position = Vector2(572, -287)
