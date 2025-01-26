@@ -12,7 +12,7 @@ func begin():
 
 func failure():
 	success = false
-	active = false
+	$Salchica.SPEED = 0
 
 func _on_timer_timeout() -> void:
 	if active:
