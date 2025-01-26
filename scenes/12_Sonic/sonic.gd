@@ -21,4 +21,5 @@ func _on_timer_timeout() -> void:
 func _on_pompa_body_entered(body: Node2D) -> void:
 	if active and body.name == "Erizo":
 		success = true
-		$Erizo.SPEED = 0
+		$Erizo/Sprite.frame = 1
+		$Pompa.visible = false
