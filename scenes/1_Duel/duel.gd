@@ -12,19 +12,20 @@ func _process(delta: float) -> void:
 	if active:
 		if Input.is_action_just_pressed("ui_accept") and is_hitwindow:
 			success = true
-			$SpriteB.visible = true
+			$Win.visible = true
 
 func _on_hw_begin_timeout() -> void:
-	$SpriteA.visible = true
 	is_hitwindow = true
 
 func _on_hw_end_timeout() -> void:
-	$SpriteA.visible = false
 	is_hitwindow = false
+	$Lose.visible = true
 
 func begin():
 	active = true
 	$Timer.start(GAME_TIMER)
+	$Samurai/AnimationPlayer.play("Unsheath")
+	$Usurper/AnimationPlayer.play("Unsheath")
 	$HWBegin.start(SUDDEN_TIME)
 	$HWEnd.start(SUDDEN_TIME + HIT_WINDOW)
 
