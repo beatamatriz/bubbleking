@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dddokf03t0rwt"]
+[gd_scene load_steps=35 format=3 uid="uid://dddokf03t0rwt"]
 
 [ext_resource type="Script" path="res://scenes/0_MicroGameManager/micro_game_manager.gd" id="1_eq17e"]
 [ext_resource type="PackedScene" uid="uid://cqeai7aw74e46" path="res://scenes/4_Bubblegum/Bubblegum.tscn" id="1_eqcjs"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://bk5hvax87s0v7" path="res://scenes/8_Stonks/Stonks.tscn" id="28_vl23g"]
 [ext_resource type="AudioStream" uid="uid://ca1iqv0mcw5y1" path="res://assets/audio/other/A_funi_01.wav" id="31_fxqpf"]
 [ext_resource type="AudioStream" uid="uid://bl2qglyrfpy5i" path="res://assets/audio/other/A_gameover_01.wav" id="32_1mopm"]
+[ext_resource type="Texture2D" uid="uid://51qrffhtnbr1" path="res://assets/Cutscenes/OPENER.png" id="34_g5a75"]
 
 [node name="MicroGameManager" type="Node2D"]
 script = ExtResource("1_eq17e")
@@ -208,5 +209,11 @@ volume_db = -3.0
 
 [node name="sfx_fail" type="AudioStreamPlayer2D" parent="Camera"]
 stream = ExtResource("32_1mopm")
+
+[node name="Opener" type="Sprite2D" parent="Camera"]
+position = Vector2(-815, -19)
+texture = ExtResource("34_g5a75")
+hframes = 4
+frame = 3
 
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]

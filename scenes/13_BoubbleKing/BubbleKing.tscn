@@ -159,7 +159,7 @@ hframes = 2
 metadata/_edit_lock_ = true
 
 [node name="KingHP" type="Node2D" parent="Camera2D"]
-position = Vector2(1035, 107)
+position = Vector2(1035, -750)
 scale = Vector2(0.745577, 0.745577)
 
 [node name="HP1" type="Sprite2D" parent="Camera2D/KingHP"]

@@ -26,9 +26,18 @@ func _process(delta: float) -> void:
 func get_input():
 	if Input.is_action_pressed("rock"):
 		choice = 1
+		$Usurper/JugadorPiedra.visible = true
+		$Usurper/JugadorPapel.visible = false
+		$Usurper/JugadorTijera.visible = false
 	elif Input.is_action_pressed("paper"):
 		choice = 2
+		$Usurper/JugadorPiedra.visible = false
+		$Usurper/JugadorPapel.visible = true
+		$Usurper/JugadorTijera.visible = false
 	elif Input.is_action_pressed("siccors"):
+		$Usurper/JugadorPiedra.visible = false
+		$Usurper/JugadorPapel.visible = false
+		$Usurper/JugadorTijera.visible = true
 		choice = 3
 
 func next_round():
@@ -94,19 +103,16 @@ func _on_window_timer_timeout() -> void:
 	if choice == 0:
 		usurper_hp -= 1
 	elif choice == 1:
-		$Usurper/JugadorPiedra.visible = true
 		if pool[round] == 2:
 			usurper_hp -= 1
 		elif pool[round] == 3:
 			king_hp -= 1
 	elif choice == 2:
-		$Usurper/JugadorPapel.visible = true
 		if pool[round] == 3:
 			usurper_hp -= 1
 		elif pool[round] == 1:
 			king_hp -= 1
 	elif choice == 3:
-		$Usurper/JugadorTijera.visible = true
 		if pool[round] == 1:
 			usurper_hp -= 1
 		elif pool[round] == 2:
