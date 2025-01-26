@@ -57,3 +57,5 @@ hframes = 4
 libraries = {
 "": SubResource("AnimationLibrary_1wk1r")
 }
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

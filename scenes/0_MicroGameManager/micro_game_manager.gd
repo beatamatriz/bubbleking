@@ -28,11 +28,11 @@ func initialize():
 
 func update_hp():
 	if HIT_POINTS < 3:
-		$Camera2D/UsurperHP/HP3.visible = false
+		$Camera/UsurperHP/HP3.visible = false
 	if HIT_POINTS < 2:
-		$Camera2D/UsurperHP/HP2.visible = false
+		$Camera/UsurperHP/HP2.visible = false
 	if HIT_POINTS < 1:
-		$Camera2D/UsurperHP/HP1.visible = false
+		$Camera/UsurperHP/HP1.visible = false
 
 func next(state):
 	mute(current_mg)
