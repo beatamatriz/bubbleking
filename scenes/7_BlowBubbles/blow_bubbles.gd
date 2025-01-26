@@ -7,12 +7,18 @@ var active = false
 var count = 0
 var success = false
 
+var soundPlay = true
+
 func _process(delta: float) -> void:
 	if active:
 		if active and Input.is_action_just_pressed("ui_accept"):
 			count += 1
 		if count >= MASH_HP:
 			#active = false
+			if(soundPlay):
+				$pop.play()
+				soundPlay = false
+				
 			success = true
 			$Pulpa/AnimationPlayer.play("Bucle")
 			$Bubble/AnimationPlayer.play("Final")

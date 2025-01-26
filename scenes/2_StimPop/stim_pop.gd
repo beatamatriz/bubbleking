@@ -33,3 +33,6 @@ func _on_timer_timeout() -> void:
 			get_parent().next("Success")
 		else:
 			get_parent().next("Failure")
+			
+func popSound():
+	$pop.play()

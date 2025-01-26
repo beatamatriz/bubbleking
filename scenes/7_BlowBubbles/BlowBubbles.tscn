@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://dlvmc70m2yr00"]
+[gd_scene load_steps=17 format=3 uid="uid://dlvmc70m2yr00"]
 
 [ext_resource type="Script" path="res://scenes/7_BlowBubbles/blow_bubbles.gd" id="1_pd8ub"]
 [ext_resource type="Texture2D" uid="uid://cqd7vrfm0woxm" path="res://assets/7/7_fondo.png" id="2_8krla"]
 [ext_resource type="Texture2D" uid="uid://dxtq8pa7326p5" path="res://assets/7/7.png" id="3_460j6"]
 [ext_resource type="Texture2D" uid="uid://dfa22xhn2e5s" path="res://assets/7/7_2.png" id="4_rw8dq"]
 [ext_resource type="Texture2D" uid="uid://c1srt4pn3o14p" path="res://assets/7/7_3.png" id="5_akg1y"]
+[ext_resource type="AudioStream" uid="uid://dxxu6nbyuvg4" path="res://assets/audio/bubbles/bubbles_1/A_Bubbles_02.wav" id="6_bon7i"]
+[ext_resource type="AudioStream" uid="uid://c8ut8v628clr" path="res://assets/audio/bubbles/bubbles_1/A_Bubbles_03.wav" id="7_kr2bs"]
+[ext_resource type="AudioStream" uid="uid://bapf8aockj06v" path="res://assets/audio/bubbles/bubbles_1/A_Bubbles_01.wav" id="8_samtt"]
 
 [sub_resource type="Animation" id="Animation_8p8o5"]
 resource_name = "Bucle"
@@ -98,6 +101,12 @@ _data = {
 "RESET": SubResource("Animation_81wxh")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mgni3"]
+streams_count = 3
+stream_0/stream = ExtResource("6_bon7i")
+stream_1/stream = ExtResource("7_kr2bs")
+stream_2/stream = ExtResource("8_samtt")
+
 [node name="BlowBubbles" type="Node2D"]
 script = ExtResource("1_pd8ub")
 
@@ -136,5 +145,10 @@ frame = 11
 libraries = {
 "": SubResource("AnimationLibrary_4lyv4")
 }
+
+[node name="pop" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(41, -331)
+stream = SubResource("AudioStreamRandomizer_mgni3")
+max_polyphony = 2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

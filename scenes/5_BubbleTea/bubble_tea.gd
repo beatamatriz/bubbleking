@@ -25,6 +25,7 @@ func begin():
 
 func suck():
 	count += 1
+	$pop.play()
 
 func _on_timer_timeout() -> void:
 	if active:

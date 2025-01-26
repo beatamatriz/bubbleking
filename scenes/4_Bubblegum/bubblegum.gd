@@ -8,12 +8,19 @@ var active = false
 var count = 0
 var success = false
 
+var soundPlay = true
+
 func _process(delta: float) -> void:
 	if active:
 		if Input.is_action_just_pressed("ui_accept"):
 			count += 1
 		if count >= MASH_HP:
 			success = true
+			
+			if(soundPlay):
+				$pop.play()
+				soundPlay = false
+				
 			#active = false
 			for sprite in $SpritesChicle.get_children():
 				sprite.visible = false

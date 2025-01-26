@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqeai7aw74e46"]
+[gd_scene load_steps=17 format=3 uid="uid://cqeai7aw74e46"]
 
 [ext_resource type="Script" path="res://scenes/4_Bubblegum/bubblegum.gd" id="1_e5ak1"]
 [ext_resource type="Texture2D" uid="uid://dlh1h43kwbc0c" path="res://assets/4/4_fondo.png" id="2_ji1yq"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://groh50h84wfs" path="res://assets/4/11.png" id="10_bqod0"]
 [ext_resource type="Texture2D" uid="uid://di6r5gokl32sy" path="res://assets/4/12.png" id="11_30jrg"]
 [ext_resource type="Texture2D" uid="uid://oni5v4hbke45" path="res://assets/4/13.png" id="12_8uvxf"]
+[ext_resource type="AudioStream" uid="uid://ccsj6i2crwhoj" path="res://assets/audio/other/A_BalloonPop_01.wav" id="13_ih5w0"]
 
 [sub_resource type="Animation" id="Animation_kty0v"]
 resource_name = "Chew"
@@ -110,6 +111,11 @@ texture = ExtResource("11_30jrg")
 [node name="Chicle9" type="Sprite2D" parent="SpritesChicle"]
 visible = false
 texture = ExtResource("12_8uvxf")
+
+[node name="pop" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(41, -331)
+stream = ExtResource("13_ih5w0")
+max_polyphony = 2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="ChewTimer" to="." method="_on_chew_timer_timeout"]
