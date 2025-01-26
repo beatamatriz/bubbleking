@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://epexjtut7x5h"]
+
+[ext_resource type="Script" path="res://scenes/13_BoubbleKing/bubble_king.gd" id="1_cq2dv"]
+[ext_resource type="Texture2D" uid="uid://byj7a1d6bevd2" path="res://assets/Boss/EntrePiedras1.png" id="2_fpwbs"]
+[ext_resource type="Texture2D" uid="uid://bwikwcn1tfxa6" path="res://assets/Boss/ReyPapel.png" id="3_0ncqr"]
+[ext_resource type="Texture2D" uid="uid://chfimkfevwov3" path="res://assets/Boss/ReyPiedra.png" id="4_ij3ep"]
+[ext_resource type="Texture2D" uid="uid://dedlpwkciucm3" path="res://assets/Boss/ReyTijeras.png" id="5_6twfo"]
+[ext_resource type="Texture2D" uid="uid://po4o8bmslmht" path="res://assets/Boss/JugadorPapel.png" id="6_fctsx"]
+[ext_resource type="Texture2D" uid="uid://dskddcn4awy5o" path="res://assets/Boss/JugadorPiedra.png" id="7_rwgko"]
+[ext_resource type="Texture2D" uid="uid://cv76xqpoxhooj" path="res://assets/Boss/JugadorTijera.png" id="8_681b7"]
+
+[node name="BubbleKing" type="Node2D"]
+script = ExtResource("1_cq2dv")
+
+[node name="KingTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="WindowTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="EntrePiedras1" type="Sprite2D" parent="."]
+texture = ExtResource("2_fpwbs")
+hframes = 4
+
+[node name="King" type="Node2D" parent="."]
+
+[node name="ReyPapel" type="Sprite2D" parent="King"]
+visible = false
+position = Vector2(340.291, -39.7767)
+rotation = 0.518347
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_0ncqr")
+
+[node name="ReyPiedra" type="Sprite2D" parent="King"]
+visible = false
+position = Vector2(340.291, -39.7767)
+rotation = 0.518347
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_ij3ep")
+
+[node name="ReyTijera" type="Sprite2D" parent="King"]
+visible = false
+position = Vector2(340.291, -39.7767)
+rotation = 0.518347
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_6twfo")
+
+[node name="Usurper" type="Node2D" parent="."]
+
+[node name="JugadorPapel" type="Sprite2D" parent="Usurper"]
+visible = false
+position = Vector2(-364.325, -123.11)
+rotation = 0.365792
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_fctsx")
+
+[node name="JugadorPiedra" type="Sprite2D" parent="Usurper"]
+visible = false
+position = Vector2(-364.325, -123.11)
+rotation = 0.365792
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("7_rwgko")
+
+[node name="JugadorTijera" type="Sprite2D" parent="Usurper"]
+visible = false
+position = Vector2(-364.325, -123.11)
+rotation = 0.365792
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("8_681b7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="timeout" from="KingTimer" to="." method="_on_king_timer_timeout"]
+[connection signal="timeout" from="WindowTimer" to="." method="_on_window_timer_timeout"]
