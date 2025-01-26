@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c352bqub1f060"]
+[gd_scene load_steps=17 format=3 uid="uid://c352bqub1f060"]
 
 [ext_resource type="Script" path="res://scenes/9_HumanBall/salchica.gd" id="1_cqak2"]
 [ext_resource type="Texture2D" uid="uid://dwtua01anxsxc" path="res://assets/9/9_1.png" id="1_u1jc0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d4afdwxj7gdve" path="res://assets/9/9_3.png" id="3_lorll"]
 [ext_resource type="Texture2D" uid="uid://dg83epflxpg3k" path="res://assets/9/9_4.png" id="4_30jo3"]
 [ext_resource type="Texture2D" uid="uid://cnsn78rfq30y2" path="res://assets/9/9_5.png" id="5_uub2t"]
+[ext_resource type="Texture2D" uid="uid://dwkknyl1wgs5e" path="res://assets/9/9_6.png" id="10_7bnds"]
 [ext_resource type="AudioStream" uid="uid://c38ardrkl6b47" path="res://assets/audio/other/A_Explosion_01.wav" id="10_ixb0t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mqt3p"]
@@ -54,7 +55,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lk4qo"]
-size = Vector2(120, 203)
+size = Vector2(202.346, 182.092)
 
 [node name="HumanBall" type="Node2D"]
 script = ExtResource("1_vmy48")
@@ -737,8 +738,14 @@ position = Vector2(736, 397)
 rotation = 0.81356
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-47.0189, 13.3501)
 shape = SubResource("RectangleShape2D_lk4qo")
-metadata/_edit_lock_ = true
+
+[node name="Flag" type="Sprite2D" parent="Area2D"]
+position = Vector2(-28.6314, -11.9265)
+rotation = -0.81356
+scale = Vector2(0.445386, 0.445386)
+texture = ExtResource("10_7bnds")
 
 [node name="explode" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_ixb0t")

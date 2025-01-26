@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://epexjtut7x5h"]
+[gd_scene load_steps=15 format=3 uid="uid://epexjtut7x5h"]
 
 [ext_resource type="Script" path="res://scenes/13_BoubbleKing/bubble_king.gd" id="1_cq2dv"]
 [ext_resource type="Texture2D" uid="uid://byj7a1d6bevd2" path="res://assets/Boss/EntrePiedras1.png" id="2_fpwbs"]
@@ -8,6 +8,48 @@
 [ext_resource type="Texture2D" uid="uid://po4o8bmslmht" path="res://assets/Boss/JugadorPapel.png" id="6_fctsx"]
 [ext_resource type="Texture2D" uid="uid://dskddcn4awy5o" path="res://assets/Boss/JugadorPiedra.png" id="7_rwgko"]
 [ext_resource type="Texture2D" uid="uid://cv76xqpoxhooj" path="res://assets/Boss/JugadorTijera.png" id="8_681b7"]
+[ext_resource type="Texture2D" uid="uid://d1p4pybqh4wc4" path="res://assets/Cutscenes/GANAR.png" id="9_mb5fl"]
+[ext_resource type="AudioStream" uid="uid://vfqjujvgnkxa" path="res://assets/audio/music/Boss.wav" id="9_q85fi"]
+[ext_resource type="Texture2D" uid="uid://ioqud1icr2wi" path="res://assets/Cutscenes/game_over.png" id="10_kqudv"]
+
+[sub_resource type="Animation" id="Animation_bkmqp"]
+resource_name = "new_animation"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_sstb5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_df1ns"]
+_data = {
+"RESET": SubResource("Animation_sstb5"),
+"new_animation": SubResource("Animation_bkmqp")
+}
 
 [node name="BubbleKing" type="Node2D"]
 script = ExtResource("1_cq2dv")
@@ -16,12 +58,19 @@ script = ExtResource("1_cq2dv")
 wait_time = 2.0
 one_shot = true
 
+[node name="Timer" type="Timer" parent="."]
+
 [node name="WindowTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="EntrePiedras1" type="Sprite2D" parent="."]
 texture = ExtResource("2_fpwbs")
 hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EntrePiedras1"]
+libraries = {
+"": SubResource("AnimationLibrary_df1ns")
+}
 
 [node name="King" type="Node2D" parent="."]
 
@@ -71,5 +120,17 @@ texture = ExtResource("8_681b7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Win" type="Sprite2D" parent="Camera2D"]
+visible = false
+texture = ExtResource("9_mb5fl")
+
+[node name="GameOver" type="Sprite2D" parent="Camera2D"]
+visible = false
+texture = ExtResource("10_kqudv")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D"]
+stream = ExtResource("9_q85fi")
+
 [connection signal="timeout" from="KingTimer" to="." method="_on_king_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="WindowTimer" to="." method="_on_window_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlh5psjl7dprw"]
+[gd_scene load_steps=11 format=3 uid="uid://dlh5psjl7dprw"]
 
 [ext_resource type="Script" path="res://scenes/10_StirLiquid/stir_liquid.gd" id="1_xhv73"]
 [ext_resource type="Script" path="res://scenes/10_StirLiquid/stir.gd" id="2_dk7c0"]
@@ -7,10 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://nuxnng4jkte8" path="res://assets/10/10 vaso.png" id="3_vj75j"]
 [ext_resource type="AudioStream" uid="uid://cbeully60phrp" path="res://assets/audio/bubbles/bubbles_3/A_BlowingBubbles_07.wav" id="4_vj73b"]
 [ext_resource type="Texture2D" uid="uid://dreo7kmkgrp24" path="res://assets/10/10.png" id="4_x18ua"]
+[ext_resource type="Script" path="res://scenes/10_StirLiquid/spoon.gd" id="8_ivgmn"]
 [ext_resource type="Texture2D" uid="uid://bqav00d4ld56j" path="res://assets/10/10pala.png" id="8_juaju"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_75rw3"]
-size = Vector2(71, 72)
+[sub_resource type="CircleShape2D" id="CircleShape2D_58ggg"]
+radius = 38.2099
 
 [node name="StirLiquid" type="Node2D"]
 script = ExtResource("1_xhv73")
@@ -35,7 +36,7 @@ texture = ExtResource("4_x18ua")
 hframes = 7
 
 [node name="Area" type="CollisionShape2D" parent="Stir"]
-shape = SubResource("RectangleShape2D_75rw3")
+shape = SubResource("CircleShape2D_58ggg")
 
 [node name="count" type="AudioStreamPlayer2D" parent="Stir"]
 stream = ExtResource("3_he508")
@@ -46,10 +47,29 @@ stream = ExtResource("4_vj73b")
 volume_db = -3.0
 pitch_scale = 1.3
 
-[node name="Cuchara" type="Sprite2D" parent="Stir"]
+[node name="Spoon" type="RigidBody2D" parent="."]
 visible = false
-position = Vector2(104, -320)
-scale = Vector2(0.647174, 0.647174)
+position = Vector2(183, -206)
+script = ExtResource("8_ivgmn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spoon"]
+position = Vector2(53, -28)
+scale = Vector2(0.733909, 0.733909)
+polygon = PackedVector2Array(-135.976, 353.846, -137.521, 313.671, -125.16, 282.768, -89.6204, 270.406, -46.3554, 270.406, -4.63556, 282.768, 15.4518, 301.31, 38.6295, 338.394, 29.3584, 373.933, -12.3615, 404.837, -64.8976, 401.747, -109.708, 378.569)
+
+[node name="Cuchara" type="Sprite2D" parent="Spoon"]
+position = Vector2(53, -28)
+scale = Vector2(0.733909, 0.733909)
 texture = ExtResource("8_juaju")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(264, 36, 271, -20, 257, -74, 240, -121, 207, -165, 177, -200, 145, -230, 99, -252, 20, -266, -20, -271, -64, -267, -108, -247, -153, -222, -197, -181, -232, -136, -257, -86, -267, -55, -267, -1, -259, 44, -244, 91, -227, 125, -205, 165, -182, 192, -153, 214, -111, 239, -74, 249, -27, 261, 13, 258, 59, 249, 104, 237, 146, 217, 178, 194, 210, 158, 234, 131, 249, 98, 259, 71, 281, 76, 274, 241, 48, 285, -202, 268, -294, 86, -337, -107, -223, -308, 114, -344, 287, -189, 322, 9, 302, 45)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(257, 69, 265, 33, 303, 46, 291, 83)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

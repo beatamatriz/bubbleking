@@ -1,0 +1,1 @@
+var USURPER_HP = 3

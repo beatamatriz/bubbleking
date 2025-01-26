@@ -3,8 +3,7 @@ extends Node2D
 @export var TRANSITION_TIME = 1.0
 @export var HIT_POINTS = 3
 
-var mgl = [1, 1]
-#var mgl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] # MicroGame List
+var mgl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12] # MicroGame List
 
 var current_mg = 0
 
@@ -26,11 +25,7 @@ func initialize():
 func next(state):
 	mute(current_mg)
 	current_mg += 1
-	if current_mg >= mgl.size():
-		state = "Boss"
-	if state == "Boss":
-		boss()
-	elif state == "Default":
+	if state == "Default":
 		$TransitionTimer.start(TRANSITION_TIME)
 	elif state == "Success":
 		$Camera/sfx_success.play()
@@ -75,51 +70,53 @@ func mute(mg: int):
 	
 
 func _on_transition_timer_timeout() -> void:
-	if mgl[current_mg] == 1:
+	if current_mg >= mgl.size():
+		boss()
+	elif mgl[current_mg] == 1:
 		$Camera/layer1.volume_db = ost_volume
 		$Camera.position = $One.position
 		$One.begin()
-	if mgl[current_mg] == 2:
+	elif mgl[current_mg] == 2:
 		$Camera/layer2.volume_db = ost_volume
 		$Camera.position = $Two.position
 		$Two.begin()
-	if mgl[current_mg] == 3:
+	elif mgl[current_mg] == 3:
 		$Camera/layer3.volume_db = ost_volume
 		$Camera.position = $Three.position
 		$Three.begin()
-	if mgl[current_mg] == 4:
+	elif mgl[current_mg] == 4:
 		$Camera/layer4.volume_db = ost_volume
 		$Camera.position = $Four.position
 		$Four.begin()
-	if mgl[current_mg] == 5:
+	elif mgl[current_mg] == 5:
 		$Camera/layer5.volume_db = ost_volume
 		$Camera.position = $Five.position
 		$Five.begin()
-	if mgl[current_mg] == 6:
+	elif mgl[current_mg] == 6:
 		$Camera/layer6.volume_db = ost_volume
 		$Camera.position = $Six.position
 		$Six.begin()
-	if mgl[current_mg] == 7:
+	elif mgl[current_mg] == 7:
 		$Camera/layer7.volume_db = ost_volume
 		$Camera.position = $Seven.position
 		$Seven.begin()
-	if mgl[current_mg] == 8:
+	elif mgl[current_mg] == 8:
 		$Camera/layer8.volume_db = ost_volume
 		$Camera.position = $Eight.position
 		$Eight.begin()
-	if mgl[current_mg] == 9:
+	elif mgl[current_mg] == 9:
 		$Camera/layer9.volume_db = ost_volume
 		$Camera.position = $Nine.position
 		$Nine.begin()
-	if mgl[current_mg] == 10:
+	elif mgl[current_mg] == 10:
 		$Camera/layer10.volume_db = ost_volume
 		$Camera.position = $Ten.position
 		$Ten.begin()
-	if mgl[current_mg] == 11:
+	elif mgl[current_mg] == 11:
 		$Camera/layer11.volume_db = ost_volume
 		$Camera.position = $Eleven.position
 		$Eleven.begin()
-	if mgl[current_mg] == 12:
+	elif mgl[current_mg] == 12:
 		$Camera/layer12.volume_db = ost_volume
 		$Camera.position = $Twelve.position
 		$Twelve.begin()
@@ -127,7 +124,8 @@ func _on_transition_timer_timeout() -> void:
 	$Camera/Failure.visible = false
 
 func boss():
-	pass
+	Globals.USURPER_HP = HIT_POINTS
+	get_tree().change_scene_to_file("res://scenes/13_BoubbleKing/BubbleKing.tscn")
 
 func game_over():
 	$Camera.position = Vector2(0, 0)
