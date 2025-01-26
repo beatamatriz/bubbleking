@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dddokf03t0rwt"]
+[gd_scene load_steps=28 format=3 uid="uid://dddokf03t0rwt"]
 
 [ext_resource type="Script" path="res://scenes/0_MicroGameManager/micro_game_manager.gd" id="1_eq17e"]
 [ext_resource type="PackedScene" uid="uid://cqeai7aw74e46" path="res://scenes/4_Bubblegum/Bubblegum.tscn" id="1_eqcjs"]
@@ -13,6 +13,20 @@
 [ext_resource type="PackedScene" uid="uid://dlh5psjl7dprw" path="res://scenes/10_StirLiquid/StirLiquid.tscn" id="10_6u1aj"]
 [ext_resource type="Texture2D" uid="uid://kvvvub4gp2o1" path="res://assets/placeholders/game_over_ph.jpg" id="12_3uy5y"]
 [ext_resource type="PackedScene" uid="uid://brpu5hrenxj2c" path="res://scenes/6_Champagne/Champagne.tscn" id="12_joeej"]
+[ext_resource type="AudioStream" uid="uid://dvih5ge6kxh1o" path="res://assets/audio/music/Base.wav" id="14_xt2my"]
+[ext_resource type="AudioStream" uid="uid://b80fr13j8rlic" path="res://assets/audio/music/Layer 1.wav" id="15_sk1nv"]
+[ext_resource type="AudioStream" uid="uid://pux17si4h7bt" path="res://assets/audio/music/Layer2.wav" id="16_jp5dx"]
+[ext_resource type="AudioStream" uid="uid://ivmhh4pad7sr" path="res://assets/audio/music/Layer3.wav" id="17_gsbhy"]
+[ext_resource type="AudioStream" uid="uid://dc1gdxwm3nusk" path="res://assets/audio/music/Layer4.wav" id="18_n5k14"]
+[ext_resource type="AudioStream" uid="uid://bee16048vk61n" path="res://assets/audio/music/Layer5.wav" id="19_0wy4k"]
+[ext_resource type="AudioStream" uid="uid://bkegm20w7m2w1" path="res://assets/audio/music/Layer6.wav" id="20_525iu"]
+[ext_resource type="AudioStream" uid="uid://d2q6t4hm0mr6j" path="res://assets/audio/music/Layer7.wav" id="21_jkkgk"]
+[ext_resource type="AudioStream" uid="uid://d2svtfca6pbcr" path="res://assets/audio/music/Layer8.wav" id="22_7c351"]
+[ext_resource type="AudioStream" uid="uid://cp6snlp2wtwdy" path="res://assets/audio/music/Layer9.wav" id="23_f460u"]
+[ext_resource type="AudioStream" uid="uid://dd1g5y8pw7vu6" path="res://assets/audio/music/Layer10.wav" id="24_52kiq"]
+[ext_resource type="AudioStream" uid="uid://c0dfyep4ngys" path="res://assets/audio/music/Layer11.wav" id="25_4lpra"]
+[ext_resource type="AudioStream" uid="uid://c3kw1yydnoc8m" path="res://assets/audio/music/Layer12 (goofy as fuck).wav" id="26_4r35o"]
+[ext_resource type="AudioStream" uid="uid://vfqjujvgnkxa" path="res://assets/audio/music/Boss.wav" id="27_vosx2"]
 
 [node name="MicroGameManager" type="Node2D"]
 script = ExtResource("1_eq17e")
@@ -71,5 +85,87 @@ visible = false
 position = Vector2(9.64589, -5.49997)
 scale = Vector2(0.642476, 0.5495)
 texture = ExtResource("12_3uy5y")
+
+[node name="base" type="AudioStreamPlayer2D" parent="Camera"]
+position = Vector2(-994, -575)
+stream = ExtResource("14_xt2my")
+volume_db = -15.0
+autoplay = true
+
+[node name="layer1" type="AudioStreamPlayer2D" parent="Camera"]
+position = Vector2(-994, -575)
+stream = ExtResource("15_sk1nv")
+volume_db = -80.0
+autoplay = true
+
+[node name="layer2" type="AudioStreamPlayer2D" parent="Camera"]
+position = Vector2(-994, -575)
+stream = ExtResource("16_jp5dx")
+volume_db = -80.0
+autoplay = true
+
+[node name="layer3" type="AudioStreamPlayer2D" parent="Camera"]
+position = Vector2(-994, -575)
+stream = ExtResource("17_gsbhy")
+volume_db = -80.0
+autoplay = true
+
+[node name="layer4" type="AudioStreamPlayer2D" parent="Camera"]
+position = Vector2(-994, -575)
+stream = ExtResource("18_n5k14")
+volume_db = -80.0
+autoplay = true
+
+[node name="layer5" type="AudioStreamPlayer2D" parent="Camera"]
+position = Vector2(-994, -575)
+stream = ExtResource("19_0wy4k")
+volume_db = -80.0
+autoplay = true
+
+[node name="layer6" type="AudioStreamPlayer2D" parent="Camera"]
+position = Vector2(-994, -575)
+stream = ExtResource("20_525iu")
+volume_db = -80.0
+autoplay = true
+
+[node name="layer7" type="AudioStreamPlayer2D" parent="Camera"]
+position = Vector2(-994, -575)
+stream = ExtResource("21_jkkgk")
+volume_db = -80.0
+autoplay = true
+
+[node name="layer8" type="AudioStreamPlayer2D" parent="Camera"]
+position = Vector2(-994, -575)
+stream = ExtResource("22_7c351")
+volume_db = -80.0
+autoplay = true
+
+[node name="layer9" type="AudioStreamPlayer2D" parent="Camera"]
+position = Vector2(-994, -575)
+stream = ExtResource("23_f460u")
+volume_db = -80.0
+autoplay = true
+
+[node name="layer10" type="AudioStreamPlayer2D" parent="Camera"]
+position = Vector2(-994, -575)
+stream = ExtResource("24_52kiq")
+volume_db = -80.0
+autoplay = true
+
+[node name="layer11" type="AudioStreamPlayer2D" parent="Camera"]
+position = Vector2(-994, -575)
+stream = ExtResource("25_4lpra")
+volume_db = -80.0
+autoplay = true
+
+[node name="layer12" type="AudioStreamPlayer2D" parent="Camera"]
+position = Vector2(-994, -575)
+stream = ExtResource("26_4r35o")
+volume_db = -80.0
+autoplay = true
+
+[node name="boss" type="AudioStreamPlayer2D" parent="Camera"]
+position = Vector2(-994, -575)
+stream = ExtResource("27_vosx2")
 
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]
