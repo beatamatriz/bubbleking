@@ -13,11 +13,11 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_accept"):
 			count += 1
 		if count >= MASH_HP:
+			success = true
 			active = false
 			for sprite in $SpritesChicle.get_children():
 				sprite.visible = false
 			$SpritesChicle/Chicle9.visible = true
-			success = true
 		elif count > 8 * MASH_HP/9:
 			for sprite in $SpritesChicle.get_children():
 				sprite.visible = false
