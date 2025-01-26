@@ -1,9 +1,94 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk5hvax87s0v7"]
+[gd_scene load_steps=8 format=3 uid="uid://bk5hvax87s0v7"]
 
 [ext_resource type="Script" path="res://scenes/8_Stonks/stonks.gd" id="1_cixyi"]
 [ext_resource type="Texture2D" uid="uid://bysckun26pyl8" path="res://assets/8/8fondo.png" id="2_wfsi6"]
 [ext_resource type="Texture2D" uid="uid://c4v17r2ia6d4i" path="res://assets/8/8cortina.png" id="3_wg6qd"]
 [ext_resource type="Texture2D" uid="uid://bvnw7agwfrn88" path="res://assets/8/8.png" id="4_w6c02"]
+
+[sub_resource type="Animation" id="Animation_2ci8d"]
+resource_name = "Move"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(127, -117), Vector2(1021, -117), Vector2(1131, -117)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../8:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../..:DOLLARS")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 41369621, -999]
+}
+
+[sub_resource type="Animation" id="Animation_41cte"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(127, -117)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../8:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../..:DOLLARS")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_abnt0"]
+_data = {
+"Move": SubResource("Animation_2ci8d"),
+"RESET": SubResource("Animation_41cte")
+}
 
 [node name="Stonks" type="Node2D"]
 script = ExtResource("1_cixyi")
@@ -20,16 +105,33 @@ one_shot = true
 wait_time = 2.5
 one_shot = true
 
-[node name="8Fondo" type="Sprite2D" parent="."]
+[node name="Screen" type="Node2D" parent="."]
+
+[node name="8Fondo" type="Sprite2D" parent="Screen"]
 texture = ExtResource("2_wfsi6")
 
-[node name="8Cortina" type="Sprite2D" parent="."]
+[node name="8Cortina" type="Sprite2D" parent="Screen"]
 position = Vector2(127, -117)
 texture = ExtResource("3_wg6qd")
 
-[node name="8" type="Sprite2D" parent="."]
+[node name="8" type="Sprite2D" parent="Screen"]
 texture = ExtResource("4_w6c02")
 hframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Screen"]
+root_node = NodePath("../8Cortina")
+libraries = {
+"": SubResource("AnimationLibrary_abnt0")
+}
+
+[node name="Label" type="Label" parent="Screen"]
+visible = false
+offset_left = -721.0
+offset_top = -518.0
+offset_right = 240.0
+offset_bottom = -299.0
+text = "gvhjnkml,ñ."
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="HWBegin" to="." method="_on_hw_begin_timeout"]

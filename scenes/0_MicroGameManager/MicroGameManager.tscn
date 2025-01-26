@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dddokf03t0rwt"]
+[gd_scene load_steps=30 format=3 uid="uid://dddokf03t0rwt"]
 
 [ext_resource type="Script" path="res://scenes/0_MicroGameManager/micro_game_manager.gd" id="1_eq17e"]
 [ext_resource type="PackedScene" uid="uid://cqeai7aw74e46" path="res://scenes/4_Bubblegum/Bubblegum.tscn" id="1_eqcjs"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dlh5psjl7dprw" path="res://scenes/10_StirLiquid/StirLiquid.tscn" id="10_6u1aj"]
 [ext_resource type="Texture2D" uid="uid://kvvvub4gp2o1" path="res://assets/placeholders/game_over_ph.jpg" id="12_3uy5y"]
 [ext_resource type="PackedScene" uid="uid://brpu5hrenxj2c" path="res://scenes/6_Champagne/Champagne.tscn" id="12_joeej"]
+[ext_resource type="PackedScene" uid="uid://cesp1n4rauuq" path="res://scenes/12_Sonic/Sonic.tscn" id="13_hrgku"]
 [ext_resource type="AudioStream" uid="uid://dvih5ge6kxh1o" path="res://assets/audio/music/Base.wav" id="14_xt2my"]
 [ext_resource type="AudioStream" uid="uid://b80fr13j8rlic" path="res://assets/audio/music/Layer 1.wav" id="15_sk1nv"]
 [ext_resource type="AudioStream" uid="uid://pux17si4h7bt" path="res://assets/audio/music/Layer2.wav" id="16_jp5dx"]
@@ -27,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://c0dfyep4ngys" path="res://assets/audio/music/Layer11.wav" id="25_4lpra"]
 [ext_resource type="AudioStream" uid="uid://c3kw1yydnoc8m" path="res://assets/audio/music/Layer12 (goofy as fuck).wav" id="26_4r35o"]
 [ext_resource type="AudioStream" uid="uid://vfqjujvgnkxa" path="res://assets/audio/music/Boss.wav" id="27_vosx2"]
+[ext_resource type="PackedScene" uid="uid://bk5hvax87s0v7" path="res://scenes/8_Stonks/Stonks.tscn" id="28_vl23g"]
 
 [node name="MicroGameManager" type="Node2D"]
 script = ExtResource("1_eq17e")
@@ -58,6 +60,9 @@ position = Vector2(15044, 508)
 [node name="Seven" parent="." instance=ExtResource("7_4jlhl")]
 position = Vector2(17470, 568)
 
+[node name="Eight" parent="." instance=ExtResource("28_vl23g")]
+position = Vector2(20063, -809)
+
 [node name="Nine" parent="." instance=ExtResource("6_glfvb")]
 position = Vector2(22486, 569)
 
@@ -66,6 +71,8 @@ position = Vector2(25002, 592)
 
 [node name="Eleven" parent="." instance=ExtResource("7_2jbch")]
 position = Vector2(27388, 547)
+
+[node name="Twelve" parent="." instance=ExtResource("13_hrgku")]
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(994, 575)

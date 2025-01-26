@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://cesp1n4rauuq"]
+
+[ext_resource type="Script" path="res://scenes/12_Sonic/sonic.gd" id="1_wgo4m"]
+[ext_resource type="Texture2D" uid="uid://2malx4ieetkd" path="res://assets/12/12FONDO.png" id="2_ejxqd"]
+[ext_resource type="Texture2D" uid="uid://drlko3xrj6o5x" path="res://assets/12/12sonic.png" id="3_y4swx"]
+[ext_resource type="Script" path="res://scenes/12_Sonic/erizo.gd" id="4_k0xby"]
+[ext_resource type="Texture2D" uid="uid://d4lt6b52cbknb" path="res://assets/12/12pompa.png" id="5_apwm8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6yjgy"]
+radius = 80.0
+height = 256.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yfut2"]
+radius = 113.018
+
+[node name="Sonic" type="Node2D"]
+script = ExtResource("1_wgo4m")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_ejxqd")
+metadata/_edit_lock_ = true
+
+[node name="Erizo" type="CharacterBody2D" parent="."]
+position = Vector2(-432, 83)
+script = ExtResource("4_k0xby")
+
+[node name="Sprite" type="Sprite2D" parent="Erizo"]
+texture = ExtResource("3_y4swx")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Erizo"]
+shape = SubResource("CapsuleShape2D_6yjgy")
+
+[node name="Pompa" type="Area2D" parent="."]
+position = Vector2(548, -296)
+
+[node name="Sprite" type="Sprite2D" parent="Pompa"]
+scale = Vector2(0.557971, 0.557971)
+texture = ExtResource("5_apwm8")
+hframes = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pompa"]
+shape = SubResource("CircleShape2D_yfut2")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-577, 223, -569, 125, -707, 122, -701, 14, -832, 28, -831, 541, 861, 539, 863, -113, 260, -116, -161, 228)
+
+[connection signal="body_entered" from="Pompa" to="." method="_on_pompa_body_entered"]
