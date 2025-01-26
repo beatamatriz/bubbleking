@@ -9,6 +9,7 @@ var success = false
 
 func _process(delta: float) -> void:
 	if active and count >= SHAKE_COUNT:
+		$Bottle/Sprite.frame = 1
 		success = true
 
 func begin():
