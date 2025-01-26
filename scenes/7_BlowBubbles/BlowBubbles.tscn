@@ -127,7 +127,6 @@ texture = ExtResource("4_rw8dq")
 
 [node name="Bubble" type="Sprite2D" parent="."]
 position = Vector2(254, -71)
-scale = Vector2(1, 1)
 texture = ExtResource("5_akg1y")
 hframes = 10
 vframes = 2

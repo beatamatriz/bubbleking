@@ -51,3 +51,5 @@ visible = false
 position = Vector2(104, -320)
 scale = Vector2(0.647174, 0.647174)
 texture = ExtResource("8_juaju")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

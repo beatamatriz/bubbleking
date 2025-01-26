@@ -50,3 +50,5 @@ volume_db = -2.5
 stream = SubResource("AudioStreamRandomizer_8hk6p")
 pitch_scale = 0.73
 max_polyphony = 4
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

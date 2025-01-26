@@ -29,7 +29,6 @@ func begin():
 func _process(delta: float) -> void:
 	if get_parent().active:
 		shake()
-		
 		if(global_position.x == (original_position.x + target_pos)):
 			invert()
 	
