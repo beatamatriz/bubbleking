@@ -13,6 +13,7 @@ radius = 48.0
 script = ExtResource("1_yo03o")
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_bs72c")

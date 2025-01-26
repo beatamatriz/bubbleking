@@ -145,9 +145,9 @@ stream_6/stream = ExtResource("11_0a78l")
 
 [node name="Classroom" type="Node2D"]
 script = ExtResource("1_01e3m")
-metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_mekwv")

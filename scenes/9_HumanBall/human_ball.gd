@@ -8,10 +8,11 @@ var success = false
 func begin():
 	active = true
 	$Timer.start(GAME_TIMER)
+	$Salchica/AnimationPlayer.play("Moving")
 
 func failure():
 	success = false
-	$MujerSalchicha.die()
+	active = false
 
 func _on_timer_timeout() -> void:
 	active = false
@@ -22,5 +23,5 @@ func _on_timer_timeout() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if active and body.name == "MujerSalchicha":
+	if active and body.name == "Salchica":
 		success = true

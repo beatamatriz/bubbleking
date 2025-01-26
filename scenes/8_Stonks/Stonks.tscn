@@ -11,6 +11,7 @@ script = ExtResource("1_cixyi")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
 
 [node name="HWBegin" type="Timer" parent="."]
 wait_time = 2.0

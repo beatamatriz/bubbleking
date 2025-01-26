@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://uvppbpux1hvb"
+path="res://.godot/imported/Demo Base + Layer1.wav-433f72e673300349d3dcc0b1ad6ebfbd.sample"
+
+[deps]
+
+source_file="res://assets/placeholders/Demo Base + Layer1.wav"
+dest_files=["res://.godot/imported/Demo Base + Layer1.wav-433f72e673300349d3dcc0b1ad6ebfbd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

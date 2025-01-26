@@ -99,3 +99,5 @@ stream = ExtResource("6_xogw1")
 
 [node name="mouse_exit" type="AudioStreamPlayer2D" parent="SpeechBubbleManager/Chao/Draggable Speech Bubble"]
 stream = ExtResource("7_m3xl6")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

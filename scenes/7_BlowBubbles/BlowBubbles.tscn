@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlvmc70m2yr00"]
+[gd_scene load_steps=13 format=3 uid="uid://dlvmc70m2yr00"]
 
 [ext_resource type="Script" path="res://scenes/7_BlowBubbles/blow_bubbles.gd" id="1_pd8ub"]
 [ext_resource type="Texture2D" uid="uid://cqd7vrfm0woxm" path="res://assets/7/7_fondo.png" id="2_8krla"]
 [ext_resource type="Texture2D" uid="uid://dxtq8pa7326p5" path="res://assets/7/7.png" id="3_460j6"]
 [ext_resource type="Texture2D" uid="uid://dfa22xhn2e5s" path="res://assets/7/7_2.png" id="4_rw8dq"]
+[ext_resource type="Texture2D" uid="uid://c1srt4pn3o14p" path="res://assets/7/7_3.png" id="5_akg1y"]
 
 [sub_resource type="Animation" id="Animation_8p8o5"]
 resource_name = "Bucle"
@@ -60,6 +61,43 @@ _data = {
 "Soplido": SubResource("Animation_r4pv5")
 }
 
+[sub_resource type="Animation" id="Animation_rw5gf"]
+resource_name = "Final"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.566667, 0.833333, 1.1, 1.36667, 1.63333, 1.9, 2.16667, 2.43333, 2.7, 2.96667, 3.23333, 3.5, 3.76667, 4.03333, 4.3, 4.56667, 4.83333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 11, 12, 11, 12, 11, 12, 11, 12, 11, 12, 11, 12, 11, 12, 11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_81wxh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4lyv4"]
+_data = {
+"Final": SubResource("Animation_rw5gf"),
+"RESET": SubResource("Animation_81wxh")
+}
+
 [node name="BlowBubbles" type="Node2D"]
 script = ExtResource("1_pd8ub")
 
@@ -69,6 +107,7 @@ one_shot = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_8krla")
+metadata/_edit_lock_ = true
 
 [node name="Pulpa" type="Sprite2D" parent="."]
 position = Vector2(-567, -8)
@@ -82,8 +121,21 @@ libraries = {
 }
 
 [node name="Pompero" type="Sprite2D" parent="."]
-position = Vector2(12, 241)
-scale = Vector2(0.5128, 0.5128)
+position = Vector2(80, 322)
+scale = Vector2(0.673566, 0.673566)
 texture = ExtResource("4_rw8dq")
+
+[node name="Bubble" type="Sprite2D" parent="."]
+position = Vector2(254, -71)
+scale = Vector2(1, 1)
+texture = ExtResource("5_akg1y")
+hframes = 10
+vframes = 2
+frame = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubble"]
+libraries = {
+"": SubResource("AnimationLibrary_4lyv4")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

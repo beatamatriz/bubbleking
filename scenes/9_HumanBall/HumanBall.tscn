@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://c352bqub1f060"]
 
-[ext_resource type="Script" path="res://scenes/9_HumanBall/mujer_salchicha.gd" id="1_cqak2"]
+[ext_resource type="Script" path="res://scenes/9_HumanBall/salchica.gd" id="1_cqak2"]
 [ext_resource type="Texture2D" uid="uid://dwtua01anxsxc" path="res://assets/9/9_1.png" id="1_u1jc0"]
 [ext_resource type="Script" path="res://scenes/9_HumanBall/human_ball.gd" id="1_vmy48"]
 [ext_resource type="Texture2D" uid="uid://cr1dllopi7hgm" path="res://assets/9/9.png" id="1_xaigo"]
@@ -58,7 +58,6 @@ size = Vector2(120, 203)
 [node name="HumanBall" type="Node2D"]
 script = ExtResource("1_vmy48")
 GAME_TIMER = 2
-metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -711,23 +710,23 @@ scale = Vector2(3.58594, 5.27679)
 polygon = PackedVector2Array(25.6532, -11.779, 39.0388, -1.54551, 40.9909, 5.27682, 44.0584, 15.6998, 50.1935, 37.8724, 49.9146, 54.7388, 41.2697, 56.8234, 37.6444, 61.1821, 31.2305, 61.9401, 31.2305, 57.3919, 22.5856, 49.243, 5.8536, 24.0382, 6.6902, 19.869, -3.07015, 7.36142, 1.94946, -9.5049, 8.92113, -9.69441, 18.1237, -5.14619)
 metadata/_edit_lock_ = true
 
-[node name="MujerSalchicha" type="CharacterBody2D" parent="."]
+[node name="Salchica" type="CharacterBody2D" parent="."]
 position = Vector2(-678, 241)
 script = ExtResource("1_cqak2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MujerSalchicha"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Salchica"]
 position = Vector2(4, 1)
 rotation = -1.57523
 shape = SubResource("CapsuleShape2D_mqt3p")
 metadata/_edit_lock_ = true
 
-[node name="Salchicha" type="Sprite2D" parent="MujerSalchicha"]
+[node name="Salchicha" type="Sprite2D" parent="Salchica"]
 scale = Vector2(-0.146, 0.146)
 texture = ExtResource("1_u1jc0")
 hframes = 3
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MujerSalchicha"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Salchica"]
 libraries = {
 "": SubResource("AnimationLibrary_hc4v4")
 }

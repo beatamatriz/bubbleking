@@ -15,6 +15,9 @@ size = Vector2(71, 72)
 [node name="StirLiquid" type="Node2D"]
 script = ExtResource("1_xhv73")
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_g5agf")
 
@@ -48,5 +51,3 @@ visible = false
 position = Vector2(104, -320)
 scale = Vector2(0.647174, 0.647174)
 texture = ExtResource("8_juaju")
-
-[node name="Timer" type="Timer" parent="."]

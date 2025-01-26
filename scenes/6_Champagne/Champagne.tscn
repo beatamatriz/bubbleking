@@ -23,6 +23,7 @@ stream_2/stream = ExtResource("6_7xjns")
 script = ExtResource("1_hikwa")
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_2yhgh")

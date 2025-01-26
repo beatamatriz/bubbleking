@@ -15,7 +15,7 @@ var previous_position
 var original_mouse_position
 var previous_mouse_position
 
-func _ready() -> void:
+func begin():
 	$background.play()
 	
 	original_position = global_position
@@ -27,10 +27,11 @@ func _ready() -> void:
 	init_shake()
 
 func _process(delta: float) -> void:
-	shake()
-	
-	if(global_position.x == (original_position.x + target_pos)):
-		invert()
+	if get_parent().active:
+		shake()
+		
+		if(global_position.x == (original_position.x + target_pos)):
+			invert()
 	
 func init_shake() -> void:
 	target_pos = x_offset
