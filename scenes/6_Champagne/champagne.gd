@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 
 func begin():
 	active = true
+	$Bottle.begin()
 	$Timer.start(GAME_TIMER)
 	
 func _on_timer_timeout() -> void:

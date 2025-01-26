@@ -16,6 +16,7 @@ var original_mouse_position
 var previous_mouse_position
 
 func begin():
+	print_debug("hola")
 	$background.play()
 	
 	original_position = global_position

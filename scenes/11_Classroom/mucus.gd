@@ -3,7 +3,7 @@ extends StaticBody2D
 var clickable = false
 @export var POPPED = false
 
-func _ready() -> void:
+func begin() -> void:
 	if not POPPED:
 		$AnimationPlayer.play("Snore")
 

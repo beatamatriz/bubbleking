@@ -17,6 +17,7 @@ func begin():
 	for bubble in $PoppablesManager.get_children():
 		pop_total += 1
 		bubble.POPPED = false
+		bubble.begin()
 	$Timer.start(GAME_TIMER)
 	
 func _on_timer_timeout() -> void:

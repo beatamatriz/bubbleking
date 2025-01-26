@@ -45,7 +45,6 @@ position = Vector2(17470, 568)
 
 [node name="Nine" parent="." instance=ExtResource("6_glfvb")]
 position = Vector2(22486, 569)
-GAME_TIMER = 3
 
 [node name="Ten" parent="." instance=ExtResource("10_6u1aj")]
 position = Vector2(25002, 592)
@@ -54,6 +53,7 @@ position = Vector2(25002, 592)
 position = Vector2(27388, 547)
 
 [node name="Camera" type="Camera2D" parent="."]
+position = Vector2(994, 575)
 
 [node name="GameOver" type="Sprite2D" parent="Camera"]
 visible = false
