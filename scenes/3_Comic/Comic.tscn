@@ -24,8 +24,8 @@ one_shot = true
 texture = ExtResource("2_1s62k")
 
 [node name="Iconos" type="Sprite2D" parent="."]
-position = Vector2(-34.9034, 317.094)
-scale = Vector2(0.449449, 0.449448)
+position = Vector2(7.43917, 280.094)
+scale = Vector2(0.54838, 0.548379)
 texture = ExtResource("3_p42ii")
 hframes = 9
 frame = 1

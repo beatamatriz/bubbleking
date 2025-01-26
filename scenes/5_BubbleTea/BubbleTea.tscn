@@ -59,6 +59,7 @@ one_shot = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_eo3ej")
+metadata/_edit_lock_ = true
 
 [node name="TapioManager" type="Node2D" parent="."]
 
@@ -234,8 +235,8 @@ pitch_scale = 0.5
 max_polyphony = 2
 
 [node name="Iconos" type="Sprite2D" parent="."]
-position = Vector2(672, 392)
-scale = Vector2(0.382353, 0.382353)
+position = Vector2(675, -256)
+scale = Vector2(0.608289, 0.608289)
 texture = ExtResource("14_pm2oa")
 hframes = 9
 frame = 3

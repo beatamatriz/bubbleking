@@ -82,6 +82,7 @@ func update_hp():
 
 func game_over(condition):
 	$Camera2D/AudioStreamPlayer2D.stop()
+	$Iconos.visible = false
 	if condition == "Lose":
 		$Camera2D/GameOver.visible = true
 	elif condition == "Win":

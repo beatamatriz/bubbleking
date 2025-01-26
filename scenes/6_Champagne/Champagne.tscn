@@ -53,8 +53,8 @@ pitch_scale = 0.73
 max_polyphony = 4
 
 [node name="Iconos" type="Sprite2D" parent="."]
-position = Vector2(672, 392)
-scale = Vector2(0.382353, 0.382353)
+position = Vector2(575.922, 286.25)
+scale = Vector2(0.717246, 0.717246)
 texture = ExtResource("9_xg85h")
 hframes = 9
 frame = 4

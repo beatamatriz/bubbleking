@@ -153,8 +153,8 @@ stream = SubResource("AudioStreamRandomizer_mgni3")
 max_polyphony = 2
 
 [node name="Iconos" type="Sprite2D" parent="."]
-position = Vector2(672, 392)
-scale = Vector2(0.382353, 0.382353)
+position = Vector2(-274.278, -368)
+scale = Vector2(0.505348, 0.505348)
 texture = ExtResource("9_0fpis")
 hframes = 9
 frame = 6
