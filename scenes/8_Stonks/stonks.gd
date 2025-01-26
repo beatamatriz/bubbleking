@@ -11,7 +11,7 @@ var success = false
 
 func _process(delta: float) -> void:
 	if active:
-		$Screen/Label.text = DOLLARS
+		$Screen/Label.text = "%d" % DOLLARS
 		if Input.is_action_just_pressed("ui_accept") and is_hitwindow:
 			$Screen/AnimationPlayer.pause()
 			success = true

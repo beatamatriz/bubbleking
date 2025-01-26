@@ -1,21 +1,22 @@
-[gd_scene load_steps=30 format=3 uid="uid://dddokf03t0rwt"]
+[gd_scene load_steps=31 format=3 uid="uid://dddokf03t0rwt"]
 
 [ext_resource type="Script" path="res://scenes/0_MicroGameManager/micro_game_manager.gd" id="1_eq17e"]
 [ext_resource type="PackedScene" uid="uid://cqeai7aw74e46" path="res://scenes/4_Bubblegum/Bubblegum.tscn" id="1_eqcjs"]
 [ext_resource type="PackedScene" uid="uid://behv2crw8tsbj" path="res://scenes/1_Duel/Duel.tscn" id="2_7bkd2"]
 [ext_resource type="PackedScene" uid="uid://d1qfqb73u45we" path="res://scenes/3_Comic/Comic.tscn" id="4_vsit3"]
-[ext_resource type="Texture2D" uid="uid://77oetkxsigbl" path="res://assets/placeholders/placeholder_s.jpg" id="5_3kt0l"]
 [ext_resource type="PackedScene" uid="uid://b0n3cfrp8tltf" path="res://scenes/2_StimPop/StimPop.tscn" id="5_mxcb2"]
 [ext_resource type="PackedScene" uid="uid://c352bqub1f060" path="res://scenes/9_HumanBall/HumanBall.tscn" id="6_glfvb"]
 [ext_resource type="PackedScene" uid="uid://2bsbejlt6wdv" path="res://scenes/5_BubbleTea/BubbleTea.tscn" id="6_sdb8t"]
 [ext_resource type="PackedScene" uid="uid://ds7u438ei3dvv" path="res://scenes/11_Classroom/Classroom.tscn" id="7_2jbch"]
 [ext_resource type="PackedScene" uid="uid://dlvmc70m2yr00" path="res://scenes/7_BlowBubbles/BlowBubbles.tscn" id="7_4jlhl"]
 [ext_resource type="PackedScene" uid="uid://dlh5psjl7dprw" path="res://scenes/10_StirLiquid/StirLiquid.tscn" id="10_6u1aj"]
-[ext_resource type="Texture2D" uid="uid://kvvvub4gp2o1" path="res://assets/placeholders/game_over_ph.jpg" id="12_3uy5y"]
 [ext_resource type="PackedScene" uid="uid://brpu5hrenxj2c" path="res://scenes/6_Champagne/Champagne.tscn" id="12_joeej"]
 [ext_resource type="PackedScene" uid="uid://cesp1n4rauuq" path="res://scenes/12_Sonic/Sonic.tscn" id="13_hrgku"]
+[ext_resource type="Texture2D" uid="uid://bbdxvmjakdfet" path="res://assets/Cutscenes/failure.png" id="14_geffs"]
 [ext_resource type="AudioStream" uid="uid://dvih5ge6kxh1o" path="res://assets/audio/music/Base.wav" id="14_xt2my"]
 [ext_resource type="AudioStream" uid="uid://b80fr13j8rlic" path="res://assets/audio/music/Layer 1.wav" id="15_sk1nv"]
+[ext_resource type="Texture2D" uid="uid://ioqud1icr2wi" path="res://assets/Cutscenes/game_over.png" id="15_u0pc8"]
+[ext_resource type="Texture2D" uid="uid://d3aah4v335awq" path="res://assets/Cutscenes/success.png" id="16_8qyek"]
 [ext_resource type="AudioStream" uid="uid://pux17si4h7bt" path="res://assets/audio/music/Layer2.wav" id="16_jp5dx"]
 [ext_resource type="AudioStream" uid="uid://ivmhh4pad7sr" path="res://assets/audio/music/Layer3.wav" id="17_gsbhy"]
 [ext_resource type="AudioStream" uid="uid://dc1gdxwm3nusk" path="res://assets/audio/music/Layer4.wav" id="18_n5k14"]
@@ -78,22 +79,17 @@ position = Vector2(29561, 571)
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(994, 575)
 
+[node name="Failure" type="Sprite2D" parent="Camera"]
+visible = false
+texture = ExtResource("14_geffs")
+
 [node name="GameOver" type="Sprite2D" parent="Camera"]
 visible = false
-scale = Vector2(1.54583, 1.54583)
-texture = ExtResource("12_3uy5y")
+texture = ExtResource("15_u0pc8")
 
 [node name="Success" type="Sprite2D" parent="Camera"]
 visible = false
-position = Vector2(9.8707, -5.50001)
-scale = Vector2(0.988004, 0.825781)
-texture = ExtResource("5_3kt0l")
-
-[node name="Failure" type="Sprite2D" parent="Camera"]
-visible = false
-position = Vector2(9.64589, -5.49997)
-scale = Vector2(0.642476, 0.5495)
-texture = ExtResource("12_3uy5y")
+texture = ExtResource("16_8qyek")
 
 [node name="base" type="AudioStreamPlayer2D" parent="Camera"]
 position = Vector2(-994, -575)
