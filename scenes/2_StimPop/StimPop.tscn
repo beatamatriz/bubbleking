@@ -28,7 +28,6 @@ stream_6/stream = ExtResource("12_tkv1e")
 
 [node name="StimPop" type="Node2D"]
 script = ExtResource("1_yo03o")
-GAME_TIMER = 4
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

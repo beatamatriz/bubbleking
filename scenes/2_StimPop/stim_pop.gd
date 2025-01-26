@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var GAME_TIMER = 5
+@export var GAME_TIMER = 5.0
 
 var active = false
 var pop_total = 0
@@ -22,6 +22,7 @@ func begin():
 		pop_total += 1
 		bubble.POPPED = false
 	for bubble in $Popped.get_children():
+		pop_total += 1
 		bubble.pop()
 	active = true
 	$Timer.start(GAME_TIMER)

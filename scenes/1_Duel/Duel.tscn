@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://behv2crw8tsbj"]
+[gd_scene load_steps=18 format=3 uid="uid://behv2crw8tsbj"]
 
 [ext_resource type="Script" path="res://scenes/1_Duel/duel.gd" id="1_4e3ey"]
 [ext_resource type="Texture2D" uid="uid://qsyqjjepelie" path="res://assets/1/1_fondo.png" id="2_pf4hg"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://blj4eb53rowsl" path="res://assets/1/1_1.png" id="4_47ja2"]
 [ext_resource type="Texture2D" uid="uid://dlpgpikkbxehq" path="res://assets/1/1 GANA.png" id="5_26n5g"]
 [ext_resource type="Texture2D" uid="uid://beiksmre4usrj" path="res://assets/1/1 PIERDE.png" id="6_nmubw"]
+[ext_resource type="AudioStream" uid="uid://br30poleuytmd" path="res://assets/audio/other/A_Unseathe_01.wav" id="7_q3v6g"]
+[ext_resource type="AudioStream" uid="uid://c3piyl5iii7pd" path="res://assets/audio/bubbles/bubbles_5/A_BubbleBurst_02.wav" id="8_08vlw"]
+[ext_resource type="AudioStream" uid="uid://bmoomq5ohi3rt" path="res://assets/audio/bubbles/bubbles_5/A_BubbleBurst_03.wav" id="9_j7v7o"]
+[ext_resource type="AudioStream" uid="uid://cd6xttmcwjegs" path="res://assets/audio/bubbles/bubbles_5/A_BubbleBurst_04.wav" id="10_mni7m"]
 
 [sub_resource type="Animation" id="Animation_o4du5"]
 length = 0.001
@@ -81,6 +85,12 @@ _data = {
 "Unsheath": SubResource("Animation_hl6od")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wejw4"]
+streams_count = 3
+stream_0/stream = ExtResource("8_08vlw")
+stream_1/stream = ExtResource("9_j7v7o")
+stream_2/stream = ExtResource("10_mni7m")
+
 [node name="Duel" type="Node2D"]
 script = ExtResource("1_4e3ey")
 
@@ -131,6 +141,12 @@ texture = ExtResource("5_26n5g")
 visible = false
 position = Vector2(2, -3)
 texture = ExtResource("6_nmubw")
+
+[node name="swing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_q3v6g")
+
+[node name="bubbles" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_wejw4")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="HWBegin" to="." method="_on_hw_begin_timeout"]

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var GAME_TIMER = 5
+@export var GAME_TIMER = 5.0
 @export var MASH_HP = 15
 
 var active = false

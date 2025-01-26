@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var GAME_TIMER = 5
-@export var SUDDEN_TIME = 2
+@export var GAME_TIMER = 5.0
+@export var SUDDEN_TIME = 2.0
 @export var HIT_WINDOW = 0.5
 
 var active = false
@@ -17,9 +17,11 @@ func _process(delta: float) -> void:
 			$Win.visible = true
 
 func _on_hw_begin_timeout() -> void:
+	$swing.play()
 	is_hitwindow = true
 
 func _on_hw_end_timeout() -> void:
+	$bubbles.play()
 	is_hitwindow = false
 	if not success:
 		$Usurper.visible = false

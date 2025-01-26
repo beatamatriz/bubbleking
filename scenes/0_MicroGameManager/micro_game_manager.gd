@@ -1,10 +1,10 @@
 extends Node2D
 
-@export var TRANSITION_TIME = 1
+@export var TRANSITION_TIME = 1.0
 @export var HIT_POINTS = 3
 
-# var mgl = [12]
-var mgl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] # MicroGame List
+var mgl = [1, 1]
+#var mgl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] # MicroGame List
 
 var current_mg = 0
 
@@ -33,13 +33,16 @@ func next(state):
 	elif state == "Default":
 		$TransitionTimer.start(TRANSITION_TIME)
 	elif state == "Success":
+		$Camera/sfx_success.play()
 		$Camera/Success.visible = true
 		$TransitionTimer.start(TRANSITION_TIME)
 	elif state == "Failure":
 		print(HIT_POINTS)
+		$Camera/sfx_fail.play()
 		HIT_POINTS -= 1
 		if (HIT_POINTS == 0):
 			game_over()
+			return
 		$Camera/Failure.visible = true
 		$TransitionTimer.start(TRANSITION_TIME)
 	$Camera.position = Vector2(0, 0)

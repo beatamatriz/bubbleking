@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var GAME_TIMER = 5
+@export var GAME_TIMER = 5.0
 
 var active = false
 var success = false
@@ -11,6 +11,7 @@ func begin():
 	$Salchica/AnimationPlayer.play("Moving")
 
 func failure():
+	$explode.play()
 	success = false
 	$Salchica.SPEED = 0
 

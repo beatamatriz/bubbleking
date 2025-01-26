@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var GAME_TIMER = 5
-@export var SUDDEN_TIME = 2
+@export var GAME_TIMER = 5.0
+@export var SUDDEN_TIME = 2.0
 @export var HIT_WINDOW = 0.5
 @export var DOLLARS = 0
 

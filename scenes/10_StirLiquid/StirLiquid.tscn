@@ -39,7 +39,7 @@ shape = SubResource("RectangleShape2D_75rw3")
 
 [node name="count" type="AudioStreamPlayer2D" parent="Stir"]
 stream = ExtResource("3_he508")
-volume_db = 18.0
+volume_db = 10.0
 
 [node name="background" type="AudioStreamPlayer2D" parent="Stir"]
 stream = ExtResource("4_vj73b")

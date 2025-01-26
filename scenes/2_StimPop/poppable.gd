@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 func pop():
 	$Shadow.visible = false
 	$Shadow.visible = true
+	#if(get_parent().get_parent().active):
 	get_parent().get_parent().count += 1
 	POPPED = true
 	

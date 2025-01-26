@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dddokf03t0rwt"]
+[gd_scene load_steps=33 format=3 uid="uid://dddokf03t0rwt"]
 
 [ext_resource type="Script" path="res://scenes/0_MicroGameManager/micro_game_manager.gd" id="1_eq17e"]
 [ext_resource type="PackedScene" uid="uid://cqeai7aw74e46" path="res://scenes/4_Bubblegum/Bubblegum.tscn" id="1_eqcjs"]
@@ -30,6 +30,8 @@
 [ext_resource type="AudioStream" uid="uid://c3kw1yydnoc8m" path="res://assets/audio/music/Layer12 (goofy as fuck).wav" id="26_4r35o"]
 [ext_resource type="AudioStream" uid="uid://vfqjujvgnkxa" path="res://assets/audio/music/Boss.wav" id="27_vosx2"]
 [ext_resource type="PackedScene" uid="uid://bk5hvax87s0v7" path="res://scenes/8_Stonks/Stonks.tscn" id="28_vl23g"]
+[ext_resource type="AudioStream" uid="uid://ca1iqv0mcw5y1" path="res://assets/audio/other/A_funi_01.wav" id="31_fxqpf"]
+[ext_resource type="AudioStream" uid="uid://bl2qglyrfpy5i" path="res://assets/audio/other/A_gameover_01.wav" id="32_1mopm"]
 
 [node name="MicroGameManager" type="Node2D"]
 script = ExtResource("1_eq17e")
@@ -53,7 +55,6 @@ position = Vector2(10165, 533)
 
 [node name="Five" parent="." instance=ExtResource("6_sdb8t")]
 position = Vector2(12623, 510)
-GAME_TIMER = 2
 
 [node name="Six" parent="." instance=ExtResource("12_joeej")]
 position = Vector2(15044, 508)
@@ -66,7 +67,7 @@ position = Vector2(20063, -809)
 
 [node name="Nine" parent="." instance=ExtResource("6_glfvb")]
 position = Vector2(22486, 569)
-GAME_TIMER = 4
+GAME_TIMER = 5.0
 
 [node name="Ten" parent="." instance=ExtResource("10_6u1aj")]
 position = Vector2(25002, 592)
@@ -76,6 +77,7 @@ position = Vector2(27388, 547)
 
 [node name="Twelve" parent="." instance=ExtResource("13_hrgku")]
 position = Vector2(29561, 571)
+GAME_TIMER = 5.0
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(994, 575)
@@ -173,5 +175,12 @@ autoplay = true
 [node name="boss" type="AudioStreamPlayer2D" parent="Camera"]
 position = Vector2(-994, -575)
 stream = ExtResource("27_vosx2")
+
+[node name="sfx_success" type="AudioStreamPlayer2D" parent="Camera"]
+stream = ExtResource("31_fxqpf")
+volume_db = -3.0
+
+[node name="sfx_fail" type="AudioStreamPlayer2D" parent="Camera"]
+stream = ExtResource("32_1mopm")
 
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]
