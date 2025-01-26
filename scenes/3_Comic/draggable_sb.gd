@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 		if(locked):
 			return
 			
-		if (clickable and !dragging and Input.is_action_pressed("click")):
+		if (clickable and !dragging and Input.is_action_just_pressed("click")):
 			start_drag()
 			
 		if dragging:
@@ -29,6 +29,8 @@ func _process(delta: float) -> void:
 func start_drag():
 	$pickup.play()
 	
+	get_parent().get_parent().get_parent().mouse_clicked = true
+	
 	original_scale = $Area/Sprite.scale
 	
 	dragging = true;
@@ -37,6 +39,8 @@ func start_drag():
 	
 func drop():
 	$drop.play()
+	
+	get_parent().get_parent().get_parent().mouse_clicked = false
 	
 	dragging = false;
 	dragging_offset = 0
@@ -54,7 +58,7 @@ func lock():
 	get_parent().get_parent().get_parent().count += 1
 	
 func _mouse_enter() -> void:
-	if(dragging or locked):
+	if(dragging or locked or get_parent().get_parent().get_parent().mouse_clicked):
 		return
 	
 	$mouse_exit.stop()
@@ -64,7 +68,7 @@ func _mouse_enter() -> void:
 	$Area/Sprite.modulate = "ff8f97"
 	
 func _mouse_exit() -> void:
-	if(dragging or locked):
+	if(dragging or locked or get_parent().get_parent().get_parent().mouse_clicked):
 		return
 		
 	$mouse_enter.stop()

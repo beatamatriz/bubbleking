@@ -7,6 +7,8 @@ var active
 var count = 0
 var success = false
 
+var mouse_clicked = false
+
 func _process(delta: float) -> void:
 	if active and count >= BUBBLE_COUNT:
 		success = true
