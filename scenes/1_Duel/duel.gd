@@ -29,8 +29,9 @@ func begin():
 	$HWEnd.start(SUDDEN_TIME + HIT_WINDOW)
 
 func _on_timer_timeout() -> void:
-	active = false
-	if success:
-		get_parent().next("Success")
-	else:
-		get_parent().next("Failure")
+	if active:
+		active = false
+		if success:
+			get_parent().next("Success")
+		else:
+			get_parent().next("Failure")

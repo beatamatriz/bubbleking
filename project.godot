@@ -15,10 +15,6 @@ run/main_scene="res://scenes/7_BlowBubbles/BlowBubbles.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Globals="*res://sripts/Globals.gd"
-
 [display]
 
 window/size/viewport_width=1920

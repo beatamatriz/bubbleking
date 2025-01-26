@@ -43,8 +43,9 @@ func begin():
 	$Timer.start(GAME_TIMER)
 	
 func _on_timer_timeout() -> void:
-	active = false
-	if success:
-		get_parent().next("Success")
-	else:
-		get_parent().next("Failure")
+	if active:
+		active = false
+		if success:
+			get_parent().next("Success")
+		else:
+			get_parent().next("Failure")
