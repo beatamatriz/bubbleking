@@ -55,8 +55,8 @@ _data = {
 "RESET": SubResource("Animation_urayg")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lk4qo"]
-size = Vector2(202.346, 182.092)
+[sub_resource type="CircleShape2D" id="CircleShape2D_sstb0"]
+radius = 411.272
 
 [node name="HumanBall" type="Node2D"]
 script = ExtResource("1_vmy48")
@@ -67,6 +67,13 @@ one_shot = true
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_xaigo")
 metadata/_edit_lock_ = true
+
+[node name="Iconos" type="Sprite2D" parent="."]
+position = Vector2(372, -56)
+scale = Vector2(0.522727, 0.522727)
+texture = ExtResource("12_smkqe")
+hframes = 9
+frame = 3
 
 [node name="TeethManager" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -254,23 +261,6 @@ visible = false
 position = Vector2(82, -81)
 scale = Vector2(3.58594, 5.27679)
 polygon = PackedVector2Array(-15.3377, 52.6836, -12.2702, 47.3773, -12.8279, 40.555, -9.76035, 34.3012, -9.48148, 16.4873, -13.9434, 1.89509, -15.6166, -7.95939, -35.1373, -18.3824, -41.8301, -16.8663, -44.061, -10.2335, -48.244, -9.09645, -50.4749, -0.947546, -44.8976, 5.68528, -42.9455, 14.0237, -32.6274, 36.7648)
-metadata/_edit_lock_ = true
-
-[node name="ToothD2" type="Area2D" parent="TeethManager"]
-position = Vector2(724, 87)
-rotation = -4.56645
-scale = Vector2(0.36, 0.36)
-script = ExtResource("3_36ppf")
-
-[node name="Sprite2D" type="Sprite2D" parent="TeethManager/ToothD2"]
-texture = ExtResource("5_uub2t")
-metadata/_edit_lock_ = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeethManager/ToothD2"]
-visible = false
-position = Vector2(-103.991, -122.845)
-scale = Vector2(3.58594, 5.27679)
-polygon = PackedVector2Array(25.6532, -11.779, 39.0388, -1.54551, 40.9909, 5.27682, 44.0584, 15.6998, 50.1935, 37.8724, 49.9146, 54.7388, 41.2697, 56.8234, 37.6444, 61.1821, 31.2305, 61.9401, 31.2305, 57.3919, 22.5856, 49.243, 5.8536, 24.0382, 6.6902, 19.869, -3.07015, 7.36142, 1.94946, -9.5049, 8.92113, -9.69441, 18.1237, -5.14619)
 metadata/_edit_lock_ = true
 
 [node name="ToothA4" type="Area2D" parent="TeethManager"]
@@ -746,8 +736,8 @@ position = Vector2(736, 397)
 rotation = 0.81356
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-47.0189, 13.3501)
-shape = SubResource("RectangleShape2D_lk4qo")
+position = Vector2(288.535, 22.2899)
+shape = SubResource("CircleShape2D_sstb0")
 
 [node name="Flag" type="Sprite2D" parent="Area2D"]
 position = Vector2(-28.6314, -11.9265)
@@ -758,13 +748,6 @@ texture = ExtResource("10_7bnds")
 [node name="explode" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_ixb0t")
 volume_db = -5.0
-
-[node name="Iconos" type="Sprite2D" parent="."]
-position = Vector2(675.92, -277.5)
-scale = Vector2(0.522727, 0.522727)
-texture = ExtResource("12_smkqe")
-hframes = 9
-frame = 3
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="TeethManager/ToothA" to="TeethManager/ToothA" method="_on_body_entered"]
@@ -778,7 +761,6 @@ frame = 3
 [connection signal="body_entered" from="TeethManager/ToothA2" to="TeethManager/ToothA2" method="_on_body_entered"]
 [connection signal="body_entered" from="TeethManager/ToothB2" to="TeethManager/ToothB2" method="_on_body_entered"]
 [connection signal="body_entered" from="TeethManager/ToothC2" to="TeethManager/ToothC2" method="_on_body_entered"]
-[connection signal="body_entered" from="TeethManager/ToothD2" to="TeethManager/ToothD2" method="_on_body_entered"]
 [connection signal="body_entered" from="TeethManager/ToothA4" to="TeethManager/ToothA4" method="_on_body_entered"]
 [connection signal="body_entered" from="TeethManager/ToothB4" to="TeethManager/ToothB4" method="_on_body_entered"]
 [connection signal="body_entered" from="TeethManager/ToothC4" to="TeethManager/ToothC4" method="_on_body_entered"]

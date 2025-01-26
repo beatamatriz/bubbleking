@@ -32,6 +32,7 @@ folder_colors={
 "res://assets/audio/": "pink",
 "res://assets/audio/music/": "purple",
 "res://assets/placeholders/": "orange",
+"res://builds/": "yellow",
 "res://scenes/": "teal",
 "res://scripts/": "gray"
 }
