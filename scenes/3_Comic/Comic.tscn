@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1qfqb73u45we"]
+[gd_scene load_steps=12 format=3 uid="uid://d1qfqb73u45we"]
 
 [ext_resource type="Script" path="res://scenes/3_Comic/comic.gd" id="1_xxjk1"]
 [ext_resource type="Texture2D" uid="uid://behlmatowfm4g" path="res://assets/3/3fondo.png" id="2_1s62k"]
 [ext_resource type="Script" path="res://scenes/3_Comic/draggable_sb.gd" id="2_vwscx"]
 [ext_resource type="AudioStream" uid="uid://c8ut8v628clr" path="res://assets/audio/bubbles/bubbles_1/A_Bubbles_03.wav" id="3_1jrv6"]
+[ext_resource type="Texture2D" uid="uid://d270ducj1jtua" path="res://assets/Cutscenes/Iconos.png" id="3_p42ii"]
 [ext_resource type="Texture2D" uid="uid://xeo40jxkqqf" path="res://assets/3/3hola.png" id="4_r2nox"]
 [ext_resource type="AudioStream" uid="uid://rwmqmsw72uy" path="res://assets/audio/bubbles/bubbles_2/A_BubbleWater_02.wav" id="4_siaop"]
 [ext_resource type="AudioStream" uid="uid://bu2420p76ci6r" path="res://assets/audio/bubbles/bubbles_2/A_BubbleWater_05.wav" id="5_moe6y"]
@@ -21,6 +22,13 @@ one_shot = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_1s62k")
+
+[node name="Iconos" type="Sprite2D" parent="."]
+position = Vector2(-34.9034, 317.094)
+scale = Vector2(0.449449, 0.449448)
+texture = ExtResource("3_p42ii")
+hframes = 9
+frame = 1
 
 [node name="SpeechBubbleManager" type="Node2D" parent="."]
 

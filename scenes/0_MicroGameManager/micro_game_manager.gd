@@ -82,6 +82,7 @@ func mute(mg: int):
 	
 
 func _on_transition_timer_timeout() -> void:
+	$Opener.visible = false
 	if current_mg >= mgl.size():
 		boss()
 	elif mgl[current_mg] == 1:

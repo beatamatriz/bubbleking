@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://behv2crw8tsbj"]
+[gd_scene load_steps=19 format=3 uid="uid://behv2crw8tsbj"]
 
 [ext_resource type="Script" path="res://scenes/1_Duel/duel.gd" id="1_4e3ey"]
 [ext_resource type="Texture2D" uid="uid://qsyqjjepelie" path="res://assets/1/1_fondo.png" id="2_pf4hg"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://c3piyl5iii7pd" path="res://assets/audio/bubbles/bubbles_5/A_BubbleBurst_02.wav" id="8_08vlw"]
 [ext_resource type="AudioStream" uid="uid://bmoomq5ohi3rt" path="res://assets/audio/bubbles/bubbles_5/A_BubbleBurst_03.wav" id="9_j7v7o"]
 [ext_resource type="AudioStream" uid="uid://cd6xttmcwjegs" path="res://assets/audio/bubbles/bubbles_5/A_BubbleBurst_04.wav" id="10_mni7m"]
+[ext_resource type="Texture2D" uid="uid://d270ducj1jtua" path="res://assets/Cutscenes/Iconos.png" id="11_bh512"]
 
 [sub_resource type="Animation" id="Animation_o4du5"]
 length = 0.001
@@ -147,6 +148,20 @@ stream = ExtResource("7_q3v6g")
 
 [node name="bubbles" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_wejw4")
+
+[node name="Iconos" type="Sprite2D" parent="."]
+position = Vector2(-13, 309)
+scale = Vector2(0.493316, 0.493316)
+texture = ExtResource("11_bh512")
+hframes = 9
+frame = 5
+
+[node name="You" type="Sprite2D" parent="."]
+position = Vector2(-760, -230)
+scale = Vector2(0.382353, 0.382353)
+texture = ExtResource("11_bh512")
+hframes = 9
+frame = 8
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="HWBegin" to="." method="_on_hw_begin_timeout"]

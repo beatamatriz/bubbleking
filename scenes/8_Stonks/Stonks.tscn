@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bk5hvax87s0v7"]
+[gd_scene load_steps=9 format=3 uid="uid://bk5hvax87s0v7"]
 
 [ext_resource type="Script" path="res://scenes/8_Stonks/stonks.gd" id="1_cixyi"]
 [ext_resource type="Texture2D" uid="uid://bysckun26pyl8" path="res://assets/8/8fondo.png" id="2_wfsi6"]
 [ext_resource type="Texture2D" uid="uid://c4v17r2ia6d4i" path="res://assets/8/8cortina.png" id="3_wg6qd"]
 [ext_resource type="Texture2D" uid="uid://bvnw7agwfrn88" path="res://assets/8/8.png" id="4_w6c02"]
+[ext_resource type="Texture2D" uid="uid://d270ducj1jtua" path="res://assets/Cutscenes/Iconos.png" id="5_47pod"]
 
 [sub_resource type="Animation" id="Animation_2ci8d"]
 resource_name = "Move"
@@ -92,6 +93,8 @@ _data = {
 
 [node name="Stonks" type="Node2D"]
 script = ExtResource("1_cixyi")
+SUDDEN_TIME = 1.9
+HIT_WINDOW = 0.4
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -132,6 +135,13 @@ offset_top = -518.0
 offset_right = 240.0
 offset_bottom = -299.0
 text = "gvhjnkml,ñ."
+
+[node name="Iconos" type="Sprite2D" parent="."]
+position = Vector2(-148, 196)
+scale = Vector2(0.51738, 0.51738)
+texture = ExtResource("5_47pod")
+hframes = 9
+frame = 5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="HWBegin" to="." method="_on_hw_begin_timeout"]

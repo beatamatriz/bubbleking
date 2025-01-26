@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqeai7aw74e46"]
+[gd_scene load_steps=18 format=3 uid="uid://cqeai7aw74e46"]
 
 [ext_resource type="Script" path="res://scenes/4_Bubblegum/bubblegum.gd" id="1_e5ak1"]
 [ext_resource type="Texture2D" uid="uid://dlh1h43kwbc0c" path="res://assets/4/4_fondo.png" id="2_ji1yq"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://di6r5gokl32sy" path="res://assets/4/12.png" id="11_30jrg"]
 [ext_resource type="Texture2D" uid="uid://oni5v4hbke45" path="res://assets/4/13.png" id="12_8uvxf"]
 [ext_resource type="AudioStream" uid="uid://ccsj6i2crwhoj" path="res://assets/audio/other/A_BalloonPop_01.wav" id="13_ih5w0"]
+[ext_resource type="Texture2D" uid="uid://d270ducj1jtua" path="res://assets/Cutscenes/Iconos.png" id="14_fc845"]
 
 [sub_resource type="Animation" id="Animation_kty0v"]
 resource_name = "Chew"
@@ -63,6 +64,13 @@ one_shot = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_ji1yq")
+
+[node name="Iconos" type="Sprite2D" parent="."]
+position = Vector2(652, 289)
+scale = Vector2(0.628342, 0.628342)
+texture = ExtResource("14_fc845")
+hframes = 9
+frame = 6
 
 [node name="Demonia" type="Sprite2D" parent="."]
 texture = ExtResource("3_v6iwr")

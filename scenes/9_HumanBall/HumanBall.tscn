@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c352bqub1f060"]
+[gd_scene load_steps=18 format=3 uid="uid://c352bqub1f060"]
 
 [ext_resource type="Script" path="res://scenes/9_HumanBall/salchica.gd" id="1_cqak2"]
 [ext_resource type="Texture2D" uid="uid://dwtua01anxsxc" path="res://assets/9/9_1.png" id="1_u1jc0"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cnsn78rfq30y2" path="res://assets/9/9_5.png" id="5_uub2t"]
 [ext_resource type="Texture2D" uid="uid://dwkknyl1wgs5e" path="res://assets/9/9_6.png" id="10_7bnds"]
 [ext_resource type="AudioStream" uid="uid://c38ardrkl6b47" path="res://assets/audio/other/A_Explosion_01.wav" id="10_ixb0t"]
+[ext_resource type="Texture2D" uid="uid://d270ducj1jtua" path="res://assets/Cutscenes/Iconos.png" id="12_smkqe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mqt3p"]
 radius = 103.003
@@ -59,13 +60,13 @@ size = Vector2(202.346, 182.092)
 
 [node name="HumanBall" type="Node2D"]
 script = ExtResource("1_vmy48")
-GAME_TIMER = 2
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_xaigo")
+metadata/_edit_lock_ = true
 
 [node name="TeethManager" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -728,6 +729,13 @@ texture = ExtResource("1_u1jc0")
 hframes = 3
 metadata/_edit_lock_ = true
 
+[node name="You" type="Sprite2D" parent="Salchica"]
+position = Vector2(-15, -226)
+scale = Vector2(0.284759, 0.284759)
+texture = ExtResource("12_smkqe")
+hframes = 9
+frame = 8
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Salchica"]
 libraries = {
 "": SubResource("AnimationLibrary_hc4v4")
@@ -750,6 +758,13 @@ texture = ExtResource("10_7bnds")
 [node name="explode" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_ixb0t")
 volume_db = -5.0
+
+[node name="Iconos" type="Sprite2D" parent="."]
+position = Vector2(675.92, -277.5)
+scale = Vector2(0.522727, 0.522727)
+texture = ExtResource("12_smkqe")
+hframes = 9
+frame = 3
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="TeethManager/ToothA" to="TeethManager/ToothA" method="_on_body_entered"]

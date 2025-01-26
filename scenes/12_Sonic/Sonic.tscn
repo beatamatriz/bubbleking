@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cesp1n4rauuq"]
+[gd_scene load_steps=10 format=3 uid="uid://cesp1n4rauuq"]
 
 [ext_resource type="Script" path="res://scenes/12_Sonic/sonic.gd" id="1_wgo4m"]
 [ext_resource type="Texture2D" uid="uid://2malx4ieetkd" path="res://assets/12/12FONDO.png" id="2_ejxqd"]
 [ext_resource type="Texture2D" uid="uid://drlko3xrj6o5x" path="res://assets/12/12sonic.png" id="3_y4swx"]
 [ext_resource type="Script" path="res://scenes/12_Sonic/erizo.gd" id="4_k0xby"]
 [ext_resource type="Texture2D" uid="uid://d4lt6b52cbknb" path="res://assets/12/12pompa.png" id="5_apwm8"]
+[ext_resource type="Texture2D" uid="uid://d270ducj1jtua" path="res://assets/Cutscenes/Iconos.png" id="6_b2tcq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yfut2"]
 radius = 113.018
@@ -48,6 +49,13 @@ script = ExtResource("4_k0xby")
 texture = ExtResource("3_y4swx")
 hframes = 2
 
+[node name="You" type="Sprite2D" parent="Erizo"]
+position = Vector2(-9, -192)
+scale = Vector2(0.23262, 0.23262)
+texture = ExtResource("6_b2tcq")
+hframes = 9
+frame = 8
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Erizo"]
 shape = SubResource("CapsuleShape2D_6yjgy")
 
@@ -61,6 +69,13 @@ polygon = PackedVector2Array(-577, 223, -569, 125, -707, 122, -701, 14, -832, 28
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(733.5, -265)
 shape = SubResource("RectangleShape2D_4pns4")
+
+[node name="Iconos" type="Sprite2D" parent="."]
+position = Vector2(512, 313)
+scale = Vector2(0.504011, 0.504011)
+texture = ExtResource("6_b2tcq")
+hframes = 9
+frame = 3
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Pompa" to="." method="_on_pompa_body_entered"]

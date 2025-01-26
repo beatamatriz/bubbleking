@@ -27,3 +27,4 @@ func _on_timer_timeout() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if active and body.name == "Salchica":
 		success = true
+		$Salchica.SPEED = 0

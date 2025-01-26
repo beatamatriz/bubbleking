@@ -82,7 +82,6 @@ position = Vector2(29561, 571)
 GAME_TIMER = 5.0
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(994, 575)
 
 [node name="Failure" type="Sprite2D" parent="Camera"]
 visible = false
@@ -210,8 +209,7 @@ volume_db = -3.0
 [node name="sfx_fail" type="AudioStreamPlayer2D" parent="Camera"]
 stream = ExtResource("32_1mopm")
 
-[node name="Opener" type="Sprite2D" parent="Camera"]
-position = Vector2(-815, -19)
+[node name="Opener" type="Sprite2D" parent="."]
 texture = ExtResource("34_g5a75")
 hframes = 4
 frame = 3

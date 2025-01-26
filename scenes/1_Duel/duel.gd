@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 			success = true
 			$Usurper.visible = false
 			$Samurai.visible = false
+			$You.visible = false
 			$Win.visible = true
 
 func _on_hw_begin_timeout() -> void:
@@ -26,6 +27,7 @@ func _on_hw_end_timeout() -> void:
 	if not success:
 		$Usurper.visible = false
 		$Samurai.visible = false
+		$You.visible = false
 		$Lose.visible = true
 
 func begin():

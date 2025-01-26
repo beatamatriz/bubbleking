@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlh5psjl7dprw"]
+[gd_scene load_steps=12 format=3 uid="uid://dlh5psjl7dprw"]
 
 [ext_resource type="Script" path="res://scenes/10_StirLiquid/stir_liquid.gd" id="1_xhv73"]
 [ext_resource type="Script" path="res://scenes/10_StirLiquid/stir.gd" id="2_dk7c0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dreo7kmkgrp24" path="res://assets/10/10.png" id="4_x18ua"]
 [ext_resource type="Script" path="res://scenes/10_StirLiquid/spoon.gd" id="8_ivgmn"]
 [ext_resource type="Texture2D" uid="uid://bqav00d4ld56j" path="res://assets/10/10pala.png" id="8_juaju"]
+[ext_resource type="Texture2D" uid="uid://d270ducj1jtua" path="res://assets/Cutscenes/Iconos.png" id="10_t6rrb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_58ggg"]
 radius = 38.2099
@@ -21,6 +22,7 @@ one_shot = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_g5agf")
+metadata/_edit_lock_ = true
 
 [node name="VasoBG" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
@@ -71,5 +73,12 @@ polygon = PackedVector2Array(264, 36, 271, -20, 257, -74, 240, -121, 207, -165, 
 
 [node name="Polygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
 polygon = PackedVector2Array(257, 69, 265, 33, 303, 46, 291, 83)
+
+[node name="Iconos" type="Sprite2D" parent="."]
+position = Vector2(572, -287)
+scale = Vector2(0.575535, 0.575535)
+texture = ExtResource("10_t6rrb")
+hframes = 9
+frame = 2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

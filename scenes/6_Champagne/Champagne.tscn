@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brpu5hrenxj2c"]
+[gd_scene load_steps=12 format=3 uid="uid://brpu5hrenxj2c"]
 
 [ext_resource type="Script" path="res://scenes/6_Champagne/champagne.gd" id="1_hikwa"]
 [ext_resource type="Texture2D" uid="uid://bk6e17grn8tua" path="res://assets/6/6fond.png" id="2_2yhgh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://884btsgd7lm3" path="res://assets/6/6.png" id="4_dbji4"]
 [ext_resource type="AudioStream" uid="uid://b7gvl4jwrevm6" path="res://assets/audio/shake/A_Shake_02.wav" id="5_587w5"]
 [ext_resource type="AudioStream" uid="uid://buaytbruc002x" path="res://assets/audio/shake/A_Shake_03.wav" id="6_7xjns"]
+[ext_resource type="Texture2D" uid="uid://d270ducj1jtua" path="res://assets/Cutscenes/Iconos.png" id="9_xg85h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn2il"]
 size = Vector2(71, 72)
@@ -50,5 +51,12 @@ volume_db = -2.5
 stream = SubResource("AudioStreamRandomizer_8hk6p")
 pitch_scale = 0.73
 max_polyphony = 4
+
+[node name="Iconos" type="Sprite2D" parent="."]
+position = Vector2(672, 392)
+scale = Vector2(0.382353, 0.382353)
+texture = ExtResource("9_xg85h")
+hframes = 9
+frame = 4
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

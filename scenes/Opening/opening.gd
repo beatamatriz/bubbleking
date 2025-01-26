@@ -3,7 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Timer.start(10)
+	$Timer.start(8)
 	$Camera2D/Opener/AnimationPlayer.play("Default")
 
 

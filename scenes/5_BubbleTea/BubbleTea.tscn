@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://2bsbejlt6wdv"]
+[gd_scene load_steps=22 format=3 uid="uid://2bsbejlt6wdv"]
 
 [ext_resource type="Script" path="res://scenes/5_BubbleTea/bubble_tea.gd" id="1_appi4"]
 [ext_resource type="Texture2D" uid="uid://cri050lluxedl" path="res://assets/5/5fondo.png" id="2_eo3ej"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://xfw23q6ib0h7" path="res://assets/audio/bubbles/bubbles_0/A_BubblePops_06.wav" id="11_cbk5x"]
 [ext_resource type="AudioStream" uid="uid://cfxelgt171i1l" path="res://assets/audio/bubbles/bubbles_0/A_BubblePops_07.wav" id="12_ar77d"]
 [ext_resource type="AudioStream" uid="uid://qikc2l4ag7ei" path="res://assets/audio/bubbles/bubbles_0/A_BubblePops_08.wav" id="13_16b3c"]
+[ext_resource type="Texture2D" uid="uid://d270ducj1jtua" path="res://assets/Cutscenes/Iconos.png" id="14_pm2oa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ej2n"]
 radius = 346.006
@@ -231,6 +232,13 @@ stream = SubResource("AudioStreamRandomizer_q1cvi")
 volume_db = 12.0
 pitch_scale = 0.5
 max_polyphony = 2
+
+[node name="Iconos" type="Sprite2D" parent="."]
+position = Vector2(672, 392)
+scale = Vector2(0.382353, 0.382353)
+texture = ExtResource("14_pm2oa")
+hframes = 9
+frame = 3
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="TapioManager/TapiocaA" to="TapioManager/TapiocaA" method="_on_body_entered"]

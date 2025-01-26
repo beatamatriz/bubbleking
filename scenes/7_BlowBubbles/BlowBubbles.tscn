@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dlvmc70m2yr00"]
+[gd_scene load_steps=18 format=3 uid="uid://dlvmc70m2yr00"]
 
 [ext_resource type="Script" path="res://scenes/7_BlowBubbles/blow_bubbles.gd" id="1_pd8ub"]
 [ext_resource type="Texture2D" uid="uid://cqd7vrfm0woxm" path="res://assets/7/7_fondo.png" id="2_8krla"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dxxu6nbyuvg4" path="res://assets/audio/bubbles/bubbles_1/A_Bubbles_02.wav" id="6_bon7i"]
 [ext_resource type="AudioStream" uid="uid://c8ut8v628clr" path="res://assets/audio/bubbles/bubbles_1/A_Bubbles_03.wav" id="7_kr2bs"]
 [ext_resource type="AudioStream" uid="uid://bapf8aockj06v" path="res://assets/audio/bubbles/bubbles_1/A_Bubbles_01.wav" id="8_samtt"]
+[ext_resource type="Texture2D" uid="uid://d270ducj1jtua" path="res://assets/Cutscenes/Iconos.png" id="9_0fpis"]
 
 [sub_resource type="Animation" id="Animation_8p8o5"]
 resource_name = "Bucle"
@@ -150,5 +151,12 @@ libraries = {
 position = Vector2(41, -331)
 stream = SubResource("AudioStreamRandomizer_mgni3")
 max_polyphony = 2
+
+[node name="Iconos" type="Sprite2D" parent="."]
+position = Vector2(672, 392)
+scale = Vector2(0.382353, 0.382353)
+texture = ExtResource("9_0fpis")
+hframes = 9
+frame = 6
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

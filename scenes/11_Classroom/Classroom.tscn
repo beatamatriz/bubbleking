@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ds7u438ei3dvv"]
+[gd_scene load_steps=23 format=3 uid="uid://ds7u438ei3dvv"]
 
 [ext_resource type="Script" path="res://scenes/11_Classroom/classroom.gd" id="1_01e3m"]
 [ext_resource type="Texture2D" uid="uid://2akqda50lbey" path="res://assets/11/11fondo.png" id="2_mekwv"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://xfw23q6ib0h7" path="res://assets/audio/bubbles/bubbles_0/A_BubblePops_06.wav" id="9_b5byk"]
 [ext_resource type="AudioStream" uid="uid://cfxelgt171i1l" path="res://assets/audio/bubbles/bubbles_0/A_BubblePops_07.wav" id="10_upmce"]
 [ext_resource type="AudioStream" uid="uid://qikc2l4ag7ei" path="res://assets/audio/bubbles/bubbles_0/A_BubblePops_08.wav" id="11_0a78l"]
+[ext_resource type="Texture2D" uid="uid://d270ducj1jtua" path="res://assets/Cutscenes/Iconos.png" id="14_a16kd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mp5q3"]
 radius = 214.002
@@ -233,5 +234,11 @@ libraries = {
 [node name="Pop" type="AudioStreamPlayer2D" parent="PoppablesManager/Bea"]
 stream = SubResource("AudioStreamRandomizer_7hdgg")
 volume_db = 18.0
+
+[node name="Iconos" type="Sprite2D" parent="."]
+position = Vector2(292, 275)
+scale = Vector2(0.582888, 0.582888)
+texture = ExtResource("14_a16kd")
+hframes = 9
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

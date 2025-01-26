@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://epexjtut7x5h"]
+[gd_scene load_steps=18 format=3 uid="uid://epexjtut7x5h"]
 
 [ext_resource type="Script" path="res://scenes/13_BoubbleKing/bubble_king.gd" id="1_cq2dv"]
 [ext_resource type="Texture2D" uid="uid://byj7a1d6bevd2" path="res://assets/Boss/EntrePiedras1.png" id="2_fpwbs"]
@@ -13,6 +13,22 @@
 [ext_resource type="Texture2D" uid="uid://ioqud1icr2wi" path="res://assets/Cutscenes/game_over.png" id="10_kqudv"]
 [ext_resource type="Texture2D" uid="uid://cyctsmyyo8oie" path="res://assets/Boss/FondoJugada.png" id="12_h1eai"]
 [ext_resource type="Texture2D" uid="uid://bbbir8j8junj4" path="res://assets/Cutscenes/vidas.png" id="13_1h8x5"]
+[ext_resource type="Texture2D" uid="uid://d270ducj1jtua" path="res://assets/Cutscenes/Iconos.png" id="14_axxyh"]
+
+[sub_resource type="Animation" id="Animation_sstb5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_bkmqp"]
 resource_name = "new_animation"
@@ -30,21 +46,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_sstb5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_df1ns"]
@@ -196,6 +197,13 @@ texture = ExtResource("10_kqudv")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D"]
 stream = ExtResource("9_q85fi")
+
+[node name="Iconos" type="Sprite2D" parent="."]
+position = Vector2(0, 361)
+scale = Vector2(0.475184, 0.475184)
+texture = ExtResource("14_axxyh")
+hframes = 9
+frame = 7
 
 [connection signal="timeout" from="KingTimer" to="." method="_on_king_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
