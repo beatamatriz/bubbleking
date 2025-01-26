@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dddokf03t0rwt"]
+[gd_scene load_steps=34 format=3 uid="uid://dddokf03t0rwt"]
 
 [ext_resource type="Script" path="res://scenes/0_MicroGameManager/micro_game_manager.gd" id="1_eq17e"]
 [ext_resource type="PackedScene" uid="uid://cqeai7aw74e46" path="res://scenes/4_Bubblegum/Bubblegum.tscn" id="1_eqcjs"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ioqud1icr2wi" path="res://assets/Cutscenes/game_over.png" id="15_u0pc8"]
 [ext_resource type="Texture2D" uid="uid://d3aah4v335awq" path="res://assets/Cutscenes/success.png" id="16_8qyek"]
 [ext_resource type="AudioStream" uid="uid://pux17si4h7bt" path="res://assets/audio/music/Layer2.wav" id="16_jp5dx"]
+[ext_resource type="Texture2D" uid="uid://bbbir8j8junj4" path="res://assets/Cutscenes/vidas.png" id="16_npig4"]
 [ext_resource type="AudioStream" uid="uid://ivmhh4pad7sr" path="res://assets/audio/music/Layer3.wav" id="17_gsbhy"]
 [ext_resource type="AudioStream" uid="uid://dc1gdxwm3nusk" path="res://assets/audio/music/Layer4.wav" id="18_n5k14"]
 [ext_resource type="AudioStream" uid="uid://bee16048vk61n" path="res://assets/audio/music/Layer5.wav" id="19_0wy4k"]
@@ -86,13 +87,38 @@ position = Vector2(994, 575)
 visible = false
 texture = ExtResource("14_geffs")
 
-[node name="GameOver" type="Sprite2D" parent="Camera"]
-visible = false
-texture = ExtResource("15_u0pc8")
-
 [node name="Success" type="Sprite2D" parent="Camera"]
 visible = false
 texture = ExtResource("16_8qyek")
+
+[node name="UsurperHP" type="Node2D" parent="Camera"]
+position = Vector2(-222, -750)
+scale = Vector2(0.745577, 0.745577)
+
+[node name="HP1" type="Sprite2D" parent="Camera/UsurperHP"]
+position = Vector2(-825, 425.75)
+scale = Vector2(0.372727, 0.372727)
+texture = ExtResource("16_npig4")
+hframes = 2
+metadata/_edit_lock_ = true
+
+[node name="HP2" type="Sprite2D" parent="Camera/UsurperHP"]
+position = Vector2(-555, 425.75)
+scale = Vector2(0.372727, 0.372727)
+texture = ExtResource("16_npig4")
+hframes = 2
+metadata/_edit_lock_ = true
+
+[node name="HP3" type="Sprite2D" parent="Camera/UsurperHP"]
+position = Vector2(-285, 425.75)
+scale = Vector2(0.372727, 0.372727)
+texture = ExtResource("16_npig4")
+hframes = 2
+metadata/_edit_lock_ = true
+
+[node name="GameOver" type="Sprite2D" parent="Camera"]
+visible = false
+texture = ExtResource("15_u0pc8")
 
 [node name="base" type="AudioStreamPlayer2D" parent="Camera"]
 position = Vector2(-994, -575)

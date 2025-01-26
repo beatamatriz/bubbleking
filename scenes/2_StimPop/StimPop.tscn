@@ -468,7 +468,6 @@ metadata/_edit_lock_ = true
 position = Vector2(-109, 115)
 input_pickable = true
 script = ExtResource("2_3bt0i")
-POPPED = true
 
 [node name="Shadow" type="Sprite2D" parent="PoppablesManager/Popped18"]
 position = Vector2(1.99999, -4)

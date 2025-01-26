@@ -3,7 +3,8 @@ extends Node2D
 @export var TRANSITION_TIME = 1.0
 @export var HIT_POINTS = 3
 
-var mgl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12] # MicroGame List
+var mgl = [2, 2]
+# var mgl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12] # MicroGame List
 
 var current_mg = 0
 
@@ -11,6 +12,9 @@ var ost_volume = -5
 
 func _ready() -> void:
 	initialize()
+
+func _process(delta: float) -> void:
+	update_hp()
 
 func initialize():
 	$Camera/Failure.visible = false
@@ -21,6 +25,14 @@ func initialize():
 	HIT_POINTS = 3
 	# Animación de begin
 	next("Default")
+
+func update_hp():
+	if HIT_POINTS < 3:
+		$Camera2D/UsurperHP/HP3.visible = false
+	if HIT_POINTS < 2:
+		$Camera2D/UsurperHP/HP2.visible = false
+	if HIT_POINTS < 1:
+		$Camera2D/UsurperHP/HP1.visible = false
 
 func next(state):
 	mute(current_mg)
@@ -124,7 +136,7 @@ func _on_transition_timer_timeout() -> void:
 	$Camera/Failure.visible = false
 
 func boss():
-	Globals.USURPER_HP = HIT_POINTS
+	# Globals.USURPER_HP = HIT_POINTS
 	get_tree().change_scene_to_file("res://scenes/13_BoubbleKing/BubbleKing.tscn")
 
 func game_over():

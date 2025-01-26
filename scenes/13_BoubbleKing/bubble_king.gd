@@ -33,15 +33,20 @@ func get_input():
 
 func next_round():
 	round += 1
-	if round > 0:
-		$King/ReyPiedra.visible = false
-		$King/ReyPapel.visible = false
-		$King/ReyTijera.visible = false
-		$Usurper/JugadorPiedra.visible = false
-		$Usurper/JugadorPapel.visible = false
-		$Usurper/JugadorTijera.visible = false
-		$FondoJugada.visible = false
-	$KingTimer.start(KING_TIME)
+	if usurper_hp <= 0:
+		game_over("Lose")
+	elif king_hp <= 0:
+		game_over("Win")
+	else:
+		if round > 0:
+			$King/ReyPiedra.visible = false
+			$King/ReyPapel.visible = false
+			$King/ReyTijera.visible = false
+			$Usurper/JugadorPiedra.visible = false
+			$Usurper/JugadorPapel.visible = false
+			$Usurper/JugadorTijera.visible = false
+			$FondoJugada.visible = false
+		$KingTimer.start(KING_TIME)
 
 func play_intro():
 	pass
@@ -53,7 +58,18 @@ func begin():
 	next_round()
 
 func update_hp():
-	pass
+	if king_hp < 3:
+		$Camera2D/KingHP/HP3.visible = false
+	if king_hp < 2:
+		$Camera2D/KingHP/HP2.visible = false
+	if king_hp < 1:
+		$Camera2D/KingHP/HP1.visible = false
+	if usurper_hp < 3:
+		$Camera2D/UsurperHP/HP3.visible = false
+	if usurper_hp < 2:
+		$Camera2D/UsurperHP/HP2.visible = false
+	if usurper_hp < 1:
+		$Camera2D/UsurperHP/HP1.visible = false
 
 func game_over(condition):
 	$Camera2D/AudioStreamPlayer2D.stop()
@@ -95,12 +111,7 @@ func _on_window_timer_timeout() -> void:
 			usurper_hp -= 1
 		elif pool[round] == 2:
 			king_hp -= 1
-	if usurper_hp <= 0:
-		game_over("Lose")
-	elif king_hp <= 0:
-		game_over("Win")
-	else:
-		$Timer.start(WINDOW_TIME)
+	$Timer.start(WINDOW_TIME)
 
 func _on_timer_timeout() -> void:
 	next_round()
