@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxuftmfamwx47"]
+
+[ext_resource type="Script" path="res://scenes/Opening/opening.gd" id="1_yd7tx"]
+[ext_resource type="Texture2D" uid="uid://51qrffhtnbr1" path="res://assets/Cutscenes/OPENER.png" id="2_ubqg0"]
+
+[sub_resource type="Animation" id="Animation_gnol0"]
+resource_name = "Default"
+length = 10.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_6al4f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1wk1r"]
+_data = {
+"Default": SubResource("Animation_gnol0"),
+"RESET": SubResource("Animation_6al4f")
+}
+
+[node name="Opening" type="Node2D"]
+script = ExtResource("1_yd7tx")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Opener" type="Sprite2D" parent="Camera2D"]
+texture = ExtResource("2_ubqg0")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/Opener"]
+libraries = {
+"": SubResource("AnimationLibrary_1wk1r")
+}
