@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 		if active and Input.is_action_just_pressed("ui_accept"):
 			count += 1
 		if count >= MASH_HP:
-			active = false
+			#active = false
 			success = true
 			$Pulpa/AnimationPlayer.play("Bucle")
 			$Bubble/AnimationPlayer.play("Final")
@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 
 func begin():
 	active = true
-	
+	count = 0
 	$Bubble.frame = 13
 	$Pulpa/AnimationPlayer.play("Soplido")
 	$Timer.start(GAME_TIMER)

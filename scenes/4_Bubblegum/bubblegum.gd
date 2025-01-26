@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 			count += 1
 		if count >= MASH_HP:
 			success = true
-			active = false
+			#active = false
 			for sprite in $SpritesChicle.get_children():
 				sprite.visible = false
 			$SpritesChicle/Chicle9.visible = true
@@ -52,6 +52,8 @@ func _process(delta: float) -> void:
 			$SpritesChicle/Chicle1.visible = true
 
 func begin():
+	active = true
+	count = 0
 	$Timer.start(GAME_TIMER)
 	$ChewTimer.start(CHEW_TIMER)
 	$Demonia/AnimationPlayer.play("Chew")
