@@ -3,8 +3,8 @@ extends Node2D
 @export var TRANSITION_TIME = 1
 @export var HIT_POINTS = 3
 
-var mgl = [4, 3, 5]
-# var mgl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] # MicroGame List
+# var mgl = [4, 3, 5]
+var mgl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] # MicroGame List
 
 var current_mg = 0
 
