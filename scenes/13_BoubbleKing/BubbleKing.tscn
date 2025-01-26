@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://epexjtut7x5h"]
+[gd_scene load_steps=16 format=3 uid="uid://epexjtut7x5h"]
 
 [ext_resource type="Script" path="res://scenes/13_BoubbleKing/bubble_king.gd" id="1_cq2dv"]
 [ext_resource type="Texture2D" uid="uid://byj7a1d6bevd2" path="res://assets/Boss/EntrePiedras1.png" id="2_fpwbs"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d1p4pybqh4wc4" path="res://assets/Cutscenes/GANAR.png" id="9_mb5fl"]
 [ext_resource type="AudioStream" uid="uid://vfqjujvgnkxa" path="res://assets/audio/music/Boss.wav" id="9_q85fi"]
 [ext_resource type="Texture2D" uid="uid://ioqud1icr2wi" path="res://assets/Cutscenes/game_over.png" id="10_kqudv"]
+[ext_resource type="Texture2D" uid="uid://cyctsmyyo8oie" path="res://assets/Boss/FondoJugada.png" id="12_h1eai"]
 
 [sub_resource type="Animation" id="Animation_bkmqp"]
 resource_name = "new_animation"
@@ -59,6 +60,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="WindowTimer" type="Timer" parent="."]
 one_shot = true
@@ -71,6 +73,11 @@ hframes = 4
 libraries = {
 "": SubResource("AnimationLibrary_df1ns")
 }
+
+[node name="FondoJugada" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.662745, 0.752941, 0.839216, 1)
+texture = ExtResource("12_h1eai")
 
 [node name="King" type="Node2D" parent="."]
 

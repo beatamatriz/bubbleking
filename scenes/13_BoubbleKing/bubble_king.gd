@@ -9,6 +9,7 @@ var round = -1
 var choice = 0
 var usurper_hp = 3
 var king_hp = 3
+var hit_window = false
 
 func _ready() -> void:
 	pool.shuffle()
@@ -18,7 +19,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	get_input()
+	if hit_window:
+		get_input()
 	update_hp()
 
 func get_input():
@@ -38,6 +40,7 @@ func next_round():
 		$Usurper/JugadorPiedra.visible = false
 		$Usurper/JugadorPapel.visible = false
 		$Usurper/JugadorTijera.visible = false
+		$FondoJugada.visible = false
 	$KingTimer.start(KING_TIME)
 
 func play_intro():
@@ -57,9 +60,11 @@ func game_over(condition):
 	if condition == "Lose":
 		$Camera2D/GameOver.visible = true
 	elif condition == "Win":
-		$Camera2D/Ganar.visible = true
+		$Camera2D/Win.visible = true
 
 func _on_king_timer_timeout() -> void:
+	hit_window = true
+	$FondoJugada.visible = true
 	if pool[round] == 1:
 		$King/ReyPiedra.visible = true
 	if pool[round] == 2:
@@ -69,7 +74,10 @@ func _on_king_timer_timeout() -> void:
 	$WindowTimer.start(WINDOW_TIME)
 
 func _on_window_timer_timeout() -> void:
-	if choice == 1:
+	hit_window = false
+	if choice == 0:
+		usurper_hp -= 1
+	elif choice == 1:
 		$Usurper/JugadorPiedra.visible = true
 		if pool[round] == 2:
 			usurper_hp -= 1
