@@ -5,7 +5,12 @@ var clickable = false
 
 func begin() -> void:
 	if not POPPED:
-		$AnimationPlayer.play("Snore")
+		if name == "Bea":
+			$AnimationPlayer.play("Snore1")
+		if name == "Ingrid":
+			$AnimationPlayer.play("Snore2")
+		if name == "Julia":
+			$AnimationPlayer.play("Snore3")
 
 func _process(delta: float) -> void:
 	if get_parent().get_parent().active and not POPPED and clickable and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
