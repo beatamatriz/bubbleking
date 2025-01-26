@@ -66,6 +66,7 @@ position = Vector2(20063, -809)
 
 [node name="Nine" parent="." instance=ExtResource("6_glfvb")]
 position = Vector2(22486, 569)
+GAME_TIMER = 4
 
 [node name="Ten" parent="." instance=ExtResource("10_6u1aj")]
 position = Vector2(25002, 592)
