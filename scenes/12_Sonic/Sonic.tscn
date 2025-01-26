@@ -18,6 +18,7 @@ size = Vector2(203, 550)
 
 [node name="Sonic" type="Node2D"]
 script = ExtResource("1_wgo4m")
+GAME_TIMER = 3
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -61,4 +62,5 @@ polygon = PackedVector2Array(-577, 223, -569, 125, -707, 122, -701, 14, -832, 28
 position = Vector2(733.5, -265)
 shape = SubResource("RectangleShape2D_4pns4")
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Pompa" to="." method="_on_pompa_body_entered"]

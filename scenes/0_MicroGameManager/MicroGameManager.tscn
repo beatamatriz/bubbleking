@@ -73,6 +73,7 @@ position = Vector2(25002, 592)
 position = Vector2(27388, 547)
 
 [node name="Twelve" parent="." instance=ExtResource("13_hrgku")]
+position = Vector2(29561, 571)
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(994, 575)
